@@ -4,10 +4,18 @@
     color: #ffffff; 
 }
 
-#NavLinkText > .NavLinkText {
+.NavLinkCustom {
+    padding: 10px;
+}
+  
+.Active i {
+    color: #FF9F1C;
+}
+
+#NavLinkText > .NavLinkCustom {
     color: #ffffff;
 }
 
-#NavLinkText > .NavLinkText:hover {
+#NavLinkText > .NavLinkCustom:hover {
     color: #FF9F1C;
 }
