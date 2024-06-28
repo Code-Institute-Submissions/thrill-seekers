@@ -10,6 +10,26 @@
   padding-top: 85px;
 } 
 
+.Content {
+  background-color: #002500;
+  padding: 10px;
+  border-radius: 2px;
+  border: 5px solid #0B94A4;
+}
+
+.FillerImage {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.Image {
+  max-height: 40vh;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+
 * {
 box-sizing: border-box;
 }
@@ -27,6 +47,10 @@ a:hover i {
 color: #FF9F1C;
 }
 
+input[type="file"] {
+  display: none;
+}
+
 i {
 color: #ffffff;
 font-size: 1.6rem;
@@ -37,4 +61,29 @@ vertical-align: middle;
 i:hover {
 cursor: pointer;
 color: #FF9F1C;
+}
+
+figure {
+  text-align: center;
+  display: inline-block;
+}
+
+/* scrollbar */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+*::-webkit-scrollbar-thumb {
+  background: #ffffff;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+
+@media (min-width: 765px) and (max-width: 995px) {
+  .Main {
+    padding-top: 105px;
+  }
 }
