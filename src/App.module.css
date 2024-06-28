@@ -1,0 +1,36 @@
+.App {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    background-color: #DFEFCA;
+    min-height: 100vh;
+  }
+
+* {
+box-sizing: border-box;
+}
+
+a {
+color: #FFFFFF;
+
+}
+
+a:hover {
+text-decoration: none;
+}
+
+a:hover i {
+color: #FF9F1C;
+}
+
+i {
+color: #ffffff;
+font-size: 1.6rem;
+padding: 7px;
+vertical-align: middle;
+}
+
+i:hover {
+cursor: pointer;
+color: #FF9F1C;
+}

@@ -1,0 +1,13 @@
+.NavBar {
+    background-color: #0B132B;
+    border-bottom: 5px solid #0B94A3;
+    color: #ffffff; 
+}
+
+#NavLinkText > .NavLinkText {
+    color: #ffffff;
+}
+
+#NavLinkText > .NavLinkText:hover {
+    color: #FF9F1C;
+}
