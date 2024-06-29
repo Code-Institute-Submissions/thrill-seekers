@@ -14,7 +14,7 @@ import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
-import myImage from "../../assets/images/coaster-pexels.webp";
+import myImage from "../../assets/images/boat-pexels.webp";
 
 
 function SignInForm() {
@@ -109,7 +109,7 @@ function SignInForm() {
         <Image
           className={`${appStyles.FillerImage}`}
           src={myImage}
-          alt="coaster image"
+          alt="water ride image"
         />
       </Col>
     </Row>
