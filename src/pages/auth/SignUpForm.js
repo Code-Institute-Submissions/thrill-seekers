@@ -125,7 +125,7 @@ const SignUpForm = () => {
       </Col>
       <Col
         md={6}
-        className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
+        className={`my-auto d-none d-md-block p-2 ${styles.SignUpColumn}`}
       >
         <Image
           className={`${appStyles.FillerImage}`}

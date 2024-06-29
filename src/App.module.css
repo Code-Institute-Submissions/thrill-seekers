@@ -1,3 +1,4 @@
+/* used*/
 .App {
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
@@ -10,6 +11,7 @@
   padding-top: 85px;
 } 
 
+/* For containers signup */
 .Content {
   background-color: #002500;
   padding: 10px;
@@ -17,6 +19,7 @@
   border: 5px solid #0B94A4;
 }
 
+/* Image signup */
 .FillerImage {
   object-fit: cover;
   height: 100%;
@@ -34,6 +37,7 @@
 box-sizing: border-box;
 }
 
+/* text under sign in form */
 a {
 color: #FFFFFF;
 
@@ -47,6 +51,7 @@ a:hover i {
 color: #FF9F1C;
 }
 
+/* input filds, passwords */
 input[type="file"] {
   display: none;
 }
@@ -63,10 +68,12 @@ cursor: pointer;
 color: #FF9F1C;
 }
 
+/*
 figure {
   text-align: center;
   display: inline-block;
 }
+*/
 
 /* scrollbar */
 *::-webkit-scrollbar {

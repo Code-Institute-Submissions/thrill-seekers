@@ -9,6 +9,11 @@
     color: #000000;
     text-align: center;
     padding: 10px;
+    font-family: "Raleway", sans-serif;
+  }
+
+  .Input:focus {
+    border-color: transparent; 
   }
   
   .Header {
@@ -20,27 +25,34 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #ffffff;
+    font-family: "Roboto", sans-serif;
   }
   
+  /* Link to log in form */
   .Link {
     text-decoration: none;
     text-align: center;
     display: block;
     margin: auto;
   }
+
+  .Link:hover {
+    color: #FF9F1C;
+  }
   
+  /* Link text to log in form */
   .Link span {
-    color: #ff9F1C;
+    color: #FF9F1C;
   }
   
   .Container {
     padding: 30px 10px;
   }
   
-  .SignInCol {
+  .SignInColumn {
     height: 320px;
   }
   
-  .SignUpCol {
+  .SignUpColumn {
     height: 375px;
   }
