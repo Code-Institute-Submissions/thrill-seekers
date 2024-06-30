@@ -32,12 +32,11 @@
     border-color: transparent; 
   }
 
-   /*
   .Button:focus {
-    background-color: #FF9F1C;
-    color: #000000;    
+    background-color: #DFEFCA;
+    color: #000000 !important;  
+    border-color: transparent;  
   }
-  */
 
   /* Button wide */
   .Wide {
