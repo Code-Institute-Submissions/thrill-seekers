@@ -7,6 +7,7 @@ import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import ContactForm from "./pages/contacts/ContactForm";
 import About from "./pages/about/About";
+import Home from "./pages/parks/Home";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-          <Route exact path="/" render={() => <h1>Home page</h1>} />
+          <Route exact path="/" render={() => <Home />} />
           <Route exact path="/about" render={() => <About />} />
           <Route exact path="/contact" render={() => <ContactForm />} />
           <Route exact path="/signin" render={() => <SignInForm />} />

@@ -1,18 +1,16 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import appStyles from "../../App.module.css";
-
 
 const About = () => {
   return (
-    <div className={appStyles.Content} class="container">
+    <div class="container">
     <section>
         <h2>Welcome to ThrillSeeker</h2>
-        <p className={appStyles.Paragraphs}>ThrillSeeker is your ultimate guide to the most exciting and memorable amusement parks around the world! Our mission is to provide comprehensive, honest, and insightful reviews to help you plan your next adventure with confidence.</p>
+        <p>ThrillSeeker is your ultimate guide to the most exciting and memorable amusement parks around the world! Our mission is to provide comprehensive, honest, and insightful reviews to help you plan your next adventure with confidence.</p>
     </section>
     <section>
         <h2>Who We Are</h2>
-        <p className={appStyles.Paragraphs}>At ThrillSeeker, we are a team of dedicated thrill-seekers and amusement park enthusiasts. With years of experience visiting parks across the globe, we bring you firsthand insights and detailed information about every aspect of the parks we review. Our passion for adventure and our commitment to providing accurate and helpful information make us the go-to source for amusement park reviews.</p>
+        <p>At ThrillSeeker, we are a team of dedicated thrill-seekers and amusement park enthusiasts. With years of experience visiting parks across the globe, we bring you firsthand insights and detailed information about every aspect of the parks we review. Our passion for adventure and our commitment to providing accurate and helpful information make us the go-to source for amusement park reviews.</p>
     </section>
     <section>
         <h2>What We Do</h2>
