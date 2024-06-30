@@ -6,6 +6,7 @@ import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import ContactForm from "./pages/contacts/ContactForm";
+import About from "./pages/about/About";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <Container className={styles.Main}>
         <Switch>
           <Route exact path="/" render={() => <h1>Home page</h1>} />
-          <Route exact path="/about" render={() => <h1>About</h1>} />
+          <Route exact path="/about" render={() => <About />} />
           <Route exact path="/contact" render={() => <ContactForm />} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
