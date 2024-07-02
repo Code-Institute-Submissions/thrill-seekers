@@ -9,11 +9,13 @@ import {
 } from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
 import axios from "axios";
-
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
   const handleSignOut = async () => {
     try {
@@ -24,16 +26,7 @@ const NavBar = () => {
     }
   };
 
-  const addRatingIcon = (
-    <NavLink 
-      className={styles.NavLinkCustom} 
-      activeClassName={styles.Active} 
-      to="/parks/ratings"
-    > 
-        <i className="far fa-regular fa-star-half-stroke"></i>Ratings
-    </NavLink>
-  );
-
+  
   const addParkCreateIcon = (
     <NavLink 
       className={styles.NavLinkCustom} 
@@ -45,6 +38,13 @@ const NavBar = () => {
 
   const loggedInIcons = (
     <>
+      <NavLink 
+        className={styles.NavLinkCustom} 
+        activeClassName={styles.Active} 
+        to="/parks/ratings"
+        > 
+        <i className="far fa-regular fa-star-half-stroke"></i>Ratings
+     </NavLink> 
       
       <NavLink 
         className={styles.NavLinkCustom} 
@@ -68,7 +68,7 @@ const NavBar = () => {
 
       <NavLink 
         className={styles.NavLinkCustom} 
-        to={'/profiles/${CurrentUser?.profile_id}'}
+        to={`/profiles/${currentUser?.profile_id}`}
       >      
         <Avatar src={currentUser?.profile_picture} text="Profile" height={40}/>
       </NavLink>
@@ -94,7 +94,7 @@ const NavBar = () => {
   );
 
   return (
-    <Navbar className={styles.NavBar} expand="md" fixed="top" variant="dark">
+    <Navbar  expanded={expanded} className={styles.NavBar} expand="md" fixed="top" variant="dark">
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
@@ -103,7 +103,11 @@ const NavBar = () => {
         </NavLink>
         {currentUser && currentUser.isSuperuser && addParkCreateIcon}
 
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle
+          ref={ref}
+          onClick={() => setExpanded(!expanded)}
+          aria-controls="basic-navbar-nav"
+        />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left" id={styles.NavLinkText}>
 
