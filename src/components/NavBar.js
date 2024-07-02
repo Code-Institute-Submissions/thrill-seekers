@@ -3,24 +3,91 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../contexts/CurrentUserContext";
+import Avatar from "./Avatar";
+import axios from "axios";
+
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
 
-  const loggedInIcons = <>{currentUser?.username}</>;
+  const handleSignOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const addRatingIcon = (
+    <NavLink 
+      className={styles.NavLinkCustom} 
+      activeClassName={styles.Active} 
+      to="/parks/ratings"
+    > 
+        <i className="far fa-regular fa-star-half-stroke"></i>Ratings
+    </NavLink>
+  );
+
+  const addParkCreateIcon = (
+    <NavLink 
+      className={styles.NavLinkCustom} 
+      activeClassName={styles.Active} 
+      to="/parks/add">
+        <i className="far fa-regular fa-square-plus"></i>Add Park
+    </NavLink>
+  );
+
+  const loggedInIcons = (
+    <>
+      
+      <NavLink 
+        className={styles.NavLinkCustom} 
+        activeClassName={styles.Active} 
+        to="/parks/bucketlist">
+          <i className="far fa-regular fa-bucket"></i>Bucketlist
+      </NavLink>
+
+      <NavLink 
+        className={styles.NavLinkCustom} 
+        activeClassName={styles.Active} 
+        to="/parks/ratings/liked">
+          <i className="far fa-regular fa-thumbs-up"></i>Liked
+      </NavLink>
+
+      <NavLink 
+        className={styles.NavLinkCustom} 
+        to="/" onClick={handleSignOut}>
+          <i className="far fa-regular fa-arrow-right-from-bracket"></i>Sign out
+      </NavLink>
+
+      <NavLink 
+        className={styles.NavLinkCustom} 
+        to={'/profiles/${CurrentUser?.profile_id}'}
+      >      
+        <Avatar src={currentUser?.profile_picture} text="Profile" height={40}/>
+      </NavLink>
+    
+    </>
+  );
+
   const loggedOutIcons = (
     <>
       <NavLink 
-      className={styles.NavLinkCustom} 
-      activeClassName={styles.Active} 
-      to="/signin"> 
-        <i className="fas fa-regular fa-arrow-right-to-bracket"></i>Sign in
+        className={styles.NavLinkCustom} 
+        activeClassName={styles.Active} 
+        to="/signin"> 
+          <i className="fas fa-regular fa-arrow-right-to-bracket"></i>Sign in
       </NavLink>
 
       <NavLink className={styles.NavLinkCustom} 
-      activeClassName={styles.Active} to="/signup">
-        <i className="fas fa-regular fa-user-plus"></i>Sign up
+        activeClassName={styles.Active} to="/signup">
+          <i className="fas fa-regular fa-user-plus"></i>Sign up
       </NavLink>
 
     </>
@@ -34,6 +101,8 @@ const NavBar = () => {
             <img src={logo} alt="logo" height="45" />
           </Navbar.Brand>
         </NavLink>
+        {currentUser && currentUser.isSuperuser && addParkCreateIcon}
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left" id={styles.NavLinkText}>
