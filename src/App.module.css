@@ -102,9 +102,3 @@ a span{
 #CustomJumbotron h1 {
   color: #FFFFFF;
 }
-
-@media (min-width: 765px) and (max-width: 995px) {
-  .Main {
-    padding-top: 105px;
-  }
-}

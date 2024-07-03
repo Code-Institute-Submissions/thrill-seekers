@@ -12,11 +12,11 @@
     color: #FF9F1C;
 }
 
-#NavLinkText > .NavLinkCustom {
+#NavLinkText > .NavLinkCustom, #NavLinkTextMobil > .NavLinkCustom  {
     color: #ffffff;
 }
 
-#NavLinkText > .NavLinkCustom:hover {
+#NavLinkText > .NavLinkCustom:hover, #NavLinkTextMobil > .NavLinkCustom:hover {
     color: #FF9F1C;
 }
 
@@ -60,4 +60,14 @@
  {
   color: #FF9F1C !important;
   background-color: #0B132B !important;
+}
+
+@media (max-width: 767px) {
+  #NavLinkText {
+    flex-direction: column;
+  }
+
+  .NavLinkCustom {
+    padding: 0.5rem 0;
+  }
 }

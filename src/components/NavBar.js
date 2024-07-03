@@ -36,27 +36,64 @@ const NavBar = () => {
     </NavLink>
   );
 
-  const loggedInIcons = (
-    <Dropdown alignRight>
-      <Dropdown.Toggle variant="success" id="dropdown-basic" className={`${styles.NavLinkCustom} ${styles.CustomDropdownToggle}`}>
-        <Avatar src={currentUser?.profile_picture} height={40} text={currentUser?.username} />
-      </Dropdown.Toggle>
-
-      <Dropdown.Menu id={styles.NavLinkDropdown}>
-        <Dropdown.Item  exact className={`${styles.NavLinkCustom} ${styles['custom-dropdown-item']}`} as={NavLink} activeClassName={styles.Active} to="/parks/ratings">
+  const loggedInLinks = (
+    <>
+      <div id={styles.NavLinkTextMobil}>
+        <Nav.Link
+          exact
+          as={NavLink}
+          className={styles.NavLinkCustom}
+          activeClassName={styles.Active}
+          to="/parks/ratings"
+        >
           <i className="far fa-regular fa-star-half-stroke"></i> Ratings
-        </Dropdown.Item>
-        <Dropdown.Item exact className={`${styles.NavLinkCustom} ${styles['custom-dropdown-item']}`} as={NavLink} activeClassName={styles.Active} to="/parks/bucketlist">
+        </Nav.Link>
+        <Nav.Link
+          exact
+          as={NavLink}
+          className={styles.NavLinkCustom}
+          activeClassName={styles.Active}
+          to="/parks/bucketlist"
+        >
           <i className="far fa-regular fa-bucket"></i> Bucketlist
-        </Dropdown.Item>
-        <Dropdown.Item exact className={`${styles.NavLinkCustom} ${styles['custom-dropdown-item']}`} as={NavLink} activeClassName={styles.Active} to="/parks/ratings/liked">
+        </Nav.Link>
+        <Nav.Link
+          exact
+          as={NavLink}
+          className={styles.NavLinkCustom}
+          activeClassName={styles.Active}
+          to="/parks/ratings/liked"
+        >
           <i className="far fa-regular fa-thumbs-up"></i> Liked
-        </Dropdown.Item>
-        <Dropdown.Item className={`${styles.NavLinkCustom} ${styles['custom-dropdown-item']}`} onClick={handleSignOut}>
+        </Nav.Link>
+        <Nav.Link
+          className={styles.NavLinkCustom}
+          onClick={handleSignOut}
+        >
           <i className="fas fa-solid fa-arrow-right-from-bracket"></i> Sign out
-        </Dropdown.Item>
-      </Dropdown.Menu>  
-    </Dropdown>
+        </Nav.Link>
+      </div>
+    </>
+  );
+
+  
+
+  const loggedInIcons = (
+    <>
+      <Dropdown className="d-none d-md-block">
+        <Dropdown.Toggle variant="success" id="dropdown-basic" className={`${styles.NavLinkCustom} ${styles.CustomDropdownToggle}`}>
+          <Avatar src={currentUser?.profile_picture} height={40} text={currentUser?.username} />
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu id={styles.NavLinkDropdown}>
+          {loggedInLinks}
+        </Dropdown.Menu>  
+      </Dropdown>
+
+      <Nav className="d-md-none">
+        {loggedInLinks}
+      </Nav>
+    </>
   );
 
   const loggedOutIcons = (
