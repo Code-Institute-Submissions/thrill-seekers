@@ -43,19 +43,19 @@ const NavBar = () => {
       </Dropdown.Toggle>
 
       <Dropdown.Menu id={styles.NavLinkDropdown}>
-        <Dropdown.Item className={`${styles.NavLinkCustom} ${styles['custom-dropdown-item']}`} as={NavLink} to="/parks/ratings">
+        <Dropdown.Item  exact className={`${styles.NavLinkCustom} ${styles['custom-dropdown-item']}`} as={NavLink} activeClassName={styles.Active} to="/parks/ratings">
           <i className="far fa-regular fa-star-half-stroke"></i> Ratings
         </Dropdown.Item>
-        <Dropdown.Item className={`${styles.NavLinkCustom} ${styles['custom-dropdown-item']}`} as={NavLink} to="/parks/bucketlist">
+        <Dropdown.Item exact className={`${styles.NavLinkCustom} ${styles['custom-dropdown-item']}`} as={NavLink} activeClassName={styles.Active} to="/parks/bucketlist">
           <i className="far fa-regular fa-bucket"></i> Bucketlist
         </Dropdown.Item>
-        <Dropdown.Item className={`${styles.NavLinkCustom} ${styles['custom-dropdown-item']}`} as={NavLink} to="/parks/ratings/liked">
+        <Dropdown.Item exact className={`${styles.NavLinkCustom} ${styles['custom-dropdown-item']}`} as={NavLink} activeClassName={styles.Active} to="/parks/ratings/liked">
           <i className="far fa-regular fa-thumbs-up"></i> Liked
         </Dropdown.Item>
         <Dropdown.Item className={`${styles.NavLinkCustom} ${styles['custom-dropdown-item']}`} onClick={handleSignOut}>
           <i className="far fa-regular fa-arrow-right-from-bracket"></i> Sign out
         </Dropdown.Item>
-      </Dropdown.Menu>
+      </Dropdown.Menu>  
     </Dropdown>
   );
 
