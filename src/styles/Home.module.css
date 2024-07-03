@@ -12,6 +12,7 @@
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
     width: 100vw;
+    border: 5px solid #0B94A3;
 }
 
 .heroContent {
