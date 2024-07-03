@@ -53,7 +53,7 @@ const NavBar = () => {
           <i className="far fa-regular fa-thumbs-up"></i> Liked
         </Dropdown.Item>
         <Dropdown.Item className={`${styles.NavLinkCustom} ${styles['custom-dropdown-item']}`} onClick={handleSignOut}>
-          <i className="far fa-regular fa-arrow-right-from-bracket"></i> Sign out
+          <i className="fas fa-solid fa-arrow-right-from-bracket"></i> Sign out
         </Dropdown.Item>
       </Dropdown.Menu>  
     </Dropdown>
