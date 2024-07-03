@@ -44,3 +44,8 @@
         font-size: 1rem;
     }    
 }}
+
+@media (max-width: 390px) {
+    .heroSection {
+        height: 480px;  
+}}
