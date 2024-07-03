@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../../styles/Home.module.css';
-import bgImage from '../../assets/images/coaster-hero-pexels8.webp';
+import bgImage from '../../assets/images/coaster-hero-pexels.webp';
 
 const Home = () => {
     return (
