@@ -19,3 +19,45 @@
 #NavLinkText > .NavLinkCustom:hover {
     color: #FF9F1C;
 }
+
+/* Background and frame color of the dropdown toggle */
+.CustomDropdownToggle {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: ffffff !important;
+}
+  
+/* Hover and active state for the drop-down toggle */
+.CustomDropdownToggle:hover,
+.CustomDropdownToggle:focus,
+.CustomDropdownToggle:active,
+.show > .CustomDropdownToggle {
+  background-color: #FF9F1C !important;
+  border: 5px solid #0B94A4 !important;
+  color: ffffff !important;
+  box-shadow: none !important;
+}
+
+#NavLinkDropdown > .NavLinkCustom {
+  color: #ffffff;
+}
+      
+#NavLinkDropdown {
+  background-color: #0B132B;
+  border: 5px solid #0B94A3 !important;
+
+}
+
+/* Active state for the drop-down menu items */
+.custom-dropdown-item {
+  color: #ffffff !important;
+  background-color: #0B132B !important;
+}
+
+.custom-dropdown-item:hover,
+.custom-dropdown-item:focus,
+.custom-dropdown-item:active
+ {
+  color: #FF9F1C !important;
+  background-color: #0B132B !important;
+}

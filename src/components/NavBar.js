@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav, Dropdown} from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
@@ -37,43 +37,26 @@ const NavBar = () => {
   );
 
   const loggedInIcons = (
-    <>
-      <NavLink 
-        className={styles.NavLinkCustom} 
-        activeClassName={styles.Active} 
-        to="/parks/ratings"
-        > 
-        <i className="far fa-regular fa-star-half-stroke"></i>Ratings
-     </NavLink> 
-      
-      <NavLink 
-        className={styles.NavLinkCustom} 
-        activeClassName={styles.Active} 
-        to="/parks/bucketlist">
-          <i className="far fa-regular fa-bucket"></i>Bucketlist
-      </NavLink>
+    <Dropdown alignRight>
+      <Dropdown.Toggle variant="success" id="dropdown-basic" className={`${styles.NavLinkCustom} ${styles.CustomDropdownToggle}`}>
+        <Avatar src={currentUser?.profile_picture} height={40} text={currentUser?.username} />
+      </Dropdown.Toggle>
 
-      <NavLink 
-        className={styles.NavLinkCustom} 
-        activeClassName={styles.Active} 
-        to="/parks/ratings/liked">
-          <i className="far fa-regular fa-thumbs-up"></i>Liked
-      </NavLink>
-
-      <NavLink 
-        className={styles.NavLinkCustom} 
-        to="/" onClick={handleSignOut}>
-          <i className="far fa-regular fa-arrow-right-from-bracket"></i>Sign out
-      </NavLink>
-
-      <NavLink 
-        className={styles.NavLinkCustom} 
-        to={`/profiles/${currentUser?.profile_id}`}
-      >      
-        <Avatar src={currentUser?.profile_picture} text="Profile" height={40}/>
-      </NavLink>
-    
-    </>
+      <Dropdown.Menu id={styles.NavLinkDropdown}>
+        <Dropdown.Item className={`${styles.NavLinkCustom} ${styles['custom-dropdown-item']}`} as={NavLink} to="/parks/ratings">
+          <i className="far fa-regular fa-star-half-stroke"></i> Ratings
+        </Dropdown.Item>
+        <Dropdown.Item className={`${styles.NavLinkCustom} ${styles['custom-dropdown-item']}`} as={NavLink} to="/parks/bucketlist">
+          <i className="far fa-regular fa-bucket"></i> Bucketlist
+        </Dropdown.Item>
+        <Dropdown.Item className={`${styles.NavLinkCustom} ${styles['custom-dropdown-item']}`} as={NavLink} to="/parks/ratings/liked">
+          <i className="far fa-regular fa-thumbs-up"></i> Liked
+        </Dropdown.Item>
+        <Dropdown.Item className={`${styles.NavLinkCustom} ${styles['custom-dropdown-item']}`} onClick={handleSignOut}>
+          <i className="far fa-regular fa-arrow-right-from-bracket"></i> Sign out
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
   );
 
   const loggedOutIcons = (
