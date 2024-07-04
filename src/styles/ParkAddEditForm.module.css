@@ -1,0 +1,14 @@
+.Container {
+    min-height: 343px;
+    background-color: #ffffff;
+  }
+
+.Container label{
+  color: #000000;
+  font-size: large;
+}
+
+  
+label {
+  color: #ffffff;
+}

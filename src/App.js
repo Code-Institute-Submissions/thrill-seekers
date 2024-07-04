@@ -9,6 +9,8 @@ import SignInForm from "./pages/auth/SignInForm";
 import ContactForm from "./pages/contacts/ContactForm";
 import About from "./pages/about/About";
 import Home from "./pages/parks/Home";
+import ParkCreateForm from "./pages/parks/ParkCreateForm";
+
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
               <Route exact path="/contact" render={() => <ContactForm />} />
               <Route exact path="/signin" render={() => <SignInForm />} />
               <Route exact path="/signup" render={() => <SignUpForm />} />
+              <Route exact path="/parks/add" render={() => <ParkCreateForm />} />
               <Route render={() => <p>Page not found!</p>} />
             </Switch>
           </Container>

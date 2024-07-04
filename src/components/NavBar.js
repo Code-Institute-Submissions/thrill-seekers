@@ -26,19 +26,24 @@ const NavBar = () => {
     }
   };
 
-  
   const addParkCreateIcon = (
     <NavLink 
-      className={styles.NavLinkCustom} 
+      id={styles.NavLinkParkCreate} 
       activeClassName={styles.Active} 
       to="/parks/add">
         <i className="far fa-regular fa-square-plus"></i>Add Park
     </NavLink>
-  );
+    );
 
-  const loggedInLinks = (
-    <>
-      <div id={styles.NavLinkTextMobil}>
+const loggedInLinks = (
+  <>
+    <div id={styles.NavLinkTextMobil}>
+      {currentUser?.is_staff && (
+        <Nav.Link className={styles.NavLinkCustom} as="div">
+          {addParkCreateIcon}
+        </Nav.Link>
+      )}
+
         <Nav.Link
           exact
           as={NavLink}
@@ -73,10 +78,8 @@ const NavBar = () => {
           <i className="fas fa-solid fa-arrow-right-from-bracket"></i> Sign out
         </Nav.Link>
       </div>
-    </>
-  );
-
-  
+  </>
+);
 
   const loggedInIcons = (
     <>
@@ -121,7 +124,6 @@ const NavBar = () => {
             <img src={logo} alt="logo" height="45" />
           </Navbar.Brand>
         </NavLink>
-        {currentUser && currentUser.isSuperuser && addParkCreateIcon}
 
         <Navbar.Toggle
           ref={ref}

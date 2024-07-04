@@ -3,13 +3,14 @@
     font-size: 1rem;
     align-self: center;
     border-radius: 100px;
-    border-color: #0B94A3;
     padding: 4px 10px;
     margin-left: 2px;
     margin-right: 2px;
     min-width: 75px;
     color: #000000;
     font-family: "Raleway", sans-serif;
+    background-color: #ffffff;
+    border: 5px solid #0B94A4
   }
   
   .Button:hover {
