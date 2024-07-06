@@ -1,0 +1,39 @@
+a .Park{
+  color: #ffffff;
+}
+
+a:hover .Park  {
+  color: #FF9F1C;
+}
+
+
+.Park {
+    background-color: #ffffff;
+    border: 1px solid #0B94A4;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .Park figure,
+  h5 {
+    margin: 0 0;
+  }
+  
+
+
+
+
+
+
+  .Rating {
+    color: #FF9F1C;
+  }
+  
+  .Rating:hover {
+    color: #DFEFCA;
+  }
+  
+  .RatingOutline:hover {
+    color: #DFEFCA;
+  }

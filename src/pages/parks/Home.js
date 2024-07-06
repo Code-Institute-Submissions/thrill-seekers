@@ -11,9 +11,6 @@ const Home = () => {
                     <h2>The Ultimate Guide to Adventure</h2>
                 </div>
             </div>
-            <div className="Main">
-                {/* Rest of your content goes here */}
-            </div>
         </>
     );
 };
