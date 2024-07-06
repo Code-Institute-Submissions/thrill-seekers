@@ -19,7 +19,7 @@ function ContactForm() {
     first_name: '',
     last_name: '',
     email: '',
-    subject: '',
+    subject: 'feedback',
     message: ''
   });
 
@@ -45,7 +45,7 @@ function ContactForm() {
     }
 
     try {
-      await axios.post('https://thrill-seekers-api-5fd87044d4ac.herokuapp.com/api/contact/', formData);
+      const response = await axios.post('https://thrill-seekers-api-5fd87044d4ac.herokuapp.com/api/contact/', formData);
       setSuccess(true);
       setFormData({
         first_name: '',
@@ -125,14 +125,17 @@ function ContactForm() {
             <Form.Group controlId="subject">
               <Form.Label className="d-none">Subject</Form.Label>
               <Form.Control
-                type="text"
-                placeholder="Subject"
+                as="select"
                 name="subject"
                 className={styles.Input}
                 value={formData.subject}
                 onChange={handleChange}
                 required
-              />
+              >
+                <option value="feedback">Feedback</option>
+                <option value="park_review_proposal">Park Review Proposal</option>
+                <option value="other">Other</option>
+              </Form.Control>
             </Form.Group>
             {errors.subject?.map((message, idx) => (
               <Alert key={idx} variant="warning">
