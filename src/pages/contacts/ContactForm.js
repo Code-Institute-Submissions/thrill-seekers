@@ -51,7 +51,7 @@ function ContactForm() {
         first_name: '',
         last_name: '',
         email: '',
-        subject: '',
+        subject: 'feedback',
         message: ''
       });
     } catch (error) {
