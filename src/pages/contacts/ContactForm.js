@@ -31,7 +31,7 @@ function ContactForm() {
         setSuccess(false);
       }, 5000); // 5000 ms = 5 seconds
 
-      return () => clearTimeout(timer); 
+      return () => clearTimeout(timer);
     }
   }, [success]);
 
@@ -48,7 +48,6 @@ function ContactForm() {
     setSuccess(false);
 
     if (!e.target.checkValidity()) {
-      // Form is invalid
       e.target.reportValidity();
       return;
     }
