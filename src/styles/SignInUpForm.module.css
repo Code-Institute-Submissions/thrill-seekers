@@ -1,20 +1,26 @@
 .Row {
     height: calc(100vh - 81px);
   }
-  .Input {
-    background: #ffffff;
-    border: 5px solid #0B94A3;
-    box-sizing: border-box;
-    border-radius: 2px;
-    color: #000000;
-    text-align: center;
-    padding: 10px;
-    font-family: "Raleway", sans-serif;
-  }
 
-  .Input:focus {
-    border-color: transparent; 
-  }
+.Input {
+  background: #ffffff;
+  border: 5px solid #0B94A3;
+  box-sizing: border-box;
+  border-radius: 2px;
+  color: #000000;
+  text-align: center;
+  padding: 20px;    /* if i make it bigger the text in subject disapears 10px  */
+  font-family: "Raleway", sans-serif;
+}
+
+.Input:focus {
+  border-color: transparent; 
+}
+
+#subjectField {  /* adden but with no result  */
+  color: #000000;
+}
+  
   
   .Header {
     font-style: normal;
