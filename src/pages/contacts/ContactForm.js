@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
 import {
   Form,
   Button,
@@ -26,6 +25,16 @@ function ContactForm() {
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
 
+  useEffect(() => {
+    if (success) {
+      const timer = setTimeout(() => {
+        setSuccess(false);
+      }, 5000); // 5000 ms = 5 seconds
+
+      return () => clearTimeout(timer); 
+    }
+  }, [success]);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -45,7 +54,7 @@ function ContactForm() {
     }
 
     try {
-      const response = await axios.post('https://thrill-seekers-api-5fd87044d4ac.herokuapp.com/api/contact/', formData);
+      await axios.post('https://thrill-seekers-api-5fd87044d4ac.herokuapp.com/api/contact/', formData);
       setSuccess(true);
       setFormData({
         first_name: '',
