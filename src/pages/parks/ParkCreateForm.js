@@ -75,7 +75,7 @@ function ParkCreateForm() {
     formData.append("overall_rating", overall_rating);
 
     try {
-      const { data } = await axiosReq.post("/api/parks/", formData);
+      const { data } = await axiosReq.post("/parks/", formData);
       history.push(`/parks/${data.id}`);
     } catch (err) {
       console.log(err);

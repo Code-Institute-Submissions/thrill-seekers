@@ -6,7 +6,6 @@ a:hover .Park  {
   color: #FF9F1C;
 }
 
-
 .Park {
     background-color: #ffffff;
     border: 1px solid #0B94A4;
@@ -14,26 +13,48 @@ a:hover .Park  {
     margin-bottom: 16px;
     text-align: center;
   }
-  
-  .Park figure,
-  h5 {
-    margin: 0 0;
-  }
-  
+
+.Park figure,
+h5 {
+  margin: 0 0;
+}
 
 
+.DataCard {
+  background-color: #ffffff;
+  border: 1px solid #0B94A4;
+  border-radius: 2px;
+  padding: 16px;
+}
 
+.DataCard h2 {
+  color: #0B94A4;
+  margin-bottom: 8px;
+}
 
+.DataCard p {
+  margin-bottom: 8px;
+}
 
+.ParkImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
 
-  .Rating {
-    color: #FF9F1C;
-  }
-  
-  .Rating:hover {
-    color: #DFEFCA;
-  }
-  
-  .RatingOutline:hover {
-    color: #DFEFCA;
-  }
+.ParkImage {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #0B94A4;
+  border-radius: 4px;
+}
+
+.Link {
+  color: #000000;
+  text-decoration: none;
+}
+
+.Link:hover {
+  text-decoration: underline;
+}

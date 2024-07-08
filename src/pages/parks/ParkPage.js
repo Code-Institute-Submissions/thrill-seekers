@@ -1,43 +1,62 @@
 import React, { useEffect, useState } from "react";
-
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-
 import appStyles from "../../App.module.css";
+import styles from "../../styles/Park.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Park from "./Park";
 
 function ParkPage() {
   const { id } = useParams();
-  const [park, setPark] = useState({ results: [] });
+  const [park, setPark] = useState({});
+  const [author, setAuthor] = useState("");
 
   useEffect(() => {
-    const handleMount = async () => {
+    const fetchParkData = async () => {
       try {
-        const [{ data: park }] = await Promise.all([
-          axiosReq.get(`/parks/${id}`),
-        ]);
-        setPark({ results: [park] });
-        console.log(park);
-      } catch (err) {
-        console.log(err);
+        const { data } = await axiosReq.get(`/parks/${id}`);
+        setPark(data);
+        setAuthor(data.is_owner);
+      } catch (error) {
+        console.error("Error fetching park data:", error);
       }
     };
 
-    handleMount();
+    fetchParkData();
   }, [id]);
 
   return (
     <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <p>Popular profiles for mobile</p>
-        <Park {...park.results[0]} setParks={setPark} parkPage />
-        <Container className={appStyles.Content}>Review</Container>
+      <Col className="py-2 p-0 p-lg-2 order-lg-2" lg={5}>
+        <div className={`${styles.ParkImageContainer} ${styles.ImagePadding}`}>
+          <img
+            src={park.image}
+            alt={park.name}
+            className={styles.ParkImage}
+          />
+        </div>
       </Col>
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        Popular profiles for desktop
+
+      <Col className="py-2 p-0 p-lg-2 order-lg-1" lg={7}>
+        <div className={styles.DataCard}>
+          <h2>{park.name}</h2>
+          <p>{park.description}</p>
+          <p>Total Number of Rides: {park.total_number_of_rides}</p>
+          <p>Total Number of Coasters: {park.total_number_of_coasters}</p>
+          <p>Thrill Factor: {park.thrill_factor}</p>
+          <p>Overall Rating: {park.overall_rating}</p>
+          <p>
+            Website:{" "}
+            <a href={park.website} className={styles.Link}>
+              {park.website}
+            </a>
+          </p>
+          <p>Created At: {park.created_at}</p>
+          <p>Updated At: {park.updated_at}</p>
+          <p>Author: {author}</p>
+        </div>
       </Col>
     </Row>
   );
