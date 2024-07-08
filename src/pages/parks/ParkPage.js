@@ -9,20 +9,18 @@ import { axiosReq } from "../../api/axiosDefaults";
 function ParkPage() {
   const { id } = useParams();
   const [park, setPark] = useState({});
-  const [author, setAuthor] = useState("");
 
   useEffect(() => {
-    const fetchParkData = async () => {
+    const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/parks/${id}`);
         setPark(data);
-        setAuthor(data.user);
-      } catch (error) {
-        console.error("Error fetching park data:", error);
+      } catch (err) {
+        console.log(err);
       }
     };
 
-    fetchParkData();
+    handleMount();
   }, [id]);
 
   return (
@@ -40,7 +38,16 @@ function ParkPage() {
       <Col className="py-2 p-0 p-lg-2 order-lg-1" lg={7}>
         <div className={styles.DataCard}>
           <h2>{park.name}</h2>
-          <p>Author: {author}</p>
+          {park.user && park.profile_picture && (
+            <div className={styles.UserInfo}>
+              <img
+                src={park.profile_picture}
+                alt={park.user}
+                className={styles.AuthorImage}
+              />
+              <p className={styles.UserName}>Author: {park.user}</p>
+            </div>
+          )}
           <p>{park.description}</p>
           <p>Total Number of Rides: {park.total_number_of_rides}</p>
           <p>Total Number of Coasters: {park.total_number_of_coasters}</p>
