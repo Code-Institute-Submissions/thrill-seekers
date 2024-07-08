@@ -10,17 +10,21 @@ function ParkPage() {
   const { id } = useParams();
   const [park, setPark] = useState({});
 
-  useEffect(() => {
-    const handleMount = async () => {
-      try {
-        const { data } = await axiosReq.get(`/parks/${id}`);
-        setPark(data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
+useEffect(() => { 
+  const handleMount = async () => {
+    try {
+      const [{ data: parkData }] = await Promise.all([
+        axiosReq.get(`/parks/${id}`),
+        
+      ]);
+      
+      setPark(parkData);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-    handleMount();
+  handleMount();
   }, [id]);
 
   return (
