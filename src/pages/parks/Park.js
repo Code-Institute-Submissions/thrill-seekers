@@ -1,9 +1,10 @@
 import React from 'react';
-import styles from '../../styles/Park.module.css';
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import appStyles from "../../App.module.css";
+import styles from "../../styles/Park.module.css";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 
 /* Parks */
@@ -12,66 +13,90 @@ const Park = (props) => {
     id,
     user,
     name,
+    description,
+    image,
+    website,
     profile_id,
     profile_picture,
-    description,
     bucketlist_count,
     bucketlist_id,
     rating_count,
     rating_id,
-    image,
-    street,
-    city,
-    postal_code,
-    country,
-    opening_hours,
-    entrance_fees,
     total_number_of_rides,
-    total_number_of_roller_coasters,
-    total_number_of_shows,
-    total_number_of_children_rides,
-    park_size,
-    average_rating,
+    total_number_of_coasters,
+    thrill_factor,
+    overall_rating,
     updated_at,
-    parkPage,
-    
+    created_at,
+    parkPage, 
   } = props;
   
   const currentUser = useCurrentUser();
-  const is_owner = currentUser?.username === user
+  const is_owner = currentUser?.username === user;
 
   return (
-    <Card className={styles.Park}>
+    <Card className={`${appStyles.Container} h-100 ${styles.ParkCard}`}>
       <Card.Body>
-        <Media className="align-items-center justify-content-between">
-          <Link to={`/profiles/${profile_id}`} className="d-flex align-items-center">
-            <Avatar src={profile_picture} height={55} />
-            
-            {user}
-          </Link>
-          <div className="d-flex align-items-center">
-              <span>{updated_at}</span>
-              {is_owner && parkPage && "..."}
-          </div>
+        <Row className="h-100">
+          <Col className="py-2 p-0 p-lg-2 order-lg-2" lg={5}>
+            <Link to={`/parks/${id}`}>
+              {image && (
+                <Card.Img
+                  src={image}
+                  alt={name}
+                  className={styles.ParkImage}
+                />
+              )}
+            </Link>
+           
+          </Col>
 
-        </Media>
+          <Col className="py-2 p-0 p-lg-2 order-lg-1" lg={7}>
+            <div className={styles.DataCard}>
+              <div className={styles.Header}>
+                {name && <h2>{name}</h2>}
+                {user && profile_picture && (
+                  <div className={styles.UserInfo}>
+                    <Link
+                      to={`/profiles/${profile_id}`}
+                      className="d-flex align-items-center"
+                    >
+                      <Avatar src={profile_picture} height={55} />
+                      <span className={styles.UserName}>
+                        Author: {user.name} {is_owner && parkPage && "..."}
+                      </span>
+                    </Link>
+                  </div>
+                )}
+              </div>
+              {description && <p>{description}</p>}
+              {total_number_of_rides && (
+                <p>Total Number of Rides: {total_number_of_rides}</p>
+              )}
+              {total_number_of_coasters && (
+                <p>Total Number of Coasters: {total_number_of_coasters}</p>
+              )}
+              {thrill_factor && <p>Thrill Factor: {thrill_factor}</p>}
+              {overall_rating && <p>Overall Rating: {overall_rating}</p>}
+              {website && (
+                <p>
+                  Website:{" "}
+                  <a href={website} className={styles.Link}>
+                    {website}
+                  </a>
+                </p>
+              )}
+              {created_at && <p>Created At: {created_at}</p>}
+              {updated_at && <p>Updated At: {updated_at}</p>}
+            </div>
+          </Col>
+        </Row>
+          
+
+
       </Card.Body>
-      <Link to={`/parks/${id}`}>
-        <Card.Img src={image} alt={name} />
-      </Link>
-      <Card.Body>
-        {name && <Card.Title className="text-center">{name}</Card.Title>}
-        {description && <Card.Text>{description}</Card.Text>}
-      </Card.Body>      
-
     </Card>
   );
 };
-
-
-
-
-
-
 
 export default Park;
