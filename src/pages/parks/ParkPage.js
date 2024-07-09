@@ -22,7 +22,6 @@ function ParkPage() {
     handleMount();
   }, [id]);
 
-
   return (
     <Park {...park.results[0]} setParks={setPark} parkPage />
   );

@@ -90,7 +90,7 @@ const Park = (props) => {
                     >
                       <Avatar src={profile_picture} height={55} />
                       <span className={styles.UserName}>
-                        Author {user.name} {is_owner && parkPage && "..."}
+                        Author: {user.name} {is_owner && parkPage && "..."}
                       </span>
                     </Link>
                   </div>
@@ -134,7 +134,7 @@ const Park = (props) => {
               overlay={<Tooltip>Log in to add parks to your bucketlist!</Tooltip>}
             >
               <div className="text-center">
-                <i className="fas fa-bucket" />
+                <i className="far fa-regular fa-bucket" />
               </div>
             </OverlayTrigger>
           )}
