@@ -1,13 +1,12 @@
 import React from 'react';
-import { Card, Col, Row } from "react-bootstrap";
+import { Card, Col, Row, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/Park.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { axiosRes } from "../../api/axiosDefaults";
 
-
-/* Parks */
 const Park = (props) => {
   const {
     id,
@@ -20,7 +19,7 @@ const Park = (props) => {
     profile_picture,
     bucketlist_count,
     bucketlist_id,
-    rating_count,
+    ratings_count,
     rating_id,
     total_number_of_rides,
     total_number_of_coasters,
@@ -28,11 +27,40 @@ const Park = (props) => {
     overall_rating,
     updated_at,
     created_at,
-    parkPage, 
+    parkPage,
+    setParks,
   } = props;
-  
+
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === user;
+
+  const handleBucketlist = async () => {
+    try {
+      const { data } = await axiosRes.post("/bucketlist/", { park: id });
+      setParks(prevParks => ({
+        ...prevParks,
+        results: prevParks.results.map(park => 
+          park.id === id ? { ...park, bucketlist_count: park.bucketlist_count + 1, bucketlist_id: data.id } : park
+        ),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleUndoBucketlist = async () => {
+    try {
+      await axiosRes.delete(`/bucketlist/${bucketlist_id}/`);
+      setParks(prevParks => ({
+        ...prevParks,
+        results: prevParks.results.map(park => 
+          park.id === id ? { ...park, bucketlist_count: park.bucketlist_count - 1, bucketlist_id: null } : park
+        ),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <Card className={`${appStyles.Container} h-100 ${styles.ParkCard}`}>
@@ -48,7 +76,6 @@ const Park = (props) => {
                 />
               )}
             </Link>
-           
           </Col>
 
           <Col className="py-2 p-0 p-lg-2 order-lg-1" lg={7}>
@@ -63,7 +90,7 @@ const Park = (props) => {
                     >
                       <Avatar src={profile_picture} height={55} />
                       <span className={styles.UserName}>
-                        Author: {user.name} {is_owner && parkPage && "..."}
+                        Author {user.name} {is_owner && parkPage && "..."}
                       </span>
                     </Link>
                   </div>
@@ -91,9 +118,32 @@ const Park = (props) => {
             </div>
           </Col>
         </Row>
-          
 
-
+        <div className={`${styles.PostBar} mt-3 d-flex justify-content-center align-items-center`}>
+          {bucketlist_id ? (
+            <div className={`text-center ${styles.SelectedBucket}`} onClick={handleUndoBucketlist}>
+              <i className={`fas fa-bucket ${styles.Bucket}`} />
+            </div>
+          ) : currentUser ? (
+            <div className={`text-center ${styles.BucketOutline}`} onClick={handleBucketlist}>
+              <i className={`fas fa-bucket ${styles.BucketOutlineIcon}`} /> 
+            </div>
+          ) : (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Log in to add parks to your bucketlist!</Tooltip>}
+            >
+              <div className="text-center">
+                <i className="fas fa-bucket" />
+              </div>
+            </OverlayTrigger>
+          )}
+          {bucketlist_count}
+          <Link to={`/parks/${id}`} className="text-center ml-3">
+            <i className="far fa-regular fa-star-half-stroke" />
+          </Link>
+          {ratings_count}
+        </div>
       </Card.Body>
     </Card>
   );

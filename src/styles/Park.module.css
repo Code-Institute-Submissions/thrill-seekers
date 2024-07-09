@@ -46,7 +46,7 @@
 
 .UserName {
   margin-left: 10px;
-  color: #0B132B; /* Farbe des Autorennamens */
+  color: #0B132B;
 }
 
 .Link {
@@ -56,4 +56,29 @@
 
 .Link:hover {
   text-decoration: underline;
+}
+
+.StartOutline:hover {
+  color: #FF9F1C;
+}
+
+.BucketOutline:hover,
+.SelectedBucket:hover {
+  color: #FF9F1C;
+}
+
+.PostBar .SelectedBucket i {
+  color: #FF9F1C;
+}
+
+.BucketOutlineIcon:hover {
+  color: #FF9F1C;
+}
+
+.SelectedBucket:hover i {
+  color: #0B132B;
+}
+
+.PostBar i {
+  color: #0B94A3;
 }

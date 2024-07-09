@@ -60,7 +60,7 @@ const loggedInLinks = (
           activeClassName={styles.Active}
           to="/parks/bucketlist"
         >
-          <i className="far fa-regular fa-bucket"></i> Bucketlist
+          <i className="fas fa-bucket"></i> Bucketlist
         </Nav.Link>
         <Nav.Link
           exact
