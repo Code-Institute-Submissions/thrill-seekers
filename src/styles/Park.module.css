@@ -3,6 +3,10 @@
   margin-bottom: 20px; 
 }
 
+.ParkCardDetail {
+  margin-top: 20px; 
+}
+
 .ParkImage {
   width: 100%;
   height: auto;
@@ -99,4 +103,16 @@
   margin-top: 22px;
   margin-left: 20px;
   pointer-events: none; 
+}
+
+@media screen and (min-width: 767px) and (max-width: 995px) {
+  .SearchBar, .SearchIcon, .ParkCardDetail {
+    margin-top: 55px;
+  }
+}
+
+@media (max-width: 385px) {
+  .SearchBar, .SearchIcon, .ParkCardDetail  {
+    margin-top: 55px;
+  }
 }

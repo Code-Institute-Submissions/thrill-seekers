@@ -24,7 +24,7 @@ function ParkPage() {
   }, [id]);
 
   return (
-    <div className="mb-3">
+    <div className={`"mb-3" ${styles.ParkCardDetail}`}>
       <Park {...park.results[0]} setParks={setPark} parkPage />
   </div>
   );
