@@ -51,7 +51,7 @@ const loggedInLinks = (
           activeClassName={styles.Active}
           to="/parks/ratings"
         >
-          <i className="far fa-regular fa-star-half-stroke"></i> Ratings
+          <i className="far fa-solid fa-star"></i> Ratings
         </Nav.Link>
         <Nav.Link
           exact
@@ -69,7 +69,7 @@ const loggedInLinks = (
           activeClassName={styles.Active}
           to="/parks/ratings/liked"
         >
-          <i className="far fa-regular fa-thumbs-up"></i> Liked
+          <i className="far fa-solid fa-thumbs-up"></i> Liked
         </Nav.Link>
         <Nav.Link
           className={styles.NavLinkCustom}

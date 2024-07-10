@@ -134,13 +134,13 @@ const Park = (props) => {
               overlay={<Tooltip>Log in to add parks to your bucketlist!</Tooltip>}
             >
               <div className="text-center">
-                <i className="far fa-regular fa-bucket" />
+                <i className="fas fa-bucket" />
               </div>
             </OverlayTrigger>
           )}
           {bucketlist_count}
           <Link to={`/parks/${id}`} className="text-center ml-3">
-            <i className="far fa-regular fa-star-half-stroke" />
+            <i className="far fa-solid fa-star" />
           </Link>
           {ratings_count}
         </div>
