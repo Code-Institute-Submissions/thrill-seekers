@@ -5,7 +5,8 @@ import Asset from "../../components/Asset";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import NoResults from "../../assets/no-results.png";
-
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 import styles from "../../styles/Park.module.css";
 
@@ -56,13 +57,19 @@ function ParksPage({ message, filter = "" }) {
 
 
 
-      {hasLoaded ? (
-        parks.results.length ? (
-          parks.results.map((park) => (
-            <Col key={park.id} xs={12} className="mb-3">
-              <Park {...park} setParks={setParks} />
-            </Col>
-          ))
+        {hasLoaded ? (
+          parks.results.length ? (
+            <InfiniteScroll
+              dataLength={parks.results.length}
+              next={() => fetchMoreData(parks, setParks)}
+              hasMore={!!parks.next}
+              loader={<Asset spinner />}
+              children={parks.results.map((park) => (
+                <Col key={park.id} xs={12} className="mb-3">
+                  <Park {...park} setParks={setParks} />
+                </Col>
+              ))}
+            />
         ) : (
           <Col xs={12}>
             <Asset src={NoResults} message={message} />

@@ -206,7 +206,7 @@ function ParkCreateForm() {
         ))}
 
         <Form.Group>
-          <Form.Label>Thrill Factor (0.00 - 5.00)</Form.Label>
+          <Form.Label>Thrill Factor </Form.Label>
           <Form.Control
             type="number"
             step="0.01"
@@ -224,7 +224,7 @@ function ParkCreateForm() {
         ))}
 
         <Form.Group>
-          <Form.Label>Overall Rating (0.00 - 5.00)</Form.Label>
+          <Form.Label>Overall Rating </Form.Label>
           <Form.Control
             type="number"
             step="0.01"
