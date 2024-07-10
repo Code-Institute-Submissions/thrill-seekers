@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar, Container, Nav, Dropdown} from "react-bootstrap";
 import logo from "../assets/logo2.webp";
 import styles from "../styles/NavBar.module.css";
@@ -16,6 +16,8 @@ const NavBar = () => {
   const setCurrentUser = useSetCurrentUser();
 
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
+
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const handleSignOut = async () => {
     try {
@@ -83,7 +85,12 @@ const loggedInLinks = (
 
   const loggedInIcons = (
     <>
-      <Dropdown className="d-none d-md-block">
+      <Dropdown 
+        className="d-none d-md-block"
+        onMouseEnter={() => setShowDropdown(true)}
+        onMouseLeave={() => setShowDropdown(false)}
+        show={showDropdown}
+      >
         <Dropdown.Toggle variant="success" id="dropdown-basic" className={`${styles.NavLinkCustom} ${styles.CustomDropdownToggle}`}>
           <Avatar src={currentUser?.profile_picture} height={40} text={currentUser?.username} />
         </Dropdown.Toggle>
