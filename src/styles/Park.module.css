@@ -1,22 +1,11 @@
-.Container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Park.module.css */
-.ParkImageContainer {
-  width: 100%;
-  height: auto;
-  overflow: hidden;
+.ParkCard {
+  border: 5px solid #0B94A3;
+  margin-bottom: 20px; 
 }
 
 .ParkImage {
   width: 100%;
   height: auto;
-  display: block;
 }
 
 .DataCard {
@@ -33,16 +22,7 @@
 .UserInfo {
   display: flex;
   align-items: center;
-  margin-left: auto;
 }
-
-.AuthorImage {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
 
 .UserName {
   margin-left: 10px;
@@ -58,20 +38,27 @@
   text-decoration: underline;
 }
 
-.StartOutline:hover {
+.PostBar {
+  margin-top: 10px;
+  position: relative;
+  top: -40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 0px;
+}
+
+.SelectedBucket,
+.BucketOutline {
+  cursor: pointer;
+}
+
+.SelectedBucket:hover,
+.BucketOutline:hover {
   color: #FF9F1C;
 }
 
-.BucketOutline:hover,
-.SelectedBucket:hover {
-  color: #FF9F1C;
-}
-
-.PostBar .SelectedBucket i {
-  color: #FF9F1C;
-}
-
-.BucketOutlineIcon:hover {
+.SelectedBucket i {
   color: #FF9F1C;
 }
 
@@ -79,6 +66,21 @@
   color: #0B132B;
 }
 
+.BucketOutlineIcon:hover {
+  color: #FF9F1C;
+}
+
 .PostBar i {
   color: #0B94A3;
+}
+
+.BucketIconCounter {
+  display: flex;
+  align-items: center;
+  margin-right: 35px;
+}
+
+.StarIconCounter {
+  display: flex;
+  align-items: center;
 }

@@ -120,6 +120,7 @@ const Park = (props) => {
         </Row>
 
         <div className={`${styles.PostBar} mt-3 d-flex justify-content-center align-items-center`}>
+          <div className={styles.BucketIconCounter}>
           {bucketlist_id ? (
             <div className={`text-center ${styles.SelectedBucket}`} onClick={handleUndoBucketlist}>
               <i className={`fas fa-bucket ${styles.Bucket}`} />
@@ -139,10 +140,14 @@ const Park = (props) => {
             </OverlayTrigger>
           )}
           {bucketlist_count}
-          <Link to={`/parks/${id}`} className="text-center ml-3">
-            <i className="far fa-solid fa-star" />
-          </Link>
-          {ratings_count}
+          </div>
+          <div className={styles.StarIconCounter}>
+            <Link to={`/parks/${id}`} className="text-center ml-3">
+              <i className="far fa-solid fa-star" />
+            </Link>
+            {ratings_count}
+          </div>
+
         </div>
       </Card.Body>
     </Card>

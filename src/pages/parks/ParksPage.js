@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import Park from "./Park";
 import Asset from "../../components/Asset";
-import appStyles from "../../App.module.css";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import NoResults from "../../assets/no-results.png";
+import styles from "../../styles/Park.module.css";
 
 function ParksPage({ message, filter = "" }) {
   const [parks, setParks] = useState({ results: [] });
@@ -29,27 +29,25 @@ function ParksPage({ message, filter = "" }) {
 
 
   return (
-    
-      <Row>
-        {hasLoaded ? (
-          parks.results.length ? (
-            parks.results.map((park, index) => (
-              <Col key={park.id} xs={12} className="mb-3">
-                <Park {...park} setParks={setParks} />
-              </Col>
-            ))
-          ) : (
-            <Col xs={12}>
-              <Asset src={NoResults} message={message} />
+    <Row>
+      {hasLoaded ? (
+        parks.results.length ? (
+          parks.results.map((park) => (
+            <Col key={park.id} xs={12} className="mb-3">
+              <Park {...park} setParks={setParks} />
             </Col>
-          )
+          ))
         ) : (
           <Col xs={12}>
-            <Asset spinner />
+            <Asset src={NoResults} message={message} />
           </Col>
-        )}
-      </Row>
-    
+        )
+      ) : (
+        <Col xs={12}>
+          <Asset spinner />
+        </Col>
+      )}
+    </Row>
   );
 }
 

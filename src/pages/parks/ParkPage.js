@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Park from "./Park";
+import styles from "../../styles/Park.module.css";
 
 function ParkPage() {
   const { id } = useParams();
@@ -23,7 +24,9 @@ function ParkPage() {
   }, [id]);
 
   return (
-    <Park {...park.results[0]} setParks={setPark} parkPage />
+    <div className="mb-3">
+      <Park {...park.results[0]} setParks={setPark} parkPage />
+  </div>
   );
 }
 
