@@ -105,6 +105,25 @@
   pointer-events: none; 
 }
 
+
+.ParkButton {
+  background-color: #0B94A3 !important;
+  border-color: #0B94A3 !important;
+  color: white !important;
+  width: 150px;
+  margin: 0 30px !important;
+}
+
+.ParkButton:hover {
+  background-color: #FF9F1C !important;
+  border-color: #FF9F1C !important;
+  color: white !important;
+}
+
+.ParkButton {
+  margin-right: 1.5rem;
+}
+
 @media screen and (min-width: 767px) and (max-width: 995px) {
   .SearchBar, .SearchIcon, .ParkCardDetail {
     margin-top: 55px;

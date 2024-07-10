@@ -1,6 +1,6 @@
-import React from 'react';
-import { Card, Col, Row, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Card, Col, Row, Button, Modal, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/Park.module.css";
@@ -33,6 +33,27 @@ const Park = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === user;
+  const history = useHistory();
+
+  // Zustandsvariable und Setter-Funktion für das Modal
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+  const handleEdit = () => {
+    history.push(`/parks/${id}/edit`);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/parks/${id}/`);
+      setParks(prevParks => ({
+        ...prevParks,
+        results: prevParks.results.filter(park => park.id !== id),
+      }));
+      history.goBack(); // Zurück zur vorherigen Seite nach dem Löschen
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const handleBucketlist = async () => {
     try {
@@ -60,6 +81,11 @@ const Park = (props) => {
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const handleConfirmDelete = () => {
+    handleDelete(); // Löschen bestätigen
+    setShowDeleteModal(false); // Modal schließen
   };
 
   return (
@@ -90,7 +116,7 @@ const Park = (props) => {
                     >
                       <Avatar src={profile_picture} height={55} />
                       <span className={styles.UserName}>
-                        Author: {user} {is_owner && parkPage && "..."}
+                        Author: {user} 
                       </span>
                     </Link>
                   </div>
@@ -121,25 +147,25 @@ const Park = (props) => {
 
         <div className={`${styles.PostBar} mt-3 d-flex justify-content-center align-items-center`}>
           <div className={styles.BucketIconCounter}>
-          {bucketlist_id ? (
-            <div className={`text-center ${styles.SelectedBucket}`} onClick={handleUndoBucketlist}>
-              <i className={`fas fa-bucket ${styles.Bucket}`} />
-            </div>
-          ) : currentUser ? (
-            <div className={`text-center ${styles.BucketOutline}`} onClick={handleBucketlist}>
-              <i className={`fas fa-bucket ${styles.BucketOutlineIcon}`} /> 
-            </div>
-          ) : (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Log in to add parks to your bucketlist!</Tooltip>}
-            >
-              <div className="text-center">
-                <i className="fas fa-bucket" />
+            {bucketlist_id ? (
+              <div className={`text-center ${styles.SelectedBucket}`} onClick={handleUndoBucketlist}>
+                <i className={`fas fa-bucket ${styles.Bucket}`} />
               </div>
-            </OverlayTrigger>
-          )}
-          {bucketlist_count}
+            ) : currentUser ? (
+              <div className={`text-center ${styles.BucketOutline}`} onClick={handleBucketlist}>
+                <i className={`fas fa-bucket ${styles.BucketOutlineIcon}`} /> 
+              </div>
+            ) : (
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>Log in to add parks to your bucketlist!</Tooltip>}
+              >
+                <div className="text-center">
+                  <i className="fas fa-bucket" />
+                </div>
+              </OverlayTrigger>
+            )}
+            {bucketlist_count}
           </div>
           <div className={styles.StarIconCounter}>
             <Link to={`/parks/${id}`} className="text-center ml-3">
@@ -147,8 +173,42 @@ const Park = (props) => {
             </Link>
             {ratings_count}
           </div>
-
         </div>
+
+        {is_owner && parkPage && (
+          <div className="mt-3 d-flex justify-content-center align-items-center" id="ParkButtonContainer">
+            <Button
+              onClick={handleEdit}
+              className={`${styles.ParkButton} mr-4`}
+            >
+              Edit Park
+            </Button>
+            <Button
+              onClick={() => setShowDeleteModal(true)} // Modal anzeigen
+              className={styles.ParkButton}
+            >
+              Delete Park
+            </Button>
+          </div>
+        )}
+
+        {/* Delete Confirmation Modal */}
+        <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)} centered>
+          <Modal.Header closeButton>
+            <Modal.Title>Confirm Delete</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Are you sure you want to delete this park?
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
+              Cancel
+            </Button>
+            <Button variant="danger" onClick={handleConfirmDelete}>
+              Delete
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </Card.Body>
     </Card>
   );
