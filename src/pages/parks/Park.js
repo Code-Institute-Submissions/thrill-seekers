@@ -90,7 +90,7 @@ const Park = (props) => {
                     >
                       <Avatar src={profile_picture} height={55} />
                       <span className={styles.UserName}>
-                        Author: {user.name} {is_owner && parkPage && "..."}
+                        Author: {user} {is_owner && parkPage && "..."}
                       </span>
                     </Link>
                   </div>
