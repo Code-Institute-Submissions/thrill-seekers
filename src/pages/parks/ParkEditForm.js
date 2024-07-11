@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -6,18 +6,15 @@ import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
 
-import Asset from "../../components/Asset";
-
-import Upload from "../../assets/upload-icon.webp";
 
 import styles from "../../styles/ParkAddEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
-function ParkCreateForm() {
+function ParkEditForm() {
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
@@ -43,6 +40,38 @@ function ParkCreateForm() {
 
   const imageInput = useRef(null);
   const history = useHistory();
+  const { id } = useParams();
+
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const { data } = await axiosReq.get(`/parks/${id}/`);
+        const { 
+          name, 
+          description, 
+          image, 
+          website, 
+          total_number_of_rides, 
+          total_number_of_coasters, 
+          thrill_factor, overall_rating, 
+          is_owner } = data;
+
+        is_owner ? setPostData({ 
+          name, 
+          description, 
+          image, 
+          website, 
+          total_number_of_rides, 
+          total_number_of_coasters, 
+          thrill_factor, overall_rating, 
+          is_owner }) : history.push("/");
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    handleMount();
+  }, [history, id]);
 
   const handleChange = (event) => {
     setPostData({
@@ -66,17 +95,20 @@ function ParkCreateForm() {
     const formData = new FormData();
 
     formData.append("name", name);
-    formData.append("description", description);
-    formData.append("image", imageInput.current.files[0]);
-    formData.append("website", website);
-    formData.append("total_number_of_rides", total_number_of_rides);
-    formData.append("total_number_of_coasters", total_number_of_coasters);
-    formData.append("thrill_factor", thrill_factor);
-    formData.append("overall_rating", overall_rating);
+    formData.append("description", description || "");
+    formData.append("website", website || "");
+    formData.append("total_number_of_rides", total_number_of_rides || "");
+    formData.append("total_number_of_coasters", total_number_of_coasters || "");
+    formData.append("thrill_factor", thrill_factor || "");
+    formData.append("overall_rating", overall_rating || "");
 
+    if (imageInput?.current?.files[0]) {
+      formData.append("image", imageInput.current.files[0]);
+    }
+    
     try {
-      const { data } = await axiosReq.post("/parks/", formData);
-      history.push(`/parks/${data.id}`);
+      await axiosReq.put(`/parks/${id}/`, formData);
+      history.push(`/parks/${id}`);
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
@@ -90,28 +122,18 @@ function ParkCreateForm() {
       <Container className={`${appStyles.Content} ${styles.Container}`}>
         <Form.Group className="text-center">
           <div className={`${styles.ImageContainer} ${styles.ImageUpload}`}>
-            {image ? (
-              <>
-                <figure>
-                  <Image className={appStyles.Image} src={image} rounded />
-                </figure>
-                <div>
-                  <Button
-                    className={`${btnStyles.Button} ${styles.ChangeImageButton}`}
-                    onClick={() => imageInput.current.click()}
-                  >
-                    Change the image
-                  </Button>
-                </div>
-              </>
-            ) : (
-              <Form.Label
-                className="d-flex justify-content-center"
-                htmlFor="image-upload"
+     
+            <figure>
+              <Image className={appStyles.Image} src={image} rounded />
+            </figure>
+            <div>
+              <Button
+                className={`${btnStyles.Button} ${styles.ChangeImageButton}`}
+                onClick={() => imageInput.current.click()}
               >
-                <Asset src={Upload} message="Click or tap to upload an image" />
-              </Form.Label>
-            )}
+                Change the image
+              </Button>
+            </div>
 
             <Form.File
               id="image-upload"
@@ -209,7 +231,7 @@ function ParkCreateForm() {
           <Form.Label>Thrill Factor </Form.Label>
           <Form.Control
             type="number"
-            step="0.1"
+            step="0.01"
             min="0"
             max="5"
             name="thrill_factor"
@@ -227,7 +249,7 @@ function ParkCreateForm() {
           <Form.Label>Overall Rating </Form.Label>
           <Form.Control
             type="number"
-            step="0.1"
+            step="0.01"
             min="0"
             max="5"
             name="overall_rating"
@@ -249,7 +271,7 @@ function ParkCreateForm() {
             Cancel
           </Button>
           <Button className={`${btnStyles.Button}`} type="submit">
-            Create
+            Update
           </Button>
         </div>
       </Container>
@@ -257,4 +279,4 @@ function ParkCreateForm() {
   );
 }
 
-export default ParkCreateForm;
+export default ParkEditForm;
