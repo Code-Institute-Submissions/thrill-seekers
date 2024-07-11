@@ -1,0 +1,68 @@
+.Form {
+    border: 5px #0B94A3 solid;
+}
+
+.Form:focus {
+  border-color: #FF9F1C;
+}
+  
+.Button {
+  border: none;
+  background-color: #0B94A3;
+  color: #FFFFFF;
+  border-radius: 100px;
+  padding: 4px 10px;
+  min-width: 75px;
+  margin: 5px;
+  width: 150px;
+}
+
+.Button:hover {
+  cursor: pointer;
+  background-color: #FF9F1C;
+  color: #000000;
+}
+
+.starRating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.star {
+  font-size: 24px;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.star.selected {
+  color: #FF9F1C; /* Selected color */
+}
+
+.star.unselected {
+  color: #0B94A3; /* Unselected color */
+}
+
+.star:hover,
+.star.selected:hover {
+  color: #FF9F1C;
+}
+
+.ratingCard {
+  background-color: #FFFFFF;
+  border: 5px solid #0B94A3;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.ratingCard a:active {
+  border: 5px solid #0B94A3;
+}
+
+.ratingCard i {
+  color: #0B94A3;
+}
+
+.Username {
+  color:  #0B132B;
+}

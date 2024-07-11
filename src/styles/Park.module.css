@@ -89,6 +89,16 @@
   align-items: center;
 }
 
+.PostBar .StarIconCounter a i {
+  color: #0B94A3;
+  cursor: default;
+}
+
+.PostBar .StarIconCounter a:hover i,
+.PostBar .StarIconCounter a:focus i {
+  color: #0B94A3; 
+}
+
 .SearchBar {
   margin-top: 20px; 
   margin-bottom: 20px; 
@@ -109,7 +119,8 @@
 .ParkButton {
   background-color: #0B94A3 !important;
   border-color: #0B94A3 !important;
-  color: white !important;
+  color: #ffffff !important;
+  border-radius: 100px ;
   width: 150px;
   margin: 0 30px !important;
 }
@@ -117,7 +128,7 @@
 .ParkButton:hover {
   background-color: #FF9F1C !important;
   border-color: #FF9F1C !important;
-  color: white !important;
+  color: #000000!important;
 }
 
 .ParkButton {
