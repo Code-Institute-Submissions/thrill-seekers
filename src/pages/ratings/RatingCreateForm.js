@@ -14,7 +14,8 @@ import { axiosRes } from "../../api/axiosDefaults";
 function RatingCreateForm(props) {
   const { park, setPark, setRatings, profile_picture, profile_id, username } = props;
   const [explanation, setExplanation] = useState("");
-  const [rating, setRating] = useState("0");
+  const [rating, setRating] = useState("1");
+  const [errors, setErrors] = useState({});
 
   const handleExplanationChange = (event) => {
     setExplanation(event.target.value);
@@ -22,6 +23,12 @@ function RatingCreateForm(props) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (!explanation.trim()) {
+      setErrors({ explanation: "Explanation is required." });
+      return;
+    }
+
     try {
       const { data } = await axiosRes.post("/ratings/", {
         explanation,
@@ -41,16 +48,21 @@ function RatingCreateForm(props) {
         ],
       }));
       setExplanation("");
-      setRating("0");
+      setRating("1");
+      setErrors({});
     } catch (err) {
-      console.log(err);
+      if (err.response?.data) {
+        setErrors(err.response.data);
+      } else {
+        console.log(err);
+      }
     }
   };
 
  
   return (
-      <div className={`card ${styles.ratingCard}`}>
-        <div className="card-body">
+      <div>
+        <div>
           <div className="d-flex justify-content-between align-items-center">
             <h3> Rate the park and write a statement</h3>
               <div className="d-flex align-items-center">
@@ -76,7 +88,9 @@ function RatingCreateForm(props) {
                   value={explanation}
                   onChange={handleExplanationChange}
                   rows={2}
+                  required
                 />
+                {errors.explanation && <div className="text-danger">{errors.explanation}</div>}
               </InputGroup>
             </Form.Group>
 

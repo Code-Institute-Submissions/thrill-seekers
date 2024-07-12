@@ -1,0 +1,37 @@
+.Owner {
+  font-weight: bold;
+  color: #000000;
+  margin-right: 8px;
+}
+
+.Date {
+  font-weight: lighter;
+  color: #000000;
+}
+
+
+.ratingContainer {
+  background-color: #FFFFFF;
+  border: 5px solid #0B94A3;
+  margin-top: 20px;
+  padding: 20px 0;
+}
+
+.Username {
+  color:  #0B132B;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.Date {
+  color: #000000;
+}
+
+.star {
+  cursor: none !important;
+}
+
+.star:hover,
+.star.selected:hover {
+  color: inherit !important;
+}

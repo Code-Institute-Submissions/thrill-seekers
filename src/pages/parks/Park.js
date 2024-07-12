@@ -35,7 +35,6 @@ const Park = (props) => {
   const is_owner = currentUser?.username === user;
   const history = useHistory();
 
-  // Zustandsvariable und Setter-Funktion für das Modal
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const handleEdit = () => {
@@ -184,7 +183,7 @@ const Park = (props) => {
               Edit Park
             </Button>
             <Button
-              onClick={() => setShowDeleteModal(true)} // Modal anzeigen
+              onClick={() => setShowDeleteModal(true)}
               className={styles.ParkButton}
             >
               Delete Park

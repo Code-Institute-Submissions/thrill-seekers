@@ -1,11 +1,11 @@
 .Form {
-    border: 5px #0B94A3 solid;
+  border: 5px #0B94A3 solid;
 }
 
 .Form:focus {
   border-color: #FF9F1C;
 }
-  
+
 .Button {
   border: none;
   background-color: #0B94A3;
@@ -36,11 +36,11 @@
 }
 
 .star.selected {
-  color: #FF9F1C; /* Selected color */
+  color: #FF9F1C; 
 }
 
 .star.unselected {
-  color: #0B94A3; /* Unselected color */
+  color: #0B94A3; 
 }
 
 .star:hover,

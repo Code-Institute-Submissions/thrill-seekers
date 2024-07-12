@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "../styles/RatingCreateEditForm.module.css";
 
-const StarRating = ({ rating, onSetRating, totalStars }) => {
+const StarRating = ({ rating =1, onSetRating, totalStars =5 }) => {
   const [hoveredRating, setHoveredRating] = useState(0);
 
   const handleStarHover = (star) => {
