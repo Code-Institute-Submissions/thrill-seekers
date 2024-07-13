@@ -61,51 +61,51 @@ function RatingCreateForm(props) {
 
  
   return (
+      
       <div>
-        <div>
-          <div className="d-flex justify-content-between align-items-center">
-            <h3> Rate the park and write a statement</h3>
-              <div className="d-flex align-items-center">
-                <Link to={`/profiles/${profile_id}`}>
-                  <Avatar src={profile_picture} />
-                  <span className={styles.Username}>{username}</span>
-                </Link>
-              </div>
-          </div>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group>
-              <Form.Label className={styles.formLabel}></Form.Label>
-              <StarRating rating={rating} onSetRating={setRating} totalStars={5} className={styles.starRating} />
-            </Form.Group>
-
-            <Form.Group>
-              <InputGroup>
-              
-                <Form.Control
-                  className={`${styles.Form} form-control`}
-                  placeholder="I rated this because..."
-                  as="textarea"
-                  value={explanation}
-                  onChange={handleExplanationChange}
-                  rows={2}
-                  required
-                />
-                {errors.explanation && <div className="text-danger">{errors.explanation}</div>}
-              </InputGroup>
-            </Form.Group>
-
-            <div className="d-flex justify-content-center">
-              <button
-                className={`${styles.Button}`}
-                disabled={!explanation.trim() || rating === "0"}
-                type="submit"
-              >
-                Submit
-              </button>
+        <div className="d-flex justify-content-between align-items-center">
+          <h3> Rate the park and write a statement</h3>
+            <div className="d-flex align-items-center">
+              <Link to={`/profiles/${profile_id}`}>
+                <Avatar src={profile_picture} />
+                <span className={styles.Username}>{username}</span>
+              </Link>
             </div>
-          </Form>
         </div>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group>
+            <Form.Label className={styles.formLabel}></Form.Label>
+            <StarRating rating={rating} onSetRating={setRating} totalStars={5} className={styles.starRating} />
+          </Form.Group>
+
+          <Form.Group>
+            <InputGroup>
+            
+              <Form.Control
+                className={`${styles.Form} form-control`}
+                placeholder="I rated this because..."
+                as="textarea"
+                value={explanation}
+                onChange={handleExplanationChange}
+                rows={2}
+                required
+              />
+              {errors.explanation && <div className="text-danger">{errors.explanation}</div>}
+            </InputGroup>
+          </Form.Group>
+
+          <div className="d-flex justify-content-center">
+            <button
+              className={`${styles.Button}`}
+              disabled={!explanation.trim() || rating === "0"}
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </Form>
       </div>
+    
     );
   }
 

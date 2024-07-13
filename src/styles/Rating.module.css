@@ -18,12 +18,36 @@
 }
 
 .Username {
-  color:  #0B132B;
+  color:  #000000;
   margin-left: 10px;
   font-weight: bold;
 }
 
 .Date {
+  color: #000000;
+  font-weight: bold;
+}
+
+.explanationContainer {
+  border: 5px solid #0B94A3;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.Button {
+  border: none;
+  background-color: #0B94A3;
+  color: #FFFFFF;
+  border-radius: 100px;
+  padding: 4px 10px;
+  min-width: 75px;
+  margin: 5px;
+  width: 150px;
+}
+
+.Button:hover {
+  cursor: pointer;
+  background-color: #FF9F1C;
   color: #000000;
 }
 

@@ -7,6 +7,8 @@ import styles from "../../styles/Rating.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import StarRating from "../../components/StarRating";
+import RatingEditForm from "./RatingEditForm";
+
 
 const Rating = (props) => {
   const { 
@@ -23,6 +25,7 @@ const Rating = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === user;
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showEditForm, setShowEditForm] = useState(false);
 
   const handleDelete = async () => {
     try {
@@ -37,64 +40,68 @@ const Rating = (props) => {
     }
   };
 
-  const handleEdit = () => {
-    console.log("Edit rating clicked");
-  };
-
   return (
     <div>
-      <div className="d-flex justify-content-between align-items-center">
-        <div className="d-flex align-items-center">
-          <Media>
-            <Link to={`/profiles/${profile_id}`}>
-              <Avatar src={profile_picture} />
-            </Link>
-            <Media.Body className="align-self-center ml-2">
-              <span className={styles.Owner}>{user}</span>
-              <span className={styles.Date}>{updated_at}</span>
-              
-              <div className={`mt-2 ${styles.star}`}>
-                <StarRating rating={rating} totalStars={5} />
-              </div>
-              <p>{explanation}</p>
-            </Media.Body>
-          </Media>
-
-          {is_owner ? (
-            <div className="mt-3 d-flex justify-content-center align-items-center" id="RatingButtonContainer">
-              <Button
-                onClick={handleEdit}
-                className={`${styles.RatingButton} mr-4`}
-              >
-                Edit Rating
-              </Button>
-              <Button
-                onClick={() => setShowDeleteModal(true)}
-                className={styles.RatingButton}
-              >
-                Delete Rating
-              </Button>
-            </div>
-           ) : null}
-
-          <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
-            <Modal.Header closeButton>
-              <Modal.Title>Delete Rating</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              Are you sure you want to delete this rating?
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
-                Cancel
-              </Button>
-              <Button variant="danger" onClick={handleDelete}>
-                Delete
-              </Button>
-            </Modal.Footer>
-          </Modal>
+      <hr />
+        <div>
+          <Link to={`/profiles/${profile_id}`}>
+            <Avatar src={profile_picture} />
+          </Link>
+          <div  className="d-flex justify-content-between"> 
+            <span className={styles.Owner}>{`Rating from ${user}`}</span>
+            <span className={styles.Date}>{updated_at}</span>
+          </div>
+            {showEditForm ? (
+              <RatingEditForm
+                id={id}
+                rating={rating}
+                explanation={explanation}
+                setShowEditForm={setShowEditForm}
+                setRatings={setRatings}
+              />
+            ) : (
+              <>
+                <div className="mt-2">
+                  <StarRating rating={rating} totalStars={5} className={styles.star} />
+                </div>
+                <p className={styles.explanationContainer}>{explanation}</p>
+              </>
+            )}
         </div>
-      </div>
+        {is_owner && !showEditForm && (
+          <div className="mt-3 d-flex justify-content-center align-items-center" id="RatingButtonContainer">
+            <Button
+              onClick={() => setShowEditForm(true)}
+              className={`${styles.Button} mr-4`}
+          
+            >
+              Edit Rating
+            </Button>
+            <Button
+              onClick={() => setShowDeleteModal(true)}
+              className={styles.Button}
+            >
+              Delete Rating
+            </Button>
+          </div>
+        )}
+      
+      <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Delete Rating</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Are you sure you want to delete this rating?
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
+            Cancel
+          </Button>
+          <Button variant="danger" onClick={handleDelete}>
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
