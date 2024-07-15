@@ -8,7 +8,7 @@ function RatingEditForm(props) {
   const { id, rating, explanation, setShowEditForm, setRatings } = props;
 
   const [formExplanation, setFormExplanation] = useState(explanation);
-  const [formRating, setFormRating] = useState(rating || 1); // Ensure at least 1 star is selected
+  const [formRating, setFormRating] = useState(rating || 1);
 
   const handleChange = (event) => {
     setFormExplanation(event.target.value);
@@ -42,10 +42,10 @@ function RatingEditForm(props) {
 
   return (
     <Form onSubmit={handleSubmit} className="mt-3">
-      <Form.Group >
-        <StarRating rating={formRating} onSetRating={setFormRating} />
+      <Form.Group>
+        <StarRating rating={formRating} onSetRating={setFormRating} totalStars={5} editable={true} />
       </Form.Group>
-      <Form.Group >
+      <Form.Group>
         <Form.Control
           className={styles.Form}
           as="textarea"

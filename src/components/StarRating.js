@@ -1,32 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
+import StarRatings from 'react-star-ratings';
 import styles from "../styles/RatingCreateEditForm.module.css";
 
-const StarRating = ({ rating =1, onSetRating, totalStars =5 }) => {
-  const [hoveredRating, setHoveredRating] = useState(0);
-
-  const handleStarHover = (star) => {
-    setHoveredRating(star);
-  };
-
-  const handleStarClick = (star) => {
-    onSetRating(star);
+const StarRating = ({ rating = 1, onSetRating, totalStars = 5, editable = true }) => {
+  const handleRatingChange = (newRating) => {
+    if (editable && onSetRating) {
+      onSetRating(newRating);
+    }
   };
 
   return (
     <div className={styles.starRating}>
-      {[...Array(totalStars)].map((_, index) => {
-        const star = index + 1;
-        return (
-          <i
-            key={star}
-            className={`fa fa-star ${styles.star} ${star <= (hoveredRating || rating) ? styles.selected : styles.unselected}`}
-            onMouseEnter={() => handleStarHover(star)}
-            onMouseLeave={() => handleStarHover(0)}
-            onClick={() => handleStarClick(star)}
-            
-          />
-        );
-      })}
+      <StarRatings
+        rating={rating}
+        starRatedColor="#ffc107"
+        changeRating={editable ? handleRatingChange : undefined}
+        numberOfStars={totalStars}
+        name='rating'
+        starDimension="35px"
+        starSpacing="8px"
+        starHoverColor={editable ? "#ffc107" : undefined}
+      />
     </div>
   );
 };

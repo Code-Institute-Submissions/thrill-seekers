@@ -84,21 +84,6 @@
   margin-right: 35px;
 }
 
-.StarIconCounter {
-  display: flex;
-  align-items: center;
-}
-
-.PostBar .StarIconCounter a i {
-  color: #0B94A3;
-  cursor: default;
-}
-
-.PostBar .StarIconCounter a:hover i,
-.PostBar .StarIconCounter a:focus i {
-  color: #0B94A3; 
-}
-
 .SearchBar {
   margin-top: 20px; 
   margin-bottom: 20px; 

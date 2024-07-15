@@ -23,30 +23,6 @@
   color: #000000;
 }
 
-.starRating {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.star {
-  font-size: 24px;
-  transition: color 0.2s ease;
-  cursor: pointer;
-}
-
-.star.selected {
-  color: #FF9F1C; 
-}
-
-.star.unselected {
-  color: #0B94A3; 
-}
-
-.star:hover,
-.star.selected:hover {
-  color: #FF9F1C;
-}
 
 .ratingCard {
   background-color: #FFFFFF;

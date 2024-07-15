@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Media, Button, Modal } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 
@@ -8,7 +8,6 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import StarRating from "../../components/StarRating";
 import RatingEditForm from "./RatingEditForm";
-
 
 const Rating = (props) => {
   const { 
@@ -43,48 +42,47 @@ const Rating = (props) => {
   return (
     <div>
       <hr />
-        <div>
-          <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profile_picture} />
-          </Link>
-          <div  className="d-flex justify-content-between"> 
-            <span className={styles.Owner}>{`Rating from ${user}`}</span>
-            <span className={styles.Date}>{updated_at}</span>
-          </div>
-            {showEditForm ? (
-              <RatingEditForm
-                id={id}
-                rating={rating}
-                explanation={explanation}
-                setShowEditForm={setShowEditForm}
-                setRatings={setRatings}
-              />
-            ) : (
-              <>
-                <div className="mt-2">
-                  <StarRating rating={rating} totalStars={5} className={styles.star} />
-                </div>
-                <p className={styles.explanationContainer}>{explanation}</p>
-              </>
-            )}
+      <div>
+        <Link to={`/profiles/${profile_id}`}>
+          <Avatar src={profile_picture} />
+        </Link>
+        <div className="d-flex justify-content-between"> 
+          <span className={styles.Owner}>{`Rating from ${user}`}</span>
+          <span className={styles.Date}>{updated_at}</span>
         </div>
-        {is_owner && !showEditForm && (
-          <div className="mt-3 d-flex justify-content-center align-items-center" id="RatingButtonContainer">
-            <Button
-              onClick={() => setShowEditForm(true)}
-              className={`${styles.Button} mr-4`}
-          
-            >
-              Edit Rating
-            </Button>
-            <Button
-              onClick={() => setShowDeleteModal(true)}
-              className={styles.Button}
-            >
-              Delete Rating
-            </Button>
-          </div>
+        {showEditForm ? (
+          <RatingEditForm
+            id={id}
+            rating={rating}
+            explanation={explanation}
+            setShowEditForm={setShowEditForm}
+            setRatings={setRatings}
+          />
+        ) : (
+          <>
+            <div className="mt-2">
+              <StarRating rating={Number(rating)} totalStars={5} editable={false} />
+            </div>
+            <p className={styles.explanationContainer}>{explanation}</p>
+          </>
         )}
+      </div>
+      {is_owner && !showEditForm && (
+        <div className="mt-3 d-flex justify-content-center align-items-center" id="RatingButtonContainer">
+          <Button
+            onClick={() => setShowEditForm(true)}
+            className={`${styles.Button} mr-4`}
+          >
+            Edit Rating
+          </Button>
+          <Button
+            onClick={() => setShowDeleteModal(true)}
+            className={styles.Button}
+          >
+            Delete Rating
+          </Button>
+        </div>
+      )}
       
       <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
         <Modal.Header closeButton>
