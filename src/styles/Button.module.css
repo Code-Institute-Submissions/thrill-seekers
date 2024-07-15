@@ -45,33 +45,9 @@
     width: 100%;
   }
   
-/*
-
-  .Blue,
-  .BlueOutline:hover,
-  .Bright:hover {
-    background-color: #ffffff;
-    color: #000000;
-  }
-  
-  .BlueOutline,
-  .Blue:hover {
-    background-color: #ffffff;
-    color: #FF9F1C;
-  }
-  
-  .Black,
-  .BlackOutline:hover {
-    background-color: #ffffff;
-    color: #000000;
-  }
-  
-  .Black:hover,
-  .BlackOutline {
-    background-color: ffffff;
-    color: #000000;
-  }
-*/
+.ButtonContact {
+  width: 150px;
+}
 
 /* Button colors */
   .Bright {

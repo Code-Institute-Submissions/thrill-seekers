@@ -6,7 +6,9 @@ import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 
-import ContactForm from "./pages/contacts/ContactForm";
+import ContactFormCreate from "./pages/contacts/ContactFormCreate";
+import ContactFormView from "./pages/contacts/ContactFormView";
+import ContactFormEdit from "./pages/contacts/ContactFormEdit";
 import About from "./pages/about/About";
 import Home from "./pages/parks/Home";
 import ParkCreateForm from "./pages/parks/ParkCreateForm";
@@ -40,7 +42,9 @@ function App() {
               )}
               />
               <Route exact path="/about" render={() => <About />} />
-              <Route exact path="/contact" render={() => <ContactForm />} />
+              <Route exact path="/contact" render={() => <ContactFormCreate />} />
+              <Route exact path="/contact/view/:id" render={({ match }) => <ContactFormView match={match} />} />
+              <Route exact path="/contact/edit/:id" render={({ match }) => <ContactFormEdit match={match} />} />
               <Route exact path="/signin" render={() => <SignInForm />} />
               <Route exact path="/signup" render={() => <SignUpForm />} />
               <Route exact path="/parks/add" render={() => <ParkCreateForm />} />

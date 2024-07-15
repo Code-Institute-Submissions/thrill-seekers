@@ -13,7 +13,7 @@ import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
-function ContactForm() {
+function ContactFormCreate() {
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -29,7 +29,7 @@ function ContactForm() {
     if (success) {
       const timer = setTimeout(() => {
         setSuccess(false);
-      }, 5000); // 5000 ms = 5 seconds
+      }, 1000); // 1000 ms = 1 seconds
 
       return () => clearTimeout(timer);
     }
@@ -53,8 +53,9 @@ function ContactForm() {
     }
 
     try {
-      await axios.post('https://thrill-seekers-api-5fd87044d4ac.herokuapp.com/api/contact/', formData);
+      const response = await axios.post('https://thrill-seekers-api-5fd87044d4ac.herokuapp.com/api/contact/', formData);
       setSuccess(true);
+      const id = response.data.id;
       setFormData({
         first_name: '',
         last_name: '',
@@ -62,6 +63,7 @@ function ContactForm() {
         subject: 'feedback',
         message: ''
       });
+      window.location.href = `/contact/view/${id}`;
     } catch (error) {
       if (error.response && error.response.data) {
         setErrors(error.response.data);
@@ -185,4 +187,4 @@ function ContactForm() {
   );
 }
 
-export default ContactForm;
+export default ContactFormCreate;

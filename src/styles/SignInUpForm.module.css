@@ -20,45 +20,49 @@
 #subjectField {  /* adden but with no result  */
   color: #000000;
 }
-  
-  
-  .Header {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 19px;
-    text-align: center;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #ffffff;
-    font-family: "Roboto", sans-serif;
-  }
-  
-  /* Link to log in form */
-  .Link {
-    text-decoration: none;
-    text-align: center;
-    display: block;
-    margin: auto;
-  }
 
-  .Link:hover {
-    color: #FF9F1C;
-  }
-  
-  /* Link text to log in form */
-  .Link span {
-    color: #FF9F1C;
-  }
-  
-  .Container {
-    padding: 30px 10px;
-  }
-  
-  .SignInColumn {
-    height: 320px;
-  }
-  
-  .SignUpColumn {
-    height: 375px;
-  }
+label {
+  color: #ffffff !important;
+  font-weight: bold;
+}
+    
+.Header {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Link to log in form */
+.Link {
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+.Link:hover {
+  color: #FF9F1C;
+}
+
+/* Link text to log in form */
+.Link span {
+  color: #FF9F1C;
+}
+
+.Container {
+  padding: 30px 10px;
+}
+
+.SignInColumn {
+  height: 320px;
+}
+
+.SignUpColumn {
+  height: 375px;
+}
