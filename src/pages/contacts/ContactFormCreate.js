@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { axiosReq } from "../../api/axiosDefaults";
 import {
   Form,
   Button,
@@ -53,7 +53,7 @@ function ContactFormCreate() {
     }
 
     try {
-      const response = await axios.post('https://thrill-seekers-api-5fd87044d4ac.herokuapp.com/api/contact/', formData);
+      const response = await axiosReq.post('/contact/', formData);
       setSuccess(true);
       const id = response.data.id;
       setFormData({

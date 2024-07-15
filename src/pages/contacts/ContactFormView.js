@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { axiosReq } from "../../api/axiosDefaults";
 import { Form, Button, Container, Alert, Modal } from "react-bootstrap";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -17,7 +17,7 @@ function ContactFormView({ match }) {
   useEffect(() => {
     const fetchFormData = async () => {
       try {
-        const response = await axios.get(`https://thrill-seekers-api-5fd87044d4ac.herokuapp.com/api/contact/${id}/`);
+        const response = await axiosReq.get(`/contact/${id}/`);
         setFormData(response.data);
       } catch (error) {
         console.error('Error fetching contact form data:', error);
@@ -29,7 +29,7 @@ function ContactFormView({ match }) {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`https://thrill-seekers-api-5fd87044d4ac.herokuapp.com/api/contact/${id}/`);
+      await axiosReq.delete(`/contact/${id}/`);
       setShowDeleteModal(false);
       history.push('/');  // Redirect to home page after deletion
     } catch (error) {

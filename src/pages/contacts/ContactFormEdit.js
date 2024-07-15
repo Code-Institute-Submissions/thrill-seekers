@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { axiosReq } from "../../api/axiosDefaults";
 import { Form, Button, Container, Alert } from "react-bootstrap";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -16,7 +16,7 @@ function ContactFormEdit({ match }) {
   useEffect(() => {
     const fetchFormData = async () => {
       try {
-        const response = await axios.get(`https://thrill-seekers-api-5fd87044d4ac.herokuapp.com/api/contact/${id}/`);
+        const response = await axiosReq.get(`/contact/${id}/`);
         setFormData(response.data);
       } catch (error) {
         console.error('Error fetching contact form data:', error);
@@ -50,7 +50,7 @@ function ContactFormEdit({ match }) {
     setSuccess(false);
 
     try {
-      await axios.put(`https://thrill-seekers-api-5fd87044d4ac.herokuapp.com/api/contact/${id}/`, formData);
+      await axiosReq.put(`/contact/${id}/`, formData);
       setSuccess(true);
     } catch (error) {
       if (error.response && error.response.data) {
