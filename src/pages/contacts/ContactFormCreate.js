@@ -138,7 +138,6 @@ function ContactFormCreate() {
                 as="select"
                 name="subject"
                 className={styles.Input}
-                id={styles.subjectField}
                 value={formData.subject}
                 onChange={handleChange}
                 required
