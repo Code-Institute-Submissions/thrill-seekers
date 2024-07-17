@@ -11,32 +11,22 @@ function ContactFormEdit() {
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
   const { edit_token } = useParams();
+  const [currentEditToken, setCurrentEditToken] = useState(edit_token);
   const history = useHistory();
 
   useEffect(() => {
     const fetchFormData = async () => {
       try {
-        const response = await axiosReq.get(`/contact/update/${edit_token}/`);
+        const response = await axiosReq.get(`/contact/update/${currentEditToken}/`);
         setFormData(response.data);
       } catch (error) {
-        console.error('Error fetching contact form data:', error);
+        console.error('Error fetching contact form data:', error.response?.data || error.message);
         history.push('/');
       }
     };
 
     fetchFormData();
-  }, [edit_token, history]);
-
-  useEffect(() => {
-    if (success) {
-      const timer = setTimeout(() => {
-        setSuccess(false);
-        history.push(`/contact/view/${edit_token}`);
-      }, 1000); // 1000 ms = 1 seconds
-
-      return () => clearTimeout(timer);
-    }
-  }, [success, history, edit_token]);
+  }, [currentEditToken, history]);
 
   const handleChange = (e) => {
     setFormData({
@@ -51,13 +41,16 @@ function ContactFormEdit() {
     setSuccess(false);
 
     try {
-      const response = await axiosReq.put(`/contact/update/${edit_token}/`, formData);
+      const response = await axiosReq.put(`/contact/update/${currentEditToken}/`, formData);
       setSuccess(true);
-      localStorage.setItem('contactFormEditToken', response.data.edit_token);
+      const newEditToken = response.data.edit_token;
+      localStorage.setItem('contactFormEditToken', newEditToken);
+      setCurrentEditToken(newEditToken);
       setTimeout(() => {
-        history.push(`/contact/view/${response.data.edit_token}`);
+        history.push(`/contact/view/${newEditToken}`);
       }, 2000);
     } catch (error) {
+      console.error('Error updating contact form:', error.response?.data || error.message);
       if (error.response && error.response.data) {
         setErrors(error.response.data);
       }
@@ -69,7 +62,7 @@ function ContactFormEdit() {
       <h1 className={styles.Header}>Edit Contact Form</h1>
       {success && <Alert variant="success">Contact form updated successfully! Redirecting...</Alert>}
       <Form onSubmit={handleSubmit} noValidate>
-        <Form.Group >
+        <Form.Group>
           <Form.Label className={styles.Label}>First Name</Form.Label>
           <Form.Control
             id="first_name"
@@ -87,7 +80,7 @@ function ContactFormEdit() {
           </Alert>
         )}
 
-        <Form.Group >
+        <Form.Group>
           <Form.Label className={styles.Label}>Last Name</Form.Label>
           <Form.Control
             id="last_name"
@@ -105,7 +98,7 @@ function ContactFormEdit() {
           </Alert>
         )}
 
-        <Form.Group >
+        <Form.Group>
           <Form.Label className={styles.Label}>Email</Form.Label>
           <Form.Control
             id="email"
@@ -121,9 +114,9 @@ function ContactFormEdit() {
           <Alert variant="warning">
             {Array.isArray(errors.email) ? errors.email[0] : errors.email}
           </Alert>
-          )}
+        )}
 
-        <Form.Group >
+        <Form.Group>
           <Form.Label className={styles.Label}>Subject</Form.Label>
           <Form.Control
             id="subject"
@@ -145,7 +138,7 @@ function ContactFormEdit() {
           </Alert>
         )}
 
-        <Form.Group >
+        <Form.Group>
           <Form.Label className={styles.Label}>Message</Form.Label>
           <Form.Control
             id="message"
