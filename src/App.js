@@ -42,9 +42,9 @@ function App() {
               )}
               />
               <Route exact path="/about" render={() => <About />} />
-              <Route exact path="/contact" render={() => <ContactFormCreate />} />
-              <Route exact path="/contact/view/:id" render={({ match }) => <ContactFormView match={match} />} />
-              <Route exact path="/contact/edit/:id" render={({ match }) => <ContactFormEdit match={match} />} />
+              <Route exact path="/contact" component={ContactFormCreate} />
+              <Route path="/contact/view/:edit_token" component={ContactFormView} />
+              <Route path="/contact/update/:edit_token" component={ContactFormEdit} />
               <Route exact path="/signin" render={() => <SignInForm />} />
               <Route exact path="/signup" render={() => <SignUpForm />} />
               <Route exact path="/parks/add" render={() => <ParkCreateForm />} />

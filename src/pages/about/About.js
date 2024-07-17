@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const About = () => {
   return (
-    <div class="container">
+    <div className="container">
     <section>
         <h2>Welcome to ThrillSeeker</h2>
         <p>ThrillSeeker is your ultimate guide to the most exciting and memorable amusement parks around the world! Our mission is to provide comprehensive, honest, and insightful reviews to help you plan your next adventure with confidence.</p>

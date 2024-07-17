@@ -4,41 +4,46 @@ import { Form, Button, Container, Alert, Modal } from "react-bootstrap";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
-function ContactFormView({ match }) {
+function ContactFormView() {
   const [formData, setFormData] = useState({});
-  const [errors, setErrors] = useState({});
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [showSubmitModal, setShowSubmitModal] = useState(false);
-  const id = match.params.id;
+  const { edit_token } = useParams();
   const history = useHistory();
 
   useEffect(() => {
     const fetchFormData = async () => {
       try {
-        const response = await axiosReq.get(`/contact/${id}/`);
+        const response = await axiosReq.get(`/contact/update/${edit_token}/`);
         setFormData(response.data);
       } catch (error) {
         console.error('Error fetching contact form data:', error);
+        history.push('/');
       }
     };
 
     fetchFormData();
-  }, [id]);
+  }, [edit_token, history]);
 
   const handleDelete = async () => {
     try {
-      await axiosReq.delete(`/contact/${id}/`);
+      await axiosReq.delete(`/contact/update/${edit_token}/`);
       setShowDeleteModal(false);
-      history.push('/');  // Redirect to home page after deletion
+      localStorage.removeItem('contactFormEditToken');
+      history.push('/');
     } catch (error) {
       console.error('Error deleting contact form:', error);
+      if (error.response) {
+        console.error('Response data:', error.response.data);
+        console.error('Response status:', error.response.status);
+      }
     }
   };
 
   const handleConfirmData = () => {
-    history.push('/');  // Redirect to home page
+    localStorage.removeItem('contactFormEditToken');
+    history.push('/');
   };
 
   return (
@@ -73,7 +78,7 @@ function ContactFormView({ match }) {
         <div className="d-flex justify-content-center mt-3">
           <Button
             className={`${btnStyles.Button} ${btnStyles.Bright} ${btnStyles.ButtonContact} mx-2`}
-            onClick={() => history.push(`/contact/edit/${id}`)}
+            onClick={() => history.push(`/contact/update/${edit_token}`)}
           >
             Edit
           </Button>

@@ -4,38 +4,39 @@ import { Form, Button, Container, Alert } from "react-bootstrap";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
-function ContactFormEdit({ match }) {
+function ContactFormEdit() {
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
-  const id = match.params.id;
+  const { edit_token } = useParams();
   const history = useHistory();
 
   useEffect(() => {
     const fetchFormData = async () => {
       try {
-        const response = await axiosReq.get(`/contact/${id}/`);
+        const response = await axiosReq.get(`/contact/update/${edit_token}/`);
         setFormData(response.data);
       } catch (error) {
         console.error('Error fetching contact form data:', error);
+        history.push('/');
       }
     };
 
     fetchFormData();
-  }, [id]);
+  }, [edit_token, history]);
 
   useEffect(() => {
     if (success) {
       const timer = setTimeout(() => {
         setSuccess(false);
-        history.push(`/contact/view/${id}`);
+        history.push(`/contact/view/${edit_token}`);
       }, 1000); // 1000 ms = 1 seconds
 
       return () => clearTimeout(timer);
     }
-  }, [success, history, id]);
+  }, [success, history, edit_token]);
 
   const handleChange = (e) => {
     setFormData({
@@ -50,8 +51,12 @@ function ContactFormEdit({ match }) {
     setSuccess(false);
 
     try {
-      await axiosReq.put(`/contact/${id}/`, formData);
+      const response = await axiosReq.put(`/contact/update/${edit_token}/`, formData);
       setSuccess(true);
+      localStorage.setItem('contactFormEditToken', response.data.edit_token);
+      setTimeout(() => {
+        history.push(`/contact/view/${response.data.edit_token}`);
+      }, 2000);
     } catch (error) {
       if (error.response && error.response.data) {
         setErrors(error.response.data);
@@ -62,11 +67,12 @@ function ContactFormEdit({ match }) {
   return (
     <Container className={`${appStyles.Content} p-4`}>
       <h1 className={styles.Header}>Edit Contact Form</h1>
-      {success && <Alert variant="success">Contact form updated successfully!</Alert>}
+      {success && <Alert variant="success">Contact form updated successfully! Redirecting...</Alert>}
       <Form onSubmit={handleSubmit} noValidate>
-        <Form.Group controlId="first_name">
+        <Form.Group >
           <Form.Label className={styles.Label}>First Name</Form.Label>
           <Form.Control
+            id="first_name"
             type="text"
             name="first_name"
             className={styles.Input}
@@ -75,15 +81,16 @@ function ContactFormEdit({ match }) {
             required
           />
         </Form.Group>
-        {errors.first_name?.map((message, idx) => (
-          <Alert key={idx} variant="warning">
-            {message}
+        {errors.first_name && (
+          <Alert variant="warning">
+            {Array.isArray(errors.first_name) ? errors.first_name[0] : errors.first_name}
           </Alert>
-        ))}
+        )}
 
-        <Form.Group controlId="last_name">
+        <Form.Group >
           <Form.Label className={styles.Label}>Last Name</Form.Label>
           <Form.Control
+            id="last_name"
             type="text"
             name="last_name"
             className={styles.Input}
@@ -92,15 +99,16 @@ function ContactFormEdit({ match }) {
             required
           />
         </Form.Group>
-        {errors.last_name?.map((message, idx) => (
-          <Alert key={idx} variant="warning">
-            {message}
+        {errors.last_name && (
+          <Alert variant="warning">
+            {Array.isArray(errors.last_name) ? errors.last_name[0] : errors.last_name}
           </Alert>
-        ))}
+        )}
 
-        <Form.Group controlId="email">
+        <Form.Group >
           <Form.Label className={styles.Label}>Email</Form.Label>
           <Form.Control
+            id="email"
             type="email"
             name="email"
             className={styles.Input}
@@ -109,19 +117,19 @@ function ContactFormEdit({ match }) {
             required
           />
         </Form.Group>
-        {errors.email?.map((message, idx) => (
-          <Alert key={idx} variant="warning">
-            {message}
+        {errors.email && (
+          <Alert variant="warning">
+            {Array.isArray(errors.email) ? errors.email[0] : errors.email}
           </Alert>
-        ))}
+          )}
 
-        <Form.Group controlId="subject">
+        <Form.Group >
           <Form.Label className={styles.Label}>Subject</Form.Label>
           <Form.Control
+            id="subject"
             as="select"
             name="subject"
             className={styles.Input}
-            id={styles.subjectField}
             value={formData.subject || ''}
             onChange={handleChange}
             required
@@ -131,15 +139,16 @@ function ContactFormEdit({ match }) {
             <option value="other">Other</option>
           </Form.Control>
         </Form.Group>
-        {errors.subject?.map((message, idx) => (
-          <Alert key={idx} variant="warning">
-            {message}
+        {errors.subject && (
+          <Alert variant="warning">
+            {Array.isArray(errors.subject) ? errors.subject[0] : errors.subject}
           </Alert>
-        ))}
+        )}
 
-        <Form.Group controlId="message">
+        <Form.Group >
           <Form.Label className={styles.Label}>Message</Form.Label>
           <Form.Control
+            id="message"
             as="textarea"
             rows={3}
             name="message"
@@ -150,11 +159,11 @@ function ContactFormEdit({ match }) {
             minLength="10"
           />
         </Form.Group>
-        {errors.message?.map((message, idx) => (
-          <Alert key={idx} variant="warning">
-            {message}
+        {errors.message && (
+          <Alert variant="warning">
+            {Array.isArray(errors.message) ? errors.message[0] : errors.message}
           </Alert>
-        ))}
+        )}
 
         <Button
           className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
