@@ -5,12 +5,14 @@ import { axiosReq } from "../../api/axiosDefaults";
 import styles from "../../styles/ProfilesPage.module.css";
 import appStyles from "../../App.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import Rating from "../ratings/Rating.js";
 
 function ProfilesPage() {
   const currentUser = useCurrentUser();
   const history = useHistory();
   const [profileData, setProfileData] = useState({ pageProfile: { results: [] } });
   const [bucketlist, setBucketlist] = useState([]);
+  const [ratings, setRatings] = useState({ results: [] });
   const { id } = useParams();
 
   useEffect(() => {
@@ -22,6 +24,7 @@ function ProfilesPage() {
           pageProfile: { results: [data] },
         }));
         setBucketlist(data.bucketlist);
+        setRatings({ results: data.ratings });
       } catch (err) {
         console.error(err);
         if (err.response?.status === 404) {
@@ -100,6 +103,26 @@ function ProfilesPage() {
             </ol>
           ) : (
             <p>No parks in the bucketlist yet.</p>
+          )}
+        </Card.Body>
+      </Card>
+
+      <Card className={`${appStyles.Container} ${styles.RatingsCard} mt-4`}>
+        <Card.Body>
+          <h4>Ratings</h4>
+          {ratings.results.length ? (
+            ratings.results.map((rating, index) => (
+              <div key={rating.id} className={`${styles.RatingItem} ${index < ratings.results.length - 1 ? styles.RatingItemWithBorder : ''}`}>
+                <Rating 
+                  {...rating} 
+                  setRatings={setRatings} 
+                  showProfileImage={false}
+                  showParkName={true}
+                />
+              </div>
+            ))
+          ) : (
+            <p>No ratings yet.</p>
           )}
         </Card.Body>
       </Card>

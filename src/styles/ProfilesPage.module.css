@@ -89,6 +89,7 @@
 .BucketlistLink:hover {
   text-decoration: underline;
 }
+
 @media (max-width: 767px) {
   .ProfileImage {
     margin-bottom: 30px;

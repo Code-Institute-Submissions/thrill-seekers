@@ -19,6 +19,9 @@ const Rating = (props) => {
     rating,
     id,
     setRatings, 
+    park_name,
+    showProfileImage = true,
+    showParkName = false,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -43,11 +46,17 @@ const Rating = (props) => {
     <div>
       <hr />
       <div>
-        <Link to={`/profiles/${profile_id}`}>
-          <Avatar src={profile_picture} />
-        </Link>
+        {showProfileImage && (
+          <Link to={`/profiles/${profile_id}`}>
+            <Avatar src={profile_picture} />
+          </Link>
+        )}
         <div className="d-flex justify-content-between"> 
-          <span className={styles.Owner}>{`Rating from ${user}`}</span>
+          {showParkName ? (
+            <span className={styles.Owner}>{`Rating for ${park_name}`}</span>
+          ) : (
+            <span className={styles.Owner}>{`Rating from ${user}`}</span>
+          )}
           <span className={styles.Date}>{updated_at}</span>
         </div>
         {showEditForm ? (
