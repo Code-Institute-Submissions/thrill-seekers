@@ -16,6 +16,7 @@ import ParkEditForm from "./pages/parks/ParkEditForm";
 import ParkPage from "./pages/parks/ParkPage";
 import ParksPage from "./pages/parks/ParksPage";
 import ProfilesPage from "./pages/profiles/ProfilesPage";
+import ProfilesEditForm from "./pages/profiles/ProfilesEditForm";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 
@@ -55,6 +56,7 @@ function App() {
               <Route exact path="/parks/:id" render={() => <ParkPage />} />
               
               <Route exact path="/profiles/:id" render={() => <ProfilesPage />} />
+              <Route exact path="/profiles/:id/edit" render={() => <ProfilesEditForm />} />
 
               <Route render={() => <p>Page not found!</p>} />
             </Switch>

@@ -68,12 +68,7 @@ function ProfilesPage() {
                   <Col xs={4}>
                     <i className={`fas fa-bucket ${styles.BucketIcon}`}></i>
                     <span>{profile.bucketlist_count}</span>
-                    <p>bucket list</p>
-                  </Col>
-                  <Col xs={4}>
-                    <i className={`fas fa-heart ${styles.LikeIcon}`}></i>
-                    <span>{profile.like_count}</span>
-                    <p>likes</p>
+                    <p>bucketlist</p>
                   </Col>
                 </Row>
               </div>
