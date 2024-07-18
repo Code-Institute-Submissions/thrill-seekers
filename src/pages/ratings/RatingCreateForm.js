@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import Alert from "react-bootstrap/Alert";
 import styles from "../../styles/RatingCreateEditForm.module.css";
 import Avatar from "../../components/Avatar";
 import StarRating from "../../components/StarRating";
@@ -19,11 +20,7 @@ function RatingCreateForm(props) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    if (!explanation.trim()) {
-      setErrors({ explanation: "Explanation is required." });
-      return;
-    }
+    setErrors({});
 
     try {
       const { data } = await axiosRes.post("/ratings/", {
@@ -45,12 +42,20 @@ function RatingCreateForm(props) {
       }));
       setExplanation("");
       setRating(1);
-      setErrors({});
     } catch (err) {
       if (err.response?.data) {
         setErrors(err.response.data);
+        if (err.response.data.detail) {
+          // This is for the "You have already rated this park" error
+          setErrors(prevErrors => ({...prevErrors, general: err.response.data.detail}));
+        }
+        if (err.response.data.explanation) {
+          // This is for the "Explanation is required" error
+          setErrors(prevErrors => ({...prevErrors, explanation: err.response.data.explanation}));
+        }
       } else {
         console.log(err);
+        setErrors({general: "An unexpected error occurred. Please try again."});
       }
     }
   };
@@ -58,7 +63,7 @@ function RatingCreateForm(props) {
   return (
     <div>
       <div className="d-flex justify-content-between align-items-center">
-        <h3> Rate the park and write a statement</h3>
+        <h3>Rate the park and write a statement</h3>
         <div className="d-flex align-items-center">
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profile_picture} />
@@ -67,6 +72,8 @@ function RatingCreateForm(props) {
         </div>
       </div>
       <Form onSubmit={handleSubmit}>
+        {errors.general && <Alert variant="danger">{errors.general}</Alert>}
+        
         <Form.Group>
           <Form.Label className={styles.formLabel}></Form.Label>
           <StarRating rating={rating} onSetRating={setRating} totalStars={5} editable={true} />
@@ -81,9 +88,11 @@ function RatingCreateForm(props) {
               value={explanation}
               onChange={handleExplanationChange}
               rows={2}
-              required
+              isInvalid={!!errors.explanation}
             />
-            {errors.explanation && <div className="text-danger">{errors.explanation}</div>}
+            <Form.Control.Feedback type="invalid">
+              {errors.explanation}
+            </Form.Control.Feedback>
           </InputGroup>
         </Form.Group>
 
