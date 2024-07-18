@@ -39,7 +39,7 @@
 }
 
 #NavLinkDropdown > .NavLinkCustom {
-  color: #ffffff;
+  color: #ffffff !important;
 }
       
 #NavLinkDropdown {

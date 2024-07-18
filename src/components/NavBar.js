@@ -35,43 +35,24 @@ const NavBar = () => {
       to="/parks/add">
         <i className="far fa-regular fa-square-plus"></i>Add Park
     </NavLink>
-    );
+  );
 
-const loggedInLinks = (
-  <>
-    <div id={styles.NavLinkTextMobil}>
-      {currentUser?.is_staff && (
-        <Nav.Link className={styles.NavLinkCustom} as="div">
-          {addParkCreateIcon}
-        </Nav.Link>
-      )}
-
+  const loggedInLinks = (
+    <>
+      <div id={styles.NavLinkTextMobil}>
+        {currentUser?.is_staff && (
+          <Nav.Link className={styles.NavLinkCustom} as="div">
+            {addParkCreateIcon}
+          </Nav.Link>
+        )}
         <Nav.Link
           exact
           as={NavLink}
           className={styles.NavLinkCustom}
           activeClassName={styles.Active}
-          to="/parks/ratings"
+          to={`/profiles/${currentUser?.profile_id}`}
         >
-          <i className="far fa-solid fa-star"></i> Ratings
-        </Nav.Link>
-        <Nav.Link
-          exact
-          as={NavLink}
-          className={styles.NavLinkCustom}
-          activeClassName={styles.Active}
-          to="/parks/bucketlist"
-        >
-          <i className="fas fa-bucket"></i> Bucketlist
-        </Nav.Link>
-        <Nav.Link
-          exact
-          as={NavLink}
-          className={styles.NavLinkCustom}
-          activeClassName={styles.Active}
-          to="/parks/ratings/liked"
-        >
-          <i className="far fa-solid fa-thumbs-up"></i> Liked
+          <i className="fas fa-id-card"></i> Profile
         </Nav.Link>
         <Nav.Link
           className={styles.NavLinkCustom}
@@ -80,8 +61,8 @@ const loggedInLinks = (
           <i className="fas fa-solid fa-arrow-right-from-bracket"></i> Sign out
         </Nav.Link>
       </div>
-  </>
-);
+    </>
+  );
 
   const loggedInIcons = (
     <>
@@ -119,12 +100,11 @@ const loggedInLinks = (
         activeClassName={styles.Active} to="/signup">
           <i className="fas fa-regular fa-user-plus"></i>Sign up
       </NavLink>
-
     </>
   );
 
   return (
-    <Navbar  expanded={expanded} className={styles.NavBar} expand="md" fixed="top" variant="dark">
+    <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed="top" variant="dark">
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
@@ -139,9 +119,6 @@ const loggedInLinks = (
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left" id={styles.NavLinkText}>
-
-
-
             <NavLink exact className={styles.NavLinkCustom} activeClassName={styles.Active} to="/">
               <i className="fas fa-regular fa-house-user"></i>Home
             </NavLink>
@@ -151,9 +128,6 @@ const loggedInLinks = (
             <NavLink className={styles.NavLinkCustom} activeClassName={styles.Active} to="/contact">
               <i className="fas fa-regular fa-address-book"></i>Contact
             </NavLink>
-            
-
-            
 
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
