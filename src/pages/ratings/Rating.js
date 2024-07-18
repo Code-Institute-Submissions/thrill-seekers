@@ -20,6 +20,7 @@ const Rating = (props) => {
     id,
     setRatings, 
     park_name,
+    park,
     showProfileImage = true,
     showParkName = false,
   } = props;
@@ -53,7 +54,9 @@ const Rating = (props) => {
         )}
         <div className="d-flex justify-content-between"> 
           {showParkName ? (
-            <span className={styles.Owner}>{`Rating for ${park_name}`}</span>
+            <Link to={`/parks/${park}`} className={styles.ParkNameLink}>
+              <span className={styles.Owner}>{`Rating for ${park_name}`}</span>
+            </Link>
           ) : (
             <span className={styles.Owner}>{`Rating from ${user}`}</span>
           )}
