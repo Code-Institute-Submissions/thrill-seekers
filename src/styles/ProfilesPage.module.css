@@ -1,0 +1,96 @@
+.ProfileCard {
+  border: 5px solid #0B94A3;
+  margin-bottom: 20px;
+}
+
+.ProfileContainer {
+  padding-top: 35px
+}
+
+.ProfileImage {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 0 auto 20px;
+  border: 3px solid #0B94A3;
+}
+
+.Username {
+  color: #0B132B;
+  margin-bottom: 20px;
+}
+
+.ProfileInfo {
+  margin-bottom: 20px;
+}
+
+.ProfileStats {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.RatingIcon {
+  color: #ffc107;
+  font-size: 24px;
+}
+
+.BucketIcon {
+  color: #0B94A3;
+  font-size: 24px;
+}
+
+.LikeIcon {
+  color: #dc3545;
+  font-size: 24px;
+}
+
+.ProfileStats span {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.ProfileStats p {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.EditButton {
+  background-color: #0B94A3 !important;
+  border-color: #0B94A3 !important;
+  color: #ffffff !important;
+  border-radius: 100px;
+  width: 150px;
+}
+
+.EditButton:hover {
+  background-color: #FF9F1C !important;
+  border-color: #FF9F1C !important;
+  color: #000000 !important;
+}
+
+@media (max-width: 767px) {
+  .ProfileImage {
+    margin-bottom: 30px;
+  }
+  
+  .ProfileInfo, .ProfileStats {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 767px) and (max-width: 995px) {
+  .ProfileContainer {
+    padding-top: 65px
+  }
+}
+
+@media (max-width: 385px) {
+  .ProfileContainer  {
+    padding-top: 65px
+  }
+}

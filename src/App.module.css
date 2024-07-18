@@ -74,13 +74,6 @@ cursor: pointer;
 color: #FF9F1C;
 }
 
-/*
-figure {
-  text-align: center;
-  display: inline-block;
-}
-*/
-
 /* scrollbar */
 *::-webkit-scrollbar {
   width: 5px;
