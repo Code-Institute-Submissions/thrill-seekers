@@ -9,6 +9,7 @@ import { useHistory, useParams } from 'react-router-dom';
 function ContactFormView() {
   const [formData, setFormData] = useState({});
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showConfirmMessage, setShowConfirmMessage] = useState(false);
   const { edit_token } = useParams();
   const history = useHistory();
 
@@ -42,13 +43,22 @@ function ContactFormView() {
   };
 
   const handleConfirmData = () => {
-    localStorage.removeItem('contactFormEditToken');
-    history.push('/');
+    setShowConfirmMessage(true);
+    setTimeout(() => {
+      setShowConfirmMessage(false);
+      localStorage.removeItem('contactFormEditToken');
+      history.push('/');
+    }, 1000); // 1 second
   };
 
   return (
     <Container className={`${appStyles.Content} p-4`}>
       <h1 className={styles.Header}>Review your transmitted data</h1>
+      {showConfirmMessage && (
+        <Alert variant="success">
+          Your data has been irrevocably saved.
+        </Alert>
+      )}
       <Form>
         <Form.Group controlId="first_name">
           <Form.Label className={styles.Label}>First Name</Form.Label>
