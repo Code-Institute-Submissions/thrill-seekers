@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import { Container, Row, Col, Image, Card, Button } from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefaults";
 import styles from "../../styles/ProfilesPage.module.css";
@@ -10,18 +10,18 @@ function ProfilesPage() {
   const currentUser = useCurrentUser();
   const history = useHistory();
   const [profileData, setProfileData] = useState({ pageProfile: { results: [] } });
+  const [bucketlist, setBucketlist] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: pageProfile }] = await Promise.all([
-          axiosReq.get(`/profiles/${id}/`),
-        ]);
+        const { data } = await axiosReq.get(`/profiles/${id}/`);
         setProfileData((prevState) => ({
           ...prevState,
-          pageProfile: { results: [pageProfile] },
+          pageProfile: { results: [data] },
         }));
+        setBucketlist(data.bucketlist);
       } catch (err) {
         console.error(err);
         if (err.response?.status === 404) {
@@ -82,6 +82,25 @@ function ProfilesPage() {
               )}
             </Col>
           </Row>
+        </Card.Body>
+      </Card>
+
+      <Card className={`${appStyles.Container} ${styles.BucketlistCard} mt-4`}>
+        <Card.Body>
+          <h4>Bucketlist</h4>
+          {bucketlist && bucketlist.length > 0 ? (
+            <ol className={styles.BucketlistList}>
+              {bucketlist.map((item) => (
+                <li key={item.id}>
+                  <Link to={`/parks/${item.park}`} className={styles.BucketlistLink}>
+                    {item.park_name}
+                  </Link>
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <p>No parks in the bucketlist yet.</p>
+          )}
         </Card.Body>
       </Card>
     </Container>
