@@ -110,20 +110,22 @@ function ProfilesPage() {
       <Card className={`${appStyles.Container} ${styles.RatingsCard} mt-4`}>
         <Card.Body>
           <h4>Ratings</h4>
-          {ratings.results.length ? (
-            ratings.results.map((rating, index) => (
-              <div key={rating.id} className={`${styles.RatingItem} ${index < ratings.results.length - 1 ? styles.RatingItemWithBorder : ''}`}>
-                <Rating 
-                  {...rating} 
-                  setRatings={setRatings} 
-                  showProfileImage={false}
-                  showParkName={true}
-                />
-              </div>
-            ))
-          ) : (
-            <p>No ratings yet.</p>
-          )}
+          <div className={styles.RatingsContainer}>
+            {ratings.results.length ? (
+              ratings.results.map((rating, index) => (
+                <div key={rating.id} className={`${styles.RatingItem} ${index < ratings.results.length - 1 ? styles.RatingItemWithBorder : ''}`}>
+                  <Rating 
+                    {...rating} 
+                    setRatings={setRatings} 
+                    showProfileImage={false}
+                    showParkName={true}
+                  />
+                </div>
+              ))
+            ) : (
+              <p>No ratings yet.</p>
+            )}
+          </div>
         </Card.Body>
       </Card>
     </Container>

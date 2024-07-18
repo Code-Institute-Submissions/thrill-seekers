@@ -25,14 +25,14 @@
 }
 
 .ProfileStats {
-  background-color: #f8f9fa;
+  background-color: #ffffff;
   border-radius: 10px;
   padding: 15px;
   margin-bottom: 20px;
 }
 
 .RatingIcon {
-  color: #ffc107;
+  color: #ff9F1C;
   font-size: 24px;
 }
 
@@ -51,7 +51,7 @@
 .ProfileStats p {
   margin-top: 5px;
   font-size: 14px;
-  color: #6c757d;
+  color: #0B132B;
 }
 
 .EditButton {
@@ -90,6 +90,22 @@
   text-decoration: underline;
 }
 
+.RatingsCard {
+  border: 5px solid #0B94A3;
+  margin-top: 20px;
+}
+
+.RatingItem {
+  margin-bottom: 15px;
+}
+
+.RatingItem hr {
+  border: none;
+  height: 2px;
+  background-color: #0B94A3;
+  margin: 15px 0;
+}
+
 @media (max-width: 767px) {
   .ProfileImage {
     margin-bottom: 30px;
@@ -102,12 +118,12 @@
 
 @media screen and (min-width: 767px) and (max-width: 995px) {
   .ProfileContainer {
-    padding-top: 65px
+    padding-top: 65px;
   }
 }
 
 @media (max-width: 385px) {
-  .ProfileContainer  {
-    padding-top: 65px
+  .ProfileContainer {
+    padding-top: 65px;
   }
 }
