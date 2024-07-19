@@ -64,6 +64,11 @@
   color: #FF9F1C;
 }
 
+a:hover i {
+  color: #FF9F1C;
+}
+  
+
 @media (max-width: 767px) {
 #NavLinkText {
   flex-direction: column;

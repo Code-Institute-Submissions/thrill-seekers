@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Card, Col, Row, Button, Modal, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
-import appStyles from "../../App.module.css";
 import styles from "../../styles/Park.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -48,7 +47,7 @@ const Park = (props) => {
         ...prevParks,
         results: prevParks.results.filter(park => park.id !== id),
       }));
-      history.goBack(); // Zurück zur vorherigen Seite nach dem Löschen
+      history.goBack(); 
     } catch (err) {
       console.log(err);
     }
@@ -83,12 +82,12 @@ const Park = (props) => {
   };
 
   const handleConfirmDelete = () => {
-    handleDelete(); // Löschen bestätigen
-    setShowDeleteModal(false); // Modal schließen
+    handleDelete(); 
+    setShowDeleteModal(false);
   };
 
   return (
-    <Card className={`${appStyles.Container} h-100 ${styles.ParkCard}`}>
+    <Card className={`h-100 ${styles.ParkCard}`}>
       <Card.Body>
         <Row className="h-100">
           <Col className="py-2 p-0 p-lg-2 order-lg-2" lg={5}>
@@ -168,7 +167,7 @@ const Park = (props) => {
           </div>
           <div className={styles.StarIconCounter}>
             <Link to={`/parks/${id}`} className="text-center ml-3">
-              <i className="far fa-solid fa-star" />
+              <i className={`far fa-solid fa-star ${styles.star}`}/>
             </Link>
             {ratings_count}
           </div>
