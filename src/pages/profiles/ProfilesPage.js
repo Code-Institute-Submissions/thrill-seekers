@@ -6,6 +6,8 @@ import styles from "../../styles/ProfilesPage.module.css";
 import appStyles from "../../App.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Rating from "../ratings/Rating.js";
+import Asset from "../../components/Asset";
+import NotFound from "../404/NotFound";
 
 function ProfilesPage() {
   const currentUser = useCurrentUser();
@@ -13,6 +15,8 @@ function ProfilesPage() {
   const [profileData, setProfileData] = useState({ pageProfile: { results: [] } });
   const [bucketlist, setBucketlist] = useState([]);
   const [ratings, setRatings] = useState({ results: [] });
+  const [hasLoaded, setHasLoaded] = useState(false);
+  const [notFound, setNotFound] = useState(false);
   const { id } = useParams();
 
   useEffect(() => {
@@ -28,17 +32,23 @@ function ProfilesPage() {
       } catch (err) {
         console.error(err);
         if (err.response?.status === 404) {
-          history.push("/");
+          setNotFound(true);
         }
+      } finally {
+        setHasLoaded(true);
       }
     };
 
     handleMount();
-  }, [id, history]);
+  }, [id]);
 
   const profile = profileData.pageProfile.results[0];
 
-  if (!profile) return <Container>Loading...</Container>;
+  if (!hasLoaded) return <Asset spinner />;
+
+  if (notFound) return <NotFound />;
+
+  if (!profile) return null;
 
   return (
     <Container className={styles.ProfileContainer}>
