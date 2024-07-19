@@ -8,7 +8,7 @@ import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 
-import styles from "../../styles/Park.module.css";
+import styles from "../../styles/ParksPage.module.css";
 
 function ParksPage({ message, filter = "" }) {
   const [parks, setParks] = useState({ results: [] });
@@ -38,14 +38,14 @@ function ParksPage({ message, filter = "" }) {
     };
   }, [filter, query, pathname]);
 
-
   return (
     <Row>
-      <i className={`fas fa-search ${styles.SearchIcon}`} />
+      <Col xs={12} className={styles.SearchBarContainer}>
         <Form
           className={styles.SearchBar}
           onSubmit={(event) => event.preventDefault()}
         >
+          <i className={`fas fa-search ${styles.SearchIcon}`} />
           <Form.Control
             value={query}
             onChange={(event) => setQuery(event.target.value)}
@@ -54,22 +54,22 @@ function ParksPage({ message, filter = "" }) {
             placeholder="Search parks"
           />
         </Form>
+      </Col>
 
-
-
-        {hasLoaded ? (
-          parks.results.length ? (
-            <InfiniteScroll
-              dataLength={parks.results.length}
-              next={() => fetchMoreData(parks, setParks)}
-              hasMore={!!parks.next}
-              loader={<Asset spinner />}
-              children={parks.results.map((park) => (
-                <Col key={park.id} xs={12} className="mb-3">
-                  <Park {...park} setParks={setParks} />
-                </Col>
-              ))}
-            />
+      {hasLoaded ? (
+        parks.results.length ? (
+          <InfiniteScroll
+            dataLength={parks.results.length}
+            next={() => fetchMoreData(parks, setParks)}
+            hasMore={!!parks.next}
+            loader={<Asset spinner />}
+          >
+            {parks.results.map((park) => (
+              <Col key={park.id} xs={12} className="mb-3">
+                <Park {...park} setParks={setParks} />
+              </Col>
+            ))}
+          </InfiniteScroll>
         ) : (
           <Col xs={12}>
             <Asset src={NoResults} message={message} />

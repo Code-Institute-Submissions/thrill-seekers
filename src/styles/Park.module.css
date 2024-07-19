@@ -3,10 +3,6 @@
   margin-bottom: 20px; 
 }
 
-.ParkCardDetail {
-  margin-top: 20px; 
-}
-
 .ParkImage {
   width: 100%;
   height: auto;
@@ -84,52 +80,17 @@
   margin-right: 35px;
 }
 
-/* Ensure the stare has no hover effect with a workaround */
 .star:hover {
   color: #0B94A3; 
   cursor: default !important;
 }
 
-.SearchBar {
-  margin-top: 20px; 
-  margin-bottom: 20px; 
-  margin-left: 60px;
-  border: 5px solid #0B94A3;
-  position: relative;
-}
-
-.SearchIcon {
-  color: #0B94A3;
-  position: absolute;
-  margin-top: 22px;
-  margin-left: 20px;
-  pointer-events: none; 
-}
-
-
 .ParkButton {
   background-color: #0B94A3 !important;
   border-color: #0B94A3 !important;
   color: #ffffff !important;
-  border-radius: 100px ;
+  border-radius: 100px;
   width: 150px;
   margin: 0 30px !important;
-}
-
-
-
-.ParkButton {
   margin-right: 1.5rem;
-}
-
-@media screen and (min-width: 767px) and (max-width: 995px) {
-  .SearchBar, .SearchIcon, .ParkCardDetail {
-    margin-top: 55px;
-  }
-}
-
-@media (max-width: 385px) {
-  .SearchBar, .SearchIcon, .ParkCardDetail  {
-    margin-top: 55px;
-  }
 }
