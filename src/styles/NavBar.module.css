@@ -1,73 +1,75 @@
 .NavBar {
-    background-color: #0B132B;
-    border-bottom: 5px solid #0B94A3;
-    color: #ffffff; 
+  background-color: #0B132B;
+  border-bottom: 5px solid #0B94A3;
+  color: #ffffff; 
 }
 
 .NavLinkCustom {
-    padding: 10px;
+  padding: 10px;
 }
-  
+
 .Active i {
-    color: #FF9F1C;
+  color: #FF9F1C;
 }
 
 #NavLinkText > .NavLinkCustom, #NavLinkTextMobil > .NavLinkCustom  {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 #NavLinkText > .NavLinkCustom:hover, #NavLinkTextMobil > .NavLinkCustom:hover, #NavLinkParkCreate:hover {
-    color: #FF9F1C;
+  color: #FF9F1C;
 }
 
-/* Background and frame color of the dropdown toggle */
-.CustomDropdownToggle {
-    background-color: transparent !important;
-    border-color: transparent !important;
-    color: ffffff !important;
+.AvatarDropdown {
+  position: relative;
 }
-  
-/* Hover and active state for the drop-down toggle */
-.CustomDropdownToggle:hover,
-.CustomDropdownToggle:focus,
-.CustomDropdownToggle:active,
-.show > .CustomDropdownToggle {
+
+.CustomDropdownToggle {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: #ffffff !important;
+  cursor: default !important;
+  padding: 5px 15px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  min-width: 150px;
+  justify-content: space-between;
+}
+
+.CustomDropdownToggle:hover {
   background-color: #FF9F1C !important;
   border: 5px solid #0B94A4 !important;
-  color: ffffff !important;
-  box-shadow: none !important;
 }
 
-#NavLinkDropdown > .NavLinkCustom {
-  color: #ffffff !important;
+.DropdownArrow {
+  margin-left: 10px;
 }
-      
-#NavLinkDropdown {
+
+.NavLinkDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
   background-color: #0B132B;
-  border: 5px solid #0B94A3 !important;
-
+  border: 5px solid #0B94A3;
+  z-index: 1000;
 }
 
-/* Active state for the drop-down menu items */
-.custom-dropdown-item {
-  color: #ffffff !important;
-  background-color: #0B132B !important;
+.NavLinkDropdown > div {
+  padding: 10px;
+  color: #ffffff;
 }
 
-.custom-dropdown-item:hover,
-.custom-dropdown-item:focus,
-.custom-dropdown-item:active
- {
-  color: #FF9F1C !important;
-  background-color: #0B132B !important;
+.NavLinkDropdown > div:hover {
+  color: #FF9F1C;
 }
 
 @media (max-width: 767px) {
-  #NavLinkText {
-    flex-direction: column;
-  }
+#NavLinkText {
+  flex-direction: column;
+}
 
-  .NavLinkCustom {
-    padding: 0.5rem 0;
-  }
+.NavLinkCustom {
+  padding: 0.5rem 0;
+}
 }

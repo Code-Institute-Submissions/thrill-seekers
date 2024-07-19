@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, Container, Nav, Dropdown} from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/logo2.webp";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
@@ -66,20 +66,22 @@ const NavBar = () => {
 
   const loggedInIcons = (
     <>
-      <Dropdown 
-        className="d-none d-md-block"
+      <div 
+        className={`d-none d-md-block ${styles.AvatarDropdown}`}
         onMouseEnter={() => setShowDropdown(true)}
         onMouseLeave={() => setShowDropdown(false)}
-        show={showDropdown}
       >
-        <Dropdown.Toggle variant="success" id="dropdown-basic" className={`${styles.NavLinkCustom} ${styles.CustomDropdownToggle}`}>
+        <div className={`${styles.NavLinkCustom} ${styles.CustomDropdownToggle}`}>
           <Avatar src={currentUser?.profile_picture} height={40} text={currentUser?.username} />
-        </Dropdown.Toggle>
+          <i className={`fas fa-chevron-down ${styles.DropdownArrow}`}></i>
+        </div>
 
-        <Dropdown.Menu id={styles.NavLinkDropdown}>
-          {loggedInLinks}
-        </Dropdown.Menu>  
-      </Dropdown>
+        {showDropdown && (
+          <div className={styles.NavLinkDropdown}>
+            {loggedInLinks}
+          </div>
+        )}
+      </div>
 
       <Nav className="d-md-none">
         {loggedInLinks}
