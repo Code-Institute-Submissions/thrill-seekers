@@ -74,14 +74,14 @@ function ProfilesPage() {
               <div className={styles.ProfileStats}>
                 <Row className="text-center">
                   <Col xs={4}>
-                    <i className={`fas fa-star ${styles.RatingIcon}`}></i>
-                    <span>{profile.ratings_count}</span>
-                    <p>ratings</p>
-                  </Col>
-                  <Col xs={4}>
-                    <i className={`fas fa-bucket ${styles.BucketIcon}`}></i>
+                    <i className={`fas fa-bucket ${styles.BucketIcon}`} aria-hidden="true"></i>
                     <span>{profile.bucketlist_count}</span>
                     <p>bucketlist</p>
+                  </Col>
+                  <Col xs={4}>
+                    <i className={`fas fa-star ${styles.RatingIcon}`} aria-hidden="true"></i>
+                    <span>{profile.ratings_count}</span>
+                    <p>ratings</p>
                   </Col>
                 </Row>
               </div>

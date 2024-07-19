@@ -43,10 +43,9 @@ p, ul {
 box-sizing: border-box;
 }
 
-/* text under sign in form */
+
 a {
 color: #FFFFFF;
-
 }
 
 a:hover {
@@ -57,35 +56,12 @@ a:hover i {
 color: #FF9F1C;
 }
 
-/* input filds, passwords */
-input[type="file"] {
-  display: none;
-}
 
 i {
 color: #ffffff;
 font-size: 1.6rem;
 padding: 7px;
 vertical-align: middle;
-}
-
-i:hover {
-cursor: pointer;
-color: #FF9F1C;
-}
-
-/* scrollbar */
-*::-webkit-scrollbar {
-  width: 5px;
-}
-*::-webkit-scrollbar-track {
-  background: #ffffff;
-}
-*::-webkit-scrollbar-thumb {
-  background: #ffffff;
-}
-*::-webkit-scrollbar-thumb:hover {
-  background: #ffffff;
 }
 
 a span{
