@@ -10,7 +10,6 @@ import ContactFormCreate from "./pages/contacts/ContactFormCreate";
 import ContactFormView from "./pages/contacts/ContactFormView";
 import ContactFormEdit from "./pages/contacts/ContactFormEdit";
 import About from "./pages/about/About";
-import Home from "./pages/parks/Home";
 import ParkCreateForm from "./pages/parks/ParkCreateForm";
 import ParkEditForm from "./pages/parks/ParkEditForm";
 import ParkPage from "./pages/parks/ParkPage";
