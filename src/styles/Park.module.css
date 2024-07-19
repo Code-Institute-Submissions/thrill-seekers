@@ -84,13 +84,10 @@
   margin-right: 35px;
 }
 
-.star {
-  cursor: none;
-}
-
+/* Ensure the stare has no hover effect with a workaround */
 .star:hover {
-  color: #0B94A3; /* Ensure the hover color stays the same */
-  cursor: pointer;
+  color: #0B94A3; 
+  cursor: default !important;
 }
 
 .SearchBar {
