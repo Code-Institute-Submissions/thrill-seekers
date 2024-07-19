@@ -17,6 +17,7 @@ import ParksPage from "./pages/parks/ParksPage";
 import ProfilesPage from "./pages/profiles/ProfilesPage";
 import ProfilesEditForm from "./pages/profiles/ProfilesEditForm";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+import NotFound from "./pages/404/NotFound";
 
 
 function App() {
@@ -34,14 +35,7 @@ function App() {
                 render={() => (
                   <ParksPage message="No results found. Adjust the search keyword."/>
                 )}
-              /> 
-              <Route exact path="/liked" render={() => (
-                <ParksPage 
-                  message="No results found. Adjust the search keyword or add a park to your bucketlist."
-                  filter={`bucketlist__owner__profile=${profile_id}&ordering=-bucketlist__created_at&`}
-                />
-              )}
-              />
+              />       
               <Route exact path="/about" render={() => <About />} />
               <Route exact path="/contact" render={() => <ContactFormCreate />} />
               <Route path="/contact/view/:edit_token" 
@@ -57,7 +51,7 @@ function App() {
               <Route exact path="/profiles/:id" render={() => <ProfilesPage />} />
               <Route exact path="/profiles/:id/edit" render={() => <ProfilesEditForm />} />
 
-              <Route render={() => <p>Page not found!</p>} />
+              <Route render={() => <NotFound />} />
             </Switch>
           </Container>
         </div>
