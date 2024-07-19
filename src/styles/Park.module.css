@@ -84,6 +84,15 @@
   margin-right: 35px;
 }
 
+.star {
+  cursor: none;
+}
+
+.star:hover {
+  color: #0B94A3; /* Ensure the hover color stays the same */
+  cursor: pointer;
+}
+
 .SearchBar {
   margin-top: 20px; 
   margin-bottom: 20px; 
@@ -110,11 +119,7 @@
   margin: 0 30px !important;
 }
 
-.ParkButton:hover {
-  background-color: #FF9F1C !important;
-  border-color: #FF9F1C !important;
-  color: #000000!important;
-}
+
 
 .ParkButton {
   margin-right: 1.5rem;
