@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Card, Col, Row, Button, Modal, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Container, Card, Col, Row, Button, Modal, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import styles from "../../styles/Park.module.css";
+import appStyles from "../../App.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 
@@ -87,7 +88,8 @@ const Park = (props) => {
   };
 
   return (
-    <Card className={`h-100 ${styles.ParkCard}`}>
+    
+    <Card className={`h-100 ${styles.ParkCard} ${appStyles.Container}`}>
       <Card.Body>
         <Row className="h-100">
           <Col className="py-2 p-0 p-lg-2 order-lg-2" lg={5}>

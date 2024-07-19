@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Row, Form, Col } from "react-bootstrap";
+import { Container, Row, Form, Col } from "react-bootstrap";
 import Park from "./Park";
 import Asset from "../../components/Asset";
 import { useLocation } from "react-router";
@@ -39,6 +39,7 @@ function ParksPage({ message, filter = "" }) {
   }, [filter, query, pathname]);
 
   return (
+    <Container className={styles.ParkContainer}>
     <Row>
       <Col xs={12} className={styles.SearchBarContainer}>
         <Form
@@ -81,6 +82,7 @@ function ParksPage({ message, filter = "" }) {
         </Col>
       )}
     </Row>
+    </Container>
   );
 }
 

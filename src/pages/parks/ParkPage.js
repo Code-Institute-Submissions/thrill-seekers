@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
 import { axiosReq } from "../../api/axiosDefaults";
 import Park from "./Park";
-import parkStyles from "../../styles/Park.module.css";
+import styles from "../../styles/ParkPage.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
@@ -52,50 +53,47 @@ function ParkPage() {
   }
 
   return (
-    <div>
-      <div className={`mb-3 ${parkStyles.ParkCardDetail}`}>
+    <Container className={styles.ParkContainer}>
+      <div className={`mb-3 ${styles.ParkCardDetail}`}>
         <Park {...park.results[0]} setParks={setPark} parkPage />
       </div>
       
-      <Container className="card">
-        <div className="card-body mt-4">
-          <div className="mb-3"> 
-            {currentUser && (
-              <RatingCreateForm
-                profile_id={currentUser.profile_id}
-                profile_picture={profile_picture}
-                park={id}
-                setPark={setPark}
-                setRatings={setRatings}
-                username={username}
-              />
-            )} 
+      <Card className={styles.RatingsCard}>
+        <Card.Body>
+          <h3 className="mb-4">Ratings</h3>
+          
+          {currentUser && (
+            <RatingCreateForm
+              profile_id={currentUser.profile_id}
+              profile_picture={profile_picture}
+              park={id}
+              setPark={setPark}
+              setRatings={setRatings}
+              username={username}
+            />
+          )}
 
-            <h3 className="mt-4">Ratings</h3>
-            
-            {ratings.results.length ? (
-              <InfiniteScroll
-                dataLength={ratings.results.length}
-                next={() => fetchMoreData(ratings, setRatings)}
-                hasMore={!!ratings.next}
-                loader={<Asset spinner />}
-              >
-                {ratings.results.map((rating, index) => (
-                  <div key={rating.id} className="mt-3">
-                    <Rating {...rating} setRatings={setRatings} />
-                    {index < ratings.results.length - 1 && <hr />}
-                  </div>
-                ))}
-              </InfiniteScroll>
-            ) : currentUser ? (
-              <span>No ratings yet, make the first one!</span>
-            ) : (
-              <span>No ratings... yet</span>
-            )}     
-          </div>
-        </div>
-      </Container>
-    </div>  
+          {ratings.results.length ? (
+            <InfiniteScroll
+              dataLength={ratings.results.length}
+              next={() => fetchMoreData(ratings, setRatings)}
+              hasMore={!!ratings.next}
+              loader={<Asset spinner />}
+            >
+              {ratings.results.map((rating) => (
+                <div key={rating.id}>
+                  <Rating {...rating} setRatings={setRatings} />
+                </div>
+              ))}
+            </InfiniteScroll>
+          ) : currentUser ? (
+            <p>No ratings yet, make the first one!</p>
+          ) : (
+            <p>No ratings... yet</p>
+          )}     
+        </Card.Body>
+      </Card>
+    </Container>
   );
 }
 

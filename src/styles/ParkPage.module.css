@@ -1,0 +1,32 @@
+.ParkContainer {
+  padding-top: 30px;
+}
+
+.ParkCardDetail {
+  margin-bottom: 20px;
+}
+
+.RatingsCard {
+  border: 5px solid #0B94A3;
+  margin-top: 20px;
+  background-color: white;
+}
+
+.RatingsCard hr {
+  border: none;
+  height: 3px;
+  background-color: #0B94A3;
+  margin: 15px 0;
+}
+
+@media screen and (min-width: 767px) and (max-width: 995px) {
+  .ParkContainer {
+    padding-top: 65px;
+  }
+}
+
+@media (max-width: 385px) {
+  .ParkContainer {
+    padding-top: 65px;
+  }
+}
