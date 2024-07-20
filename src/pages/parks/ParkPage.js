@@ -18,6 +18,7 @@ function ParkPage() {
   const [park, setPark] = useState({ results: [] });
   const [ratings, setRatings] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [userRating, setUserRating] = useState(null);
 
   const currentUser = useCurrentUser();
   const profile_picture = currentUser?.profile_picture;
@@ -31,7 +32,23 @@ function ParkPage() {
           axiosReq.get(`/ratings/?park=${id}`),
         ]);
         setPark({ results: [parkData] });
-        setRatings({ results: ratingsData.results, next: ratingsData.next });
+        
+        const uniqueRatings = ratingsData.results.reduce((acc, current) => {
+          const x = acc.find(item => item.user === current.user);
+          if (!x) {
+            return acc.concat([current]);
+          } else {
+            return acc;
+          }
+        }, []);
+        
+        setRatings({ results: uniqueRatings, next: ratingsData.next });
+        
+        if (currentUser) {
+          const userRating = uniqueRatings.find(rating => rating.user === currentUser.username);
+          setUserRating(userRating || null);
+        }
+        
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -42,7 +59,23 @@ function ParkPage() {
     };
 
     handleMount();
-  }, [id, history]);
+  }, [id, history, currentUser]);
+
+  const handleRatingCreate = (newRating) => {
+    setRatings(prevRatings => ({
+      ...prevRatings,
+      results: [newRating, ...prevRatings.results.filter(r => r.user !== newRating.user)],
+    }));
+    setUserRating(newRating);
+  };
+
+  const handleRatingDelete = () => {
+    setUserRating(null);
+    setRatings(prevRatings => ({
+      ...prevRatings,
+      results: prevRatings.results.filter(r => r.user !== currentUser.username),
+    }));
+  };
 
   if (!hasLoaded) {
     return <Asset spinner />;
@@ -62,7 +95,7 @@ function ParkPage() {
         <Card.Body>
           <h3 className="mb-4">Ratings</h3>
           
-          {currentUser && (
+          {currentUser && !userRating && (
             <RatingCreateForm
               profile_id={currentUser.profile_id}
               profile_picture={profile_picture}
@@ -70,6 +103,7 @@ function ParkPage() {
               setPark={setPark}
               setRatings={setRatings}
               username={username}
+              onRatingCreate={handleRatingCreate}
             />
           )}
 
@@ -82,7 +116,12 @@ function ParkPage() {
             >
               {ratings.results.map((rating) => (
                 <div key={rating.id}>
-                  <Rating {...rating} setRatings={setRatings} />
+                  <Rating 
+                    {...rating} 
+                    setRatings={setRatings} 
+                    onRatingDelete={handleRatingDelete}
+                    isOwner={currentUser && currentUser.username === rating.user}
+                  />
                 </div>
               ))}
             </InfiniteScroll>

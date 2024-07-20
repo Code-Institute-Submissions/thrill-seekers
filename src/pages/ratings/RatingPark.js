@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 
 import styles from "../../styles/Rating.module.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import StarRating from "../../components/StarRating";
 import RatingEditForm from "./RatingEditForm";
@@ -23,21 +22,17 @@ const RatingPark = (props) => {
     park,
     showProfileImage = true,
     showParkName = false,
+    onRatingDelete,
+    isOwner,
   } = props;
 
-  const currentUser = useCurrentUser();
-  const is_owner = currentUser?.username === user;
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showEditForm, setShowEditForm] = useState(false);
 
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/ratings/${id}/`);
-      setRatings((prevRatings) => ({
-        ...prevRatings,
-        results: prevRatings.results.filter((rating) => rating.id !== id),
-      }));
-      setShowDeleteModal(false); 
+      onRatingDelete();
     } catch (err) {
       console.error("Error deleting rating:", err);
     }
@@ -79,7 +74,7 @@ const RatingPark = (props) => {
           </>
         )}
       </div>
-      {is_owner && !showEditForm && (
+      {isOwner && !showEditForm && (
         <div className="mt-3 d-flex justify-content-center align-items-center" id="RatingButtonContainer">
           <Button
             onClick={() => setShowEditForm(true)}

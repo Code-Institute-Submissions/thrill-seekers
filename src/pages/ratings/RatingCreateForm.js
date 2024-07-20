@@ -9,7 +9,7 @@ import StarRating from "../../components/StarRating";
 import { axiosRes } from "../../api/axiosDefaults";
 
 function RatingCreateForm(props) {
-  const { park, setPark, setRatings, profile_picture, profile_id, username } = props;
+  const { park, setPark, setRatings, profile_picture, profile_id, username, onRatingCreate } = props;
   const [explanation, setExplanation] = useState("");
   const [rating, setRating] = useState(1);
   const [errors, setErrors] = useState({});
@@ -28,29 +28,16 @@ function RatingCreateForm(props) {
         park,
         rating,
       });
-      setRatings((prevRatings) => ({
-        ...prevRatings,
-        results: [data, ...prevRatings.results],
-      }));
-      setPark((prevPark) => ({
-        results: [
-          {
-            ...prevPark.results[0],
-            ratings_count: prevPark.results[0].ratings_count + 1,
-          },
-        ],
-      }));
+      onRatingCreate(data);
       setExplanation("");
       setRating(1);
     } catch (err) {
       if (err.response?.data) {
         setErrors(err.response.data);
         if (err.response.data.detail) {
-          // This is for the "You have already rated this park" error
           setErrors(prevErrors => ({...prevErrors, general: err.response.data.detail}));
         }
         if (err.response.data.explanation) {
-          // This is for the "Explanation is required" error
           setErrors(prevErrors => ({...prevErrors, explanation: err.response.data.explanation}));
         }
       } else {
