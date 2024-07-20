@@ -88,7 +88,6 @@ const Park = (props) => {
   };
 
   return (
-    
     <Card className={`h-100 ${styles.ParkCard} ${appStyles.Container}`}>
       <Card.Body>
         <Row className="h-100">
@@ -145,33 +144,39 @@ const Park = (props) => {
           </Col>
         </Row>
 
-        <div className={`${styles.PostBar} mt-3 d-flex justify-content-center align-items-center`}>
+        <div className={`${styles.ParkIcons} mt-3 d-flex justify-content-center`}>
           <div className={styles.BucketIconCounter}>
-            {bucketlist_id ? (
-              <div className={`text-center ${styles.SelectedBucket}`} onClick={handleUndoBucketlist}>
-                <i className={`fas fa-bucket ${styles.Bucket}`} />
-              </div>
-            ) : currentUser ? (
-              <div className={`text-center ${styles.BucketOutline}`} onClick={handleBucketlist}>
-                <i className={`fas fa-bucket ${styles.BucketOutlineIcon}`} /> 
-              </div>
-            ) : (
-              <OverlayTrigger
-                placement="top"
-                overlay={<Tooltip>Log in to add parks to your bucketlist!</Tooltip>}
-              >
-                <div className="text-center">
-                  <i className="fas fa-bucket" />
+            <div className={styles.IconWrapper}>
+              {bucketlist_id ? (
+                <div className={`text-center ${styles.SelectedBucket}`} onClick={handleUndoBucketlist}>
+                  <i className={`fas fa-bucket ${styles.Bucket}`} />
                 </div>
-              </OverlayTrigger>
-            )}
-            {bucketlist_count}
+              ) : currentUser ? (
+                <div className={`text-center ${styles.BucketOutline}`} onClick={handleBucketlist}>
+                  <i className={`fas fa-bucket ${styles.BucketOutlineIcon}`} /> 
+                </div>
+              ) : (
+                <OverlayTrigger
+                  placement="top"
+                  overlay={<Tooltip>Log in to add parks to your bucketlist!</Tooltip>}
+                >
+                  <div className="text-center">
+                    <i className="fas fa-bucket" />
+                  </div>
+                </OverlayTrigger>
+              )}
+              <span>{bucketlist_count}</span>
+            </div>
+            <p className={styles.IconLabel}>bucketlist</p>
           </div>
           <div className={styles.StarIconCounter}>
-            <Link to={`/parks/${id}`} className="text-center ml-3">
-              <i className={`far fa-solid fa-star ${styles.star}`}/>
-            </Link>
-            {ratings_count}
+            <div className={styles.IconWrapper}>
+              <Link to={`/parks/${id}`} className="text-center">
+                <i className={`far fa-solid fa-star ${styles.star}`}/>
+              </Link>
+              <span>{ratings_count}</span>
+            </div>
+            <p className={styles.IconLabel}>ratings</p>
           </div>
         </div>
 

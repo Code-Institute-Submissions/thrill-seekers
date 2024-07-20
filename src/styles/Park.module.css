@@ -38,14 +38,34 @@
   text-decoration: underline;
 }
 
-.PostBar {
+.ParkIcons {
   margin-top: 10px;
   position: relative;
   top: -40px;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+  height: auto;
+}
+
+.BucketIconCounter,
+.StarIconCounter {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  height: 0px;
+  margin: 0 50px;
+}
+
+.IconWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.IconLabel {
+  font-size: 20px;
+  color: #000000;
+  margin-top: 4px;
+  text-align: center;
 }
 
 .SelectedBucket,
@@ -70,14 +90,8 @@
   color: #FF9F1C;
 }
 
-.PostBar i {
+.ParkIcons i {
   color: #0B94A3;
-}
-
-.BucketIconCounter {
-  display: flex;
-  align-items: center;
-  margin-right: 35px;
 }
 
 .star:hover {
