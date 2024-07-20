@@ -52,10 +52,10 @@ function SignInForm() {
     <Row className={styles.Row}>
       <Col className="my-auto p-0 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
-          <h1 className={styles.Header}>sign in</h1>
+          <h1 className={styles.Header}>Sign In</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
-              <Form.Label className="d-none">Username</Form.Label>
+              <Form.Label className={styles.Label}>Username</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Username"
@@ -72,7 +72,7 @@ function SignInForm() {
             ))}
 
             <Form.Group controlId="password">
-              <Form.Label className="d-none">Password</Form.Label>
+              <Form.Label className={styles.Label}>Password</Form.Label>
               <Form.Control
                 type="password"
                 placeholder="Password"
@@ -91,7 +91,7 @@ function SignInForm() {
               className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
               type="submit"
             >
-              Sign in
+              Sign In
             </Button>
             {errors.non_field_errors?.map((message, idx) => (
               <Alert key={idx} variant="warning" className="mt-3">
@@ -108,7 +108,7 @@ function SignInForm() {
       </Col>
       <Col
         md={6}
-        className={`my-auto d-none d-md-block p-2 ${styles.SignInColum}`}
+        className={`my-auto d-none d-md-block p-2 ${styles.SignInColumn}`}
       >
         <Image
           className={`${appStyles.FillerImage}`}

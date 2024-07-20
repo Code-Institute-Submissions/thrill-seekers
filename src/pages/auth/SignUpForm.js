@@ -50,11 +50,11 @@ const SignUpForm = () => {
     <Row className={styles.Row}>
       <Col className="my-auto py-2 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
-          <h1 className={styles.Header}>sign up</h1>
+          <h1 className={styles.Header}>Sign Up</h1>
 
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
-              <Form.Label className="d-none">username</Form.Label>
+              <Form.Label className={styles.Label}>Username</Form.Label>
               <Form.Control
                 className={styles.Input}
                 type="text"
@@ -71,7 +71,7 @@ const SignUpForm = () => {
             ))}
 
             <Form.Group controlId="password1">
-              <Form.Label className="d-none">Password</Form.Label>
+              <Form.Label className={styles.Label}>Password</Form.Label>
               <Form.Control
                 className={styles.Input}
                 type="password"
@@ -88,11 +88,11 @@ const SignUpForm = () => {
             ))}
 
             <Form.Group controlId="password2">
-              <Form.Label className="d-none">Confirm password</Form.Label>
+              <Form.Label className={styles.Label}>Confirm Password</Form.Label>
               <Form.Control
                 className={styles.Input}
                 type="password"
-                placeholder="Confirm password"
+                placeholder="Confirm Password"
                 name="password2"
                 value={password2}
                 onChange={handleChange}
@@ -108,7 +108,7 @@ const SignUpForm = () => {
               className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
               type="submit"
             >
-              Sign up
+              Sign Up
             </Button>
             {errors.non_field_errors?.map((message, idx) => (
               <Alert key={idx} variant="warning" className="mt-3">

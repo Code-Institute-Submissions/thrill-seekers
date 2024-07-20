@@ -24,7 +24,7 @@ function ContactFormCreate() {
       const timer = setTimeout(() => {
         setSuccess(false);
         history.push(`/contact/view/${localStorage.getItem('contactFormEditToken')}`);
-      }, 1000); // 1000 ms = 1 seconds
+      }, 1000);
 
       return () => clearTimeout(timer);
     }
@@ -75,11 +75,10 @@ function ContactFormCreate() {
           {success && <Alert variant="success">Message sent successfully! Redirecting to view page...</Alert>}
           <Form onSubmit={handleSubmit} noValidate>
             <Form.Group>
-              <Form.Label className="d-none">First Name</Form.Label>
+              <Form.Label className={styles.Label}>First Name</Form.Label>
               <Form.Control
                 id="first_name"
                 type="text"
-                placeholder="First Name"
                 name="first_name"
                 className={styles.Input}
                 value={formData.first_name}
@@ -94,11 +93,10 @@ function ContactFormCreate() {
             )}
 
             <Form.Group>
-              <Form.Label className="d-none">Last Name</Form.Label>
+              <Form.Label className={styles.Label}>Last Name</Form.Label>
               <Form.Control
                 id="last_name"
                 type="text"
-                placeholder="Last Name"
                 name="last_name"
                 className={styles.Input}
                 value={formData.last_name}
@@ -113,11 +111,10 @@ function ContactFormCreate() {
             )}
 
             <Form.Group>
-              <Form.Label className="d-none">Email</Form.Label>
+              <Form.Label className={styles.Label}>Email</Form.Label>
               <Form.Control
                 id="email"
                 type="email"
-                placeholder="Email"
                 name="email"
                 className={styles.Input}
                 value={formData.email}
@@ -132,7 +129,7 @@ function ContactFormCreate() {
             )}
 
             <Form.Group>
-              <Form.Label className="d-none">Subject</Form.Label>
+              <Form.Label className={styles.Label}>Subject</Form.Label>
               <Form.Control
                 id="subject"
                 as="select"
@@ -154,12 +151,11 @@ function ContactFormCreate() {
             )}
 
             <Form.Group>
-              <Form.Label className="d-none">Message</Form.Label>
+              <Form.Label className={styles.Label}>Message</Form.Label>
               <Form.Control
                 id="message"
                 as="textarea"
                 rows={3}
-                placeholder="Message"
                 name="message"
                 className={styles.Input}
                 value={formData.message}
