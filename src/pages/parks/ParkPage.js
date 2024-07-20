@@ -8,7 +8,7 @@ import styles from "../../styles/ParkPage.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
-import Rating from "../ratings/Rating.js";
+import Rating from "../ratings/RatingPark.js";
 import RatingCreateForm from "../ratings/RatingCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 

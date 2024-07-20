@@ -9,7 +9,6 @@
   color: #000000;
 }
 
-
 .ratingContainer {
   background-color: #FFFFFF;
   border: 5px solid #0B94A3;
@@ -18,7 +17,7 @@
 }
 
 .Username {
-  color:  #000000;
+  color: #000000;
   margin-left: 10px;
   font-weight: bold;
 }
@@ -49,4 +48,34 @@
   cursor: pointer;
   background-color: #FF9F1C;
   color: #000000;
+}
+
+.RatingProfile {
+  margin-bottom: 15px;
+}
+
+.RatingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ParkNameLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.RatingExplanation {
+  margin: 5px 0;
+}
+
+.RatingDate {
+  color: #6c757d;
+}
+
+.RatingDivider {
+  border: none;
+  height: 2px;
+  background-color: #0B94A3;
+  margin: 10px 0;
 }

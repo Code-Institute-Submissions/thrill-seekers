@@ -113,6 +113,11 @@
   margin: 15px 0;
 }
 
+.RatingActions {
+  display: flex;
+  gap: 10px;
+}
+
 @media (max-width: 767px) {
   .ProfileImage {
     margin-bottom: 30px;

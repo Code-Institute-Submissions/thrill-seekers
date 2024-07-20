@@ -1,28 +1,22 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Avatar from "../../components/Avatar";
-
 import styles from "../../styles/Rating.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import StarRating from "../../components/StarRating";
 import RatingEditForm from "./RatingEditForm";
 
-const Rating = (props) => {
+const RatingProfile = (props) => {
   const { 
-    profile_id, 
-    profile_picture, 
+    id,
     updated_at, 
     user, 
     explanation, 
     rating,
-    id,
-    setRatings, 
-    park_name,
     park,
-    showProfileImage = true,
-    showParkName = false,
+    park_name,
+    setRatings, 
   } = props;
 
   const currentUser = useCurrentUser();
@@ -47,19 +41,10 @@ const Rating = (props) => {
     <div>
       <hr />
       <div>
-        {showProfileImage && (
-          <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profile_picture} />
-          </Link>
-        )}
         <div className="d-flex justify-content-between"> 
-          {showParkName ? (
-            <Link to={`/parks/${park}`} className={styles.ParkNameLink}>
-              <span className={styles.Owner}>{`Rating for ${park_name}`}</span>
-            </Link>
-          ) : (
-            <span className={styles.Owner}>{`Rating from ${user}`}</span>
-          )}
+          <Link to={`/parks/${park}`} className={styles.ParkNameLink}>
+            <span className={styles.Owner}>{`Rating for ${park_name || 'Unknown Park'}`}</span>
+          </Link>
           <span className={styles.Date}>{updated_at}</span>
         </div>
         {showEditForm ? (
@@ -116,4 +101,4 @@ const Rating = (props) => {
   );
 };
 
-export default Rating;
+export default RatingProfile;

@@ -5,8 +5,10 @@ import { axiosReq } from "../../api/axiosDefaults";
 import styles from "../../styles/ProfilesPage.module.css";
 import appStyles from "../../App.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import Rating from "../ratings/Rating.js";
 import Asset from "../../components/Asset";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
+import RatingProfile from "../ratings/RatingProfile";
 import NotFound from "../404/NotFound";
 
 function ProfilesPage() {
@@ -22,20 +24,22 @@ function ProfilesPage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const { data } = await axiosReq.get(`/profiles/${id}/`);
+        const [{ data: profileData }, { data: ratingsData }] = await Promise.all([
+          axiosReq.get(`/profiles/${id}/`),
+          axiosReq.get(`/ratings/?user__profile=${id}`),
+        ]);
         setProfileData((prevState) => ({
           ...prevState,
-          pageProfile: { results: [data] },
+          pageProfile: { results: [profileData] },
         }));
-        setBucketlist(data.bucketlist);
-        setRatings({ results: data.ratings });
+        setBucketlist(profileData.bucketlist);
+        setRatings({ results: ratingsData.results, next: ratingsData.next });
+        setHasLoaded(true);
       } catch (err) {
         console.error(err);
         if (err.response?.status === 404) {
           setNotFound(true);
         }
-      } finally {
-        setHasLoaded(true);
       }
     };
 
@@ -45,9 +49,7 @@ function ProfilesPage() {
   const profile = profileData.pageProfile.results[0];
 
   if (!hasLoaded) return <Asset spinner />;
-
   if (notFound) return <NotFound />;
-
   if (!profile) return null;
 
   return (
@@ -122,16 +124,20 @@ function ProfilesPage() {
           <h4>Ratings</h4>
           <div className={styles.RatingsContainer}>
             {ratings.results.length ? (
-              ratings.results.map((rating, index) => (
-                <div key={rating.id} className={`${styles.RatingItem} ${index < ratings.results.length - 1 ? styles.RatingItemWithBorder : ''}`}>
-                  <Rating 
+              <InfiniteScroll
+                dataLength={ratings.results.length}
+                next={() => fetchMoreData(ratings, setRatings)}
+                hasMore={!!ratings.next}
+                loader={<Asset spinner />}
+              >
+                {ratings.results.map((rating) => (
+                  <RatingProfile 
+                    key={rating.id} 
                     {...rating} 
-                    setRatings={setRatings} 
-                    showProfileImage={false}
-                    showParkName={true}
+                    setRatings={setRatings}
                   />
-                </div>
-              ))
+                ))}
+              </InfiniteScroll>
             ) : (
               <p>No ratings yet.</p>
             )}
