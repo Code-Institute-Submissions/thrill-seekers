@@ -13,14 +13,22 @@ function RatingCreateForm(props) {
   const [explanation, setExplanation] = useState("");
   const [rating, setRating] = useState(1);
   const [errors, setErrors] = useState({});
+  const [customError, setCustomError] = useState("");
 
   const handleExplanationChange = (event) => {
     setExplanation(event.target.value);
+    setCustomError(""); 
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setErrors({});
+    setCustomError("");
+
+    if (!explanation.trim()) {
+      setCustomError("Explanation is required. Please provide a reason for your rating.");
+      return;
+    }
 
     try {
       const { data } = await axiosRes.post("/ratings/", {
@@ -60,6 +68,7 @@ function RatingCreateForm(props) {
       </div>
       <Form onSubmit={handleSubmit}>
         {errors.general && <Alert variant="danger">{errors.general}</Alert>}
+        {customError && <Alert variant="warning">{customError}</Alert>}
         
         <Form.Group>
           <Form.Label className={styles.formLabel}></Form.Label>
@@ -70,15 +79,15 @@ function RatingCreateForm(props) {
           <InputGroup>
             <Form.Control
               className={`${styles.Form} form-control`}
-              placeholder="I rated this because..."
+              placeholder="I rated this because... (required)"
               as="textarea"
               value={explanation}
               onChange={handleExplanationChange}
               rows={2}
-              isInvalid={!!errors.explanation}
+              isInvalid={!!errors.explanation || !!customError}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.explanation}
+              {errors.explanation || customError}
             </Form.Control.Feedback>
           </InputGroup>
         </Form.Group>
@@ -86,7 +95,7 @@ function RatingCreateForm(props) {
         <div className="d-flex justify-content-center">
           <button
             className={`${styles.Button}`}
-            disabled={!explanation.trim() || rating === 0}
+            disabled={rating === 0}
             type="submit"
           >
             Submit
