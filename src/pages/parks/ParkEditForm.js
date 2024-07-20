@@ -140,6 +140,7 @@ function ParkEditForm() {
               accept="image/*"
               onChange={handleChangeImage}
               ref={imageInput}
+              style={{ display: 'none' }}
             />
           </div>
         </Form.Group>
