@@ -66,6 +66,14 @@ const NavBar = () => {
 
   const loggedInIcons = (
     <>
+      <Nav className="d-md-none">
+        <div className={`${styles.MobileUserInfo}`}>
+          <Avatar src={currentUser?.profile_picture} height={30} />
+          <span>{currentUser?.username} is logged in</span>
+        </div>
+        {loggedInLinks}
+      </Nav>
+
       <div 
         className={`d-none d-md-block ${styles.AvatarDropdown}`}
         onMouseEnter={() => setShowDropdown(true)}
@@ -82,10 +90,6 @@ const NavBar = () => {
           </div>
         )}
       </div>
-
-      <Nav className="d-md-none">
-        {loggedInLinks}
-      </Nav>
     </>
   );
 
