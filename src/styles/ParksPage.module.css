@@ -1,5 +1,5 @@
 .SearchBarContainer {
-  padding: 20px 15px;
+  padding: 35px 15px;
   display: flex;
   justify-content: center;
 }
@@ -37,4 +37,16 @@
 .SearchIcon:hover {
   cursor: default;
   color: #002500;
+}
+
+@media screen and (min-width: 767px) and (max-width: 995px) {
+  .ParkContainer {
+    padding-top: 45px;
+  }
+}
+
+@media (max-width: 385px) {
+  .ParkContainer {
+    padding-top: 10px;
+  }
 }
