@@ -79,3 +79,7 @@
   background-color: #0B94A3;
   margin: 10px 0;
 }
+
+.HorizontalLine {
+  border: 5px solid #0B94A3;
+}
