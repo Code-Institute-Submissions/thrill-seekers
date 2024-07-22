@@ -20,7 +20,6 @@ const Park = (props) => {
     bucketlist_count,
     bucketlist_id,
     ratings_count,
-    rating_id,
     total_number_of_rides,
     total_number_of_coasters,
     thrill_factor,
@@ -48,7 +47,7 @@ const Park = (props) => {
         ...prevParks,
         results: prevParks.results.filter(park => park.id !== id),
       }));
-      history.goBack(); 
+      history.push("/");
     } catch (err) {
       console.log(err);
     }
