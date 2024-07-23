@@ -126,6 +126,20 @@
   .ProfileInfo, .ProfileStats {
     text-align: center;
   }
+
+  .ProfileIcons {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .ProfileIcons .Row {
+    justify-content: center;
+  }
+
+  .EditButton {
+    display: block;
+    margin: 20px auto 0;
+  }
 }
 
 @media screen and (min-width: 767px) and (max-width: 995px) {

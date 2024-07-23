@@ -74,13 +74,13 @@ function ProfilesPage() {
                 <p><strong>Member since:</strong> {new Date(profile.created_at).toLocaleDateString()}</p>
               </div>
               <div className={styles.ProfileIcons}>
-                <Row className="text-center">
-                  <Col xs={4}>
+                <Row className="justify-content-center">
+                  <Col xs={6} md={4} className="text-center">
                     <i className={`fas fa-bucket ${styles.BucketIcon}`} aria-hidden="true"></i>
                     <span>{profile.bucketlist_count}</span>
                     <p className={styles.IconLabel}>bucketlist</p>
                   </Col>
-                  <Col xs={4}>
+                  <Col xs={6} md={4} className="text-center">
                     <i className={`fas fa-star ${styles.RatingIcon}`} aria-hidden="true"></i>
                     <span>{profile.ratings_count}</span>
                     <p className={styles.IconLabel}>ratings</p>
