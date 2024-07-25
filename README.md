@@ -26,6 +26,7 @@ All other relevant files can be found here: <br>
   - [Colour Scheme](#colour-scheme)
   - [Typography](#typography)
   - [Imagery and Icons](#imagery-and-icons)
+  
 
   
 
@@ -47,8 +48,11 @@ All other relevant files can be found here: <br>
 
 - [Technology Used](#technology-used)
   - [Languages](#languages)
-  - [Frameworks](#frameworks)
-  - [Database](#database)
+  - [Frameworks and Database](#frameworks-and-database)
+  - [Software and Tools](#software-and-tools)
+
+ 
+
   - [Tools](#tools)
 
 
@@ -139,7 +143,50 @@ All icons on the website were used by [Fontawesome](https://https://fontawesome.
 
 
 ## Technologies Used
+### Languages
+Frondend: <br>
+- HTML
+- CSS
+- Python
+- JSX (JavaScript XML)
 
+Backend: <br>
+- Python
+- Markdown
+
+### Frameworks and Database
+Frondend: <br>
+- React: JavaScript library for creating the Fontend user interfaces. 
+- React-bootstrap: Front-end framework, rebuilt for React with a collection of HTML, CSS, and JavaScript components.
+
+Backend: <br>
+- Django rest framework
+- The PostgreSQL database from Code Institute was used as the database
+
+
+### Software and Tools
+- Balsamiq - To create a wireframe.
+- Draw-io - To create an ERD.
+- Gitpod - IDE to code the project
+- Git - For version control.
+- Github - To store the website.
+- Gitpod - As an integrated development environment to write the code.
+- Heroku - To deploy the website.
+- Google Fonts - All fonts used are from google fonts.
+- Google Dev Tools, and Lighthouse - For troubleshooting testing and fixing bugs.
+- Deepl - For translating text.
+- Birme - To change the image to webp format and reducing the size of the images.
+- Tabletomarkdown.com - Used to Create table for markdown out of excel cheats.
+- ChatGPT - To generate the articles, review and texts and about page.
+- Microsoft Excel - To pre create tables for the readme.
+- Pep8 CI Python Linter - To Linter the python
+- W3C HTML Validator - To validate the HTML code.
+- W3C CSS Validator - To validate the CSS code.
+- JS Hint - To detects errors and potential problems in JavaScript code.
+- Cloudinary - Media management platform to save and provide images.
+- Font Awesome - To provide icons for the project.
+
+Libraries and Frameworks
 
 
 
