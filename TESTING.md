@@ -62,3 +62,12 @@ The following css files have been tested with the W3C CSS Validator by copying t
 | Rating.module.css               | <details><summary> ProfilesPage.module.css </summary><img src="./documentationfiles/testing/css-validation/css-validation15.png"></details>         | Pass, No errors |
 | RatingCreateEditForm.module.css | <details><summary> RatingCreateEditForm.module.css </summary><img src="./documentationfiles/testing/css-validation/css-validation16.png"></details> | Pass, No errors |
 | SignInUpForm.module.css         | <details><summary> SignInUpForm.module.css</summary><img src="./documentationfiles/testing/css-validation/css-validation17.png"></details>          | Pass, No errors |
+
+
+### ESLint Validation
+The validation of the JSX code was done with the [ESLint](https://eslint.org/) <br>
+To check the code with ESLint, "npx eslint" was executed in the terminal. As expected, there is no fedback from the tool. This means that the code does not contain any errors and meets the requirements of eslint.
+
+| Test Result Screenshot                                                                                                            | Result          |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| <details><summary>W3C Markup Validation </summary><img src="./documentationfiles/testing/eslint-validation/eslint.png"></details> | Pass, No errors |
