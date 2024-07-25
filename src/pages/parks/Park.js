@@ -170,9 +170,7 @@ const Park = (props) => {
           </div>
           <div className={styles.StarIconCounter}>
             <div className={styles.IconWrapper}>
-              <Link to={`/parks/${id}`} className="text-center">
-                <i className={`far fa-solid fa-star ${styles.star}`}/>
-              </Link>
+              <i className={`far fa-solid fa-star ${styles.star}`}/>
               <span>{ratings_count}</span>
             </div>
             <p className={styles.IconLabel}>ratings</p>
