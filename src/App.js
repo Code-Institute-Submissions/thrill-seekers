@@ -16,13 +16,10 @@ import ParkPage from "./pages/parks/ParkPage";
 import ParksPage from "./pages/parks/ParksPage";
 import ProfilesPage from "./pages/profiles/ProfilesPage";
 import ProfilesEditForm from "./pages/profiles/ProfilesEditForm";
-import { useCurrentUser } from "./contexts/CurrentUserContext";
 import NotFound from "./pages/404/NotFound";
 
 
 function App() {
-  const currentUser = useCurrentUser();
-  const profile_id = currentUser?.profile_id || "";
 
   return (
         <div className={styles.App}>

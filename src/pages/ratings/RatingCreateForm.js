@@ -9,7 +9,7 @@ import StarRating from "../../components/StarRating";
 import { axiosRes } from "../../api/axiosDefaults";
 
 function RatingCreateForm(props) {
-  const { park, setPark, setRatings, profile_picture, profile_id, username, onRatingCreate } = props;
+  const { park, profile_picture, profile_id, username, onRatingCreate } = props;
   const [explanation, setExplanation] = useState("");
   const [rating, setRating] = useState(1);
   const [errors, setErrors] = useState({});
