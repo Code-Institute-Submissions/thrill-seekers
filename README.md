@@ -14,18 +14,18 @@ All other relevant files can be found here: <br>
 [API Repository](https://github.com/SureDeveloping/thrill-seeker-drf-api) <br>
 
 
-# Content
+## Content
 - [UX - User Experience](#ux---user-experience)
-    - [Project goles](#project-goles)
-    - [Target audience](#target-audience)
-    - [User requirements and expectations](#user-requirements-and-expectations)
-    - [Initial epics and user stories](#initial-epics-and-user-stories)
+    * [Project goles](#project-goles)
+    * [Target audience](#target-audience)
+    * [User requirements and expectations](#user-requirements-and-expectations)
+    * [Initial epics and user stories](#initial-epics-and-user-stories)
 
 
 - [Design](#design)
-  - [Colour Scheme](#colour-scheme)
-  - [Typography](#typography)
-  - [Imagery and Icons](#imagery-and-icons)
+  * [Colour Scheme](#colour-scheme)
+  * [Typography](#typography)
+  * [Imagery and Icons](#imagery-and-icons)
   
 
   
@@ -33,39 +33,27 @@ All other relevant files can be found here: <br>
   - [Scope Plane](#scope-plane)
   - [Structural Plane](#structural-plane)
   - [Skeleton \& Surface Planes](#skeleton--surface-planes)
-    - [Wireframes](#wireframes)
-    - [Database Schema - Entity Relationship Diagram](#database-schema---entity-relationship-diagram)
-      - [Database Schema](#database-schema)
-      - [Entity Relationship Diagram (ERD)](#entity-relationship-diagram-erd)
-      - [Tables Overview](#tables-overview)
-      - [Relationships](#relationships)
-    - [Security](#security)
+    * [Wireframes](#wireframes)
+    * [Database Schema - Entity Relationship Diagram](#database-schema---entity-relationship-diagram)
+      * [Database Schema](#database-schema)
+      * [Entity Relationship Diagram (ERD)](#entity-relationship-diagram-erd)
+      * [Tables Overview](#tables-overview)
+      * [Relationships](#relationships)
+    * [Security](#security)
   - [All Existing Features with Screenshots](#all-existing-features-with-screenshots)
-    - [CRUD Functionality](#crud-functionality)
+    * [CRUD Functionality](#crud-functionality)
   - [Future Features](#future-features)
 
 
 
 - [Technology Used](#technology-used)
-  - [Languages](#languages)
-  - [Frameworks and Database](#frameworks-and-database)
-  - [Libraries and Packages](#libraries-and-packages)
-  - [Software and Tools](#software-and-tools)
+  * [Languages](#languages)
+  * [Frameworks and Database](#frameworks-and-database)
+  * [Libraries and Packages](#libraries-and-packages)
+  * [Software and Tools](#software-and-tools)
 
  
 
-  - [Tools](#tools)
-
-
-
-
-  - [Frontend](#frontend)
-  - [Backend](#backend)
-  - [Deployment and Version Control](#deployment-and-version-control)
-  - [Development Tools](#development-tools)
-  - [Libraries and Frameworks](#libraries-and-frameworks)
-  - [Validation Tools](#validation-tools)
-  - [Others](#others)
 - [Testing](#testing)
 - [Deployment](#deployment)
 - [Cloning and Forking](#cloning-and-forking)
@@ -235,7 +223,7 @@ Frontend: <br>
 - Font Awesome - To provide icons for the project.
 
 ## Testing
-
+The tests for the Thrill Seeker react frontend are listed in a separate file. This file can be found here. [TESTING.md](./TESTING.md)
 
 
 
