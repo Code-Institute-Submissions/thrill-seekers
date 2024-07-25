@@ -59,5 +59,6 @@ The following css files have been tested with the W3C CSS Validator by copying t
 | ParksPage.module.css            | <details><summary> ParksPage.module.css </summary><img src="./documentationfiles/testing/css-validation/css-validation12.png"></details>            | Pass, No errors |
 | ProfilesEditForm.module.css     | <details><summary> ProfilesEditForm.module.css </summary><img src="./documentationfiles/testing/css-validation/css-validation13.png"></details>     | Pass, No errors |
 | ProfilesPage.module.css         | <details><summary> ProfilesPage.module.css </summary><img src="./documentationfiles/testing/css-validation/css-validation14.png"></details>         | Pass, No errors |
-| RatingCreateEditForm.module.css | <details><summary> RatingCreateEditForm.module.css </summary><img src="./documentationfiles/testing/css-validation/css-validation15.png"></details> | Pass, No errors |
-| SignInUpForm.module.css         | <details><summary> SignInUpForm.module.css</summary><img src="./documentationfiles/testing/css-validation/css-validation16.png"></details>          | Pass, No errors |
+| Rating.module.css               | <details><summary> ProfilesPage.module.css </summary><img src="./documentationfiles/testing/css-validation/css-validation15.png"></details>         | Pass, No errors |
+| RatingCreateEditForm.module.css | <details><summary> RatingCreateEditForm.module.css </summary><img src="./documentationfiles/testing/css-validation/css-validation16.png"></details> | Pass, No errors |
+| SignInUpForm.module.css         | <details><summary> SignInUpForm.module.css</summary><img src="./documentationfiles/testing/css-validation/css-validation17.png"></details>          | Pass, No errors |
