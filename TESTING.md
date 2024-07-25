@@ -32,4 +32,32 @@ Return back to the [README.md](README.md) file.
 The code for the Thrill theekers website was validated using common tools to ensure that it complies with current development standards and conventions. This testing contributes to the reliable functioning of the project.
 
 ### HTML Validation
-The validation of the HTML code was done with the [W3C Markup Validator](https://validator.w3.org/).
+The validation of the HTML code was done with the [W3C Markup Validator](https://validator.w3.org/). <br>
+The html code passed the validation with usw of filter which remove issues related to the React.The settings can be seen in the screenshot. 
+
+| Tested File | Test Result Screenshot                                                                                                                   | Result          |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| index.html  | <details><summary>W3C Markup Validation </summary><img src="./documentationfiles/testing/html-validation/html-validation.png"></details> | Pass, No errors |
+
+### CSS Validation
+The validation of the CSS code was done with the [W3C MCSS Validator](https://jigsaw.w3.org/css-validator/) <br>
+The following css files have been tested with the W3C CSS Validator by copying the code directly into the validator. No errors occurred
+
+| Tested File                     | Test Result Screenshot                                                                                                                              | Result          |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| index.css                       | <details><summary> index.css </summary><img src="./documentationfiles/testing/css-validation/css-validation1.png"></details>                        | Pass, No errors |
+| App.module.css                  | <details><summary> App.module.css </summary><img src="./documentationfiles/testing/css-validation/css-validation2.png"></details>                   | Pass, No errors |
+| About.module.css                | <details><summary> About.module.css </summary><img src="./documentationfiles/testing/css-validation/css-validation3.png"></details>                 | Pass, No errors |
+| Asset.module.css                | <details><summary> Asset.module.css </summary><img src="./documentationfiles/testing/css-validation/css-validation4.png"></details>                 | Pass, No errors |
+| Avatar.module.css               | <details><summary> Avatar.module.css </summary><img src="./documentationfiles/testing/css-validation/css-validation5.png"></details>                | Pass, No errors |
+| Button.module.css               | <details><summary> Button.module.css</summary><img src="./documentationfiles/testing/css-validation/css-validation6.png"></details>                 | Pass, No errors |
+| NavBar.module.css               | <details><summary> NavBar.module.css </summary><img src="./documentationfiles/testing/css-validation/css-validation7.png"></details>                | Pass, No errors |
+| NotFound.module.css             | <details><summary> NotFound.module.css</summary><img src="./documentationfiles/testing/css-validation/css-validation8.png"></details>               | Pass, No errors |
+| Park.module.css                 | <details><summary> Park.module.css </summary><img src="./documentationfiles/testing/css-validation/css-validation9.png"></details>                  | Pass, No errors |
+| ParkAddEditForm.module.css      | <details><summary> ParkAddEditForm.module.css </summary><img src="./documentationfiles/testing/css-validation/css-validation10.png"></details>      | Pass, No errors |
+| ParkPage.module.css             | <details><summary> ParkPage.module.css </summary><img src="./documentationfiles/testing/css-validation/css-validation11.png"></details>             | Pass, No errors |
+| ParksPage.module.css            | <details><summary> ParksPage.module.css </summary><img src="./documentationfiles/testing/css-validation/css-validation12.png"></details>            | Pass, No errors |
+| ProfilesEditForm.module.css     | <details><summary> ProfilesEditForm.module.css </summary><img src="./documentationfiles/testing/css-validation/css-validation13.png"></details>     | Pass, No errors |
+| ProfilesPage.module.css         | <details><summary> ProfilesPage.module.css </summary><img src="./documentationfiles/testing/css-validation/css-validation14.png"></details>         | Pass, No errors |
+| RatingCreateEditForm.module.css | <details><summary> RatingCreateEditForm.module.css </summary><img src="./documentationfiles/testing/css-validation/css-validation15.png"></details> | Pass, No errors |
+| SignInUpForm.module.css         | <details><summary> SignInUpForm.module.css</summary><img src="./documentationfiles/testing/css-validation/css-validation16.png"></details>          | Pass, No errors |
