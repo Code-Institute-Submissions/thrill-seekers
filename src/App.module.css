@@ -1,7 +1,6 @@
 /* used*/
 .App {
     font-family: "Raleway", sans-serif;
-    font-optical-sizing: auto;
     font-style: normal;
     background-color: #DFEFCA;
     min-height: 100vh;
@@ -13,7 +12,6 @@
 
 p, ul {
   font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
   font-style: normal;
 }
 
