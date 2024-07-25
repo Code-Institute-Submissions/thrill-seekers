@@ -71,13 +71,21 @@ function RatingCreateForm(props) {
         {customError && <Alert variant="warning">{customError}</Alert>}
         
         <Form.Group>
-          <Form.Label className={styles.formLabel}></Form.Label>
-          <StarRating rating={rating} onSetRating={setRating} totalStars={5} editable={true} />
+          <Form.Label htmlFor="star-rating" className={styles.formLabel}>Rate the park:</Form.Label>
+          <StarRating 
+            id="star-rating"
+            rating={rating} 
+            onSetRating={setRating} 
+            totalStars={5} 
+            editable={true} 
+          />
         </Form.Group>
 
         <Form.Group>
+          <Form.Label htmlFor="explanation" className={styles.formLabel}>Explanation:</Form.Label>
           <InputGroup>
             <Form.Control
+              id="explanation"
               className={`${styles.Form} form-control`}
               placeholder="I rated this because... (required)"
               as="textarea"
