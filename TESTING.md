@@ -8,8 +8,9 @@ Return back to the [README.md](README.md) file.
 - [Code Validation](#code-validation)
     * [HTML Validation](#html-validation)
     * [CSS Validation](#css-validation)
-    * [JavaScript Validation](#javascript-validation)
-        * [ESLint](#eslint)
+    * [JSX Validation](#javascript-validation)
+- [Accessibility](#accessibility)
+
 
 - [Lighthouse](#lighthouse)
 - [Wave Accessibility Evaluation](#wave-accessibility-evaluation)
@@ -64,7 +65,7 @@ The following css files have been tested with the W3C CSS Validator by copying t
 | SignInUpForm.module.css         | <details><summary> SignInUpForm.module.css</summary><img src="./documentationfiles/testing/css-validation/css-validation17.png"></details>          | Pass, No errors |
 
 
-### ESLint Validation
+### JSX Validation
 The validation of the JSX code was done with the [ESLint](https://eslint.org/) <br>
 To check the code with ESLint, "npx eslint" was executed in the terminal. As expected, there is no fedback from the tool. This means that the code does not contain any errors and meets the requirements of eslint.
 
