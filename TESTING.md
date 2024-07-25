@@ -72,3 +72,11 @@ To check the code with ESLint, "npx eslint" was executed in the terminal. As exp
 | Test Result Screenshot                                                                                                            | Result          |
 | --------------------------------------------------------------------------------------------------------------------------------- | --------------- |
 | <details><summary>W3C Markup Validation </summary><img src="./documentationfiles/testing/eslint-validation/eslint.png"></details> | Pass, No errors |
+
+
+## Accessibility
+The Wave tool was used to test the accessibility of the ThrillTheeker website. WAVE stands for Web Accessibility Evaluation Tool and helps to identify potential accessibility issues and provides guidance for improvement. <br>
+- 11 errors were detected during testing. 10 of them were due to the star icon having an empty link. I have removed these links. So all errors could be fixed.
+- 1 error was due to the fact that the search bar had no form lable. Here I added a live to fix this error. 
+
+In addition, after logging in there were still contrast errors displayed on the button for deleting and editing ratings. 
