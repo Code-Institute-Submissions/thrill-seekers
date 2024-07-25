@@ -63,7 +63,7 @@ function ContactFormEdit() {
       {success && <Alert variant="success">Contact form updated successfully! Redirecting...</Alert>}
       <Form onSubmit={handleSubmit} noValidate>
         <Form.Group>
-          <Form.Label className={styles.Label}>First Name</Form.Label>
+          <Form.Label htmlFor="first_name" className={styles.Label}>First Name</Form.Label>
           <Form.Control
             id="first_name"
             type="text"
@@ -81,7 +81,7 @@ function ContactFormEdit() {
         )}
 
         <Form.Group>
-          <Form.Label className={styles.Label}>Last Name</Form.Label>
+          <Form.Label htmlFor="last_name" className={styles.Label}>Last Name</Form.Label>
           <Form.Control
             id="last_name"
             type="text"
@@ -99,7 +99,7 @@ function ContactFormEdit() {
         )}
 
         <Form.Group>
-          <Form.Label className={styles.Label}>Email</Form.Label>
+          <Form.Label htmlFor="email" className={styles.Label}>Email</Form.Label>
           <Form.Control
             id="email"
             type="email"
@@ -117,7 +117,7 @@ function ContactFormEdit() {
         )}
 
         <Form.Group>
-          <Form.Label className={styles.Label}>Subject</Form.Label>
+          <Form.Label htmlFor="subject" className={styles.Label}>Subject</Form.Label>
           <Form.Control
             id="subject"
             as="select"
@@ -139,7 +139,7 @@ function ContactFormEdit() {
         )}
 
         <Form.Group>
-          <Form.Label className={styles.Label}>Message</Form.Label>
+          <Form.Label htmlFor="message" className={styles.Label}>Message</Form.Label>
           <Form.Control
             id="message"
             as="textarea"

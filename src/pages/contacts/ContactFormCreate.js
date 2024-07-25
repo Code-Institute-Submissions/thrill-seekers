@@ -75,7 +75,7 @@ function ContactFormCreate() {
           {success && <Alert variant="success">Message sent successfully! Redirecting to view page...</Alert>}
           <Form onSubmit={handleSubmit} noValidate>
             <Form.Group>
-              <Form.Label className={styles.Label}>First Name</Form.Label>
+              <Form.Label htmlFor="first_name" className={styles.Label}>First Name</Form.Label>
               <Form.Control
                 id="first_name"
                 type="text"
@@ -93,7 +93,7 @@ function ContactFormCreate() {
             )}
 
             <Form.Group>
-              <Form.Label className={styles.Label}>Last Name</Form.Label>
+              <Form.Label htmlFor="last_name" className={styles.Label}>Last Name</Form.Label>
               <Form.Control
                 id="last_name"
                 type="text"
@@ -111,7 +111,7 @@ function ContactFormCreate() {
             )}
 
             <Form.Group>
-              <Form.Label className={styles.Label}>Email</Form.Label>
+              <Form.Label htmlFor="email" className={styles.Label}>Email</Form.Label>
               <Form.Control
                 id="email"
                 type="email"
@@ -124,12 +124,12 @@ function ContactFormCreate() {
             </Form.Group>
             {errors.email && (
               <Alert variant="warning">
-              {Array.isArray(errors.email) ? errors.email[0] : errors.email}
-            </Alert>
+                {Array.isArray(errors.email) ? errors.email[0] : errors.email}
+              </Alert>
             )}
 
             <Form.Group>
-              <Form.Label className={styles.Label}>Subject</Form.Label>
+              <Form.Label htmlFor="subject" className={styles.Label}>Subject</Form.Label>
               <Form.Control
                 id="subject"
                 as="select"
@@ -151,7 +151,7 @@ function ContactFormCreate() {
             )}
 
             <Form.Group>
-              <Form.Label className={styles.Label}>Message</Form.Label>
+              <Form.Label htmlFor="message" className={styles.Label}>Message</Form.Label>
               <Form.Control
                 id="message"
                 as="textarea"
