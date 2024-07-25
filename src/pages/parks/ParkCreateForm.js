@@ -1,25 +1,19 @@
 import React, { useRef, useState } from "react";
-
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
-
 import Asset from "../../components/Asset";
-
 import Upload from "../../assets/upload-icon.webp";
-
 import styles from "../../styles/ParkAddEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function ParkCreateForm() {
   const [errors, setErrors] = useState({});
-
   const [postData, setPostData] = useState({
     name: "",
     description: "",
@@ -89,6 +83,7 @@ function ParkCreateForm() {
     <Form onSubmit={handleSubmit}>
       <Container className={`${appStyles.Content} ${styles.Container}`}>
         <Form.Group className="text-center">
+          <Form.Label htmlFor="image-upload">Park Image</Form.Label>
           <div className={`${styles.ImageContainer} ${styles.ImageUpload}`}>
             {image ? (
               <>
@@ -105,12 +100,12 @@ function ParkCreateForm() {
                 </div>
               </>
             ) : (
-              <Form.Label
+              <div
                 className="d-flex justify-content-center"
-                htmlFor="image-upload"
+                onClick={() => imageInput.current.click()}
               >
                 <Asset src={Upload} message="Click or tap to upload an image" />
-              </Form.Label>
+              </div>
             )}
 
             <Form.File
@@ -129,8 +124,9 @@ function ParkCreateForm() {
         ))}
 
         <Form.Group>
-          <Form.Label>Name</Form.Label>
+          <Form.Label htmlFor="name">Name</Form.Label>
           <Form.Control
+            id="name"
             type="text"
             name="name"
             value={name}
@@ -144,8 +140,9 @@ function ParkCreateForm() {
         ))}
 
         <Form.Group>
-          <Form.Label>Description</Form.Label>
+          <Form.Label htmlFor="description">Description</Form.Label>
           <Form.Control
+            id="description"
             as="textarea"
             rows={6}
             name="description"
@@ -160,8 +157,9 @@ function ParkCreateForm() {
         ))}
 
         <Form.Group>
-          <Form.Label>Website</Form.Label>
+          <Form.Label htmlFor="website">Website</Form.Label>
           <Form.Control
+            id="website"
             type="url"
             name="website"
             value={website}
@@ -175,8 +173,9 @@ function ParkCreateForm() {
         ))}
 
         <Form.Group>
-          <Form.Label>Total Number of Roller Coasters</Form.Label>
+          <Form.Label htmlFor="total_number_of_coasters">Total Number of Roller Coasters</Form.Label>
           <Form.Control
+            id="total_number_of_coasters"
             type="number"
             min="0"
             name="total_number_of_coasters"
@@ -191,8 +190,9 @@ function ParkCreateForm() {
         ))}
 
         <Form.Group>
-          <Form.Label>Total Number of Rides</Form.Label>
+          <Form.Label htmlFor="total_number_of_rides">Total Number of Rides</Form.Label>
           <Form.Control
+            id="total_number_of_rides"
             type="number"
             min="0"
             name="total_number_of_rides"
@@ -207,8 +207,9 @@ function ParkCreateForm() {
         ))}
 
         <Form.Group>
-          <Form.Label>Thrill Factor </Form.Label>
+          <Form.Label htmlFor="thrill_factor">Thrill Factor</Form.Label>
           <Form.Control
+            id="thrill_factor"
             type="number"
             step="0.1"
             min="0"
@@ -225,8 +226,9 @@ function ParkCreateForm() {
         ))}
 
         <Form.Group>
-          <Form.Label>Overall Rating </Form.Label>
+          <Form.Label htmlFor="overall_rating">Overall Rating</Form.Label>
           <Form.Control
+            id="overall_rating"
             type="number"
             step="0.1"
             min="0"
