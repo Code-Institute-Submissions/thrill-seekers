@@ -1,22 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
-
-
 import styles from "../../styles/ParkAddEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function ParkEditForm() {
   const [errors, setErrors] = useState({});
-
   const [postData, setPostData] = useState({
     name: "",
     description: "",
@@ -121,10 +116,15 @@ function ParkEditForm() {
     <Form onSubmit={handleSubmit}>
       <Container className={`${appStyles.Content} ${styles.Container}`}>
         <Form.Group className="text-center">
+          <Form.Label htmlFor="image-upload">Park Image</Form.Label>
           <div className={`${styles.ImageContainer} ${styles.ImageUpload}`}>
-     
             <figure>
-              <Image className={appStyles.Image} src={image} rounded />
+              <Image 
+                className={appStyles.Image} 
+                src={image} 
+                rounded 
+                alt="Park image preview"
+              />
             </figure>
             <div>
               <Button
@@ -151,8 +151,9 @@ function ParkEditForm() {
         ))}
 
         <Form.Group>
-          <Form.Label>Name</Form.Label>
+          <Form.Label htmlFor="name">Name</Form.Label>
           <Form.Control
+            id="name"
             type="text"
             name="name"
             value={name}
@@ -166,8 +167,9 @@ function ParkEditForm() {
         ))}
 
         <Form.Group>
-          <Form.Label>Description</Form.Label>
+          <Form.Label htmlFor="description">Description</Form.Label>
           <Form.Control
+            id="description"
             as="textarea"
             rows={6}
             name="description"
@@ -182,8 +184,9 @@ function ParkEditForm() {
         ))}
 
         <Form.Group>
-          <Form.Label>Website</Form.Label>
+          <Form.Label htmlFor="website">Website</Form.Label>
           <Form.Control
+            id="website"
             type="url"
             name="website"
             value={website}
@@ -197,8 +200,9 @@ function ParkEditForm() {
         ))}
 
         <Form.Group>
-          <Form.Label>Total Number of Roller Coasters</Form.Label>
+          <Form.Label htmlFor="total_number_of_coasters">Total Number of Roller Coasters</Form.Label>
           <Form.Control
+            id="total_number_of_coasters"
             type="number"
             min="0"
             name="total_number_of_coasters"
@@ -213,8 +217,9 @@ function ParkEditForm() {
         ))}
 
         <Form.Group>
-          <Form.Label>Total Number of Rides</Form.Label>
+          <Form.Label htmlFor="total_number_of_rides">Total Number of Rides</Form.Label>
           <Form.Control
+            id="total_number_of_rides"
             type="number"
             min="0"
             name="total_number_of_rides"
@@ -229,8 +234,9 @@ function ParkEditForm() {
         ))}
 
         <Form.Group>
-          <Form.Label>Thrill Factor </Form.Label>
+          <Form.Label htmlFor="thrill_factor">Thrill Factor</Form.Label>
           <Form.Control
+            id="thrill_factor"
             type="number"
             step="0.01"
             min="0"
@@ -247,8 +253,9 @@ function ParkEditForm() {
         ))}
 
         <Form.Group>
-          <Form.Label>Overall Rating </Form.Label>
+          <Form.Label htmlFor="overall_rating">Overall Rating</Form.Label>
           <Form.Control
+            id="overall_rating"
             type="number"
             step="0.01"
             min="0"
