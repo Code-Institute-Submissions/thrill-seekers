@@ -3,13 +3,14 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/logo2.webp";
 import styles from "../styles/NavBar.module.css";
 import { NavLink, useHistory } from "react-router-dom";
-import {
-  useCurrentUser,
-  useSetCurrentUser,
-} from "../contexts/CurrentUserContext";
+import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSquarePlus, faIdCard, faArrowRightFromBracket, faHouseUser, 
+  faCircleInfo, faAddressBook, faChevronDown, faArrowRightToBracket, 
+  faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -35,7 +36,7 @@ const NavBar = () => {
       id={styles.NavLinkParkCreate} 
       activeClassName={styles.Active} 
       to="/parks/add">
-        <i className="far fa-regular fa-square-plus"></i>Add Park
+        <FontAwesomeIcon icon={faSquarePlus} /> Add Park
     </NavLink>
   );
 
@@ -54,13 +55,13 @@ const NavBar = () => {
           activeClassName={styles.Active}
           to={`/profiles/${currentUser?.profile_id}`}
         >
-          <i className="fas fa-id-card"></i> Profile
+          <FontAwesomeIcon icon={faIdCard} /> Profile
         </Nav.Link>
         <Nav.Link
           className={styles.NavLinkCustom}
           onClick={handleSignOut}
         >
-          <i className="fas fa-solid fa-arrow-right-from-bracket"></i> Sign out
+          <FontAwesomeIcon icon={faArrowRightFromBracket} /> Sign out
         </Nav.Link>
       </div>
     </>
@@ -83,7 +84,7 @@ const NavBar = () => {
       >
         <div className={`${styles.NavLinkCustom} ${styles.CustomDropdownToggle}`}>
           <Avatar src={currentUser?.profile_picture} height={40} text={currentUser?.username} />
-          <i className={`fas fa-chevron-down ${styles.DropdownArrow}`}></i>
+          <FontAwesomeIcon icon={faChevronDown} className={styles.DropdownArrow} />
         </div>
 
         {showDropdown && (
@@ -101,12 +102,12 @@ const NavBar = () => {
         className={styles.NavLinkCustom} 
         activeClassName={styles.Active} 
         to="/signin"> 
-          <i className="fas fa-regular fa-arrow-right-to-bracket"></i>Sign in
+          <FontAwesomeIcon icon={faArrowRightToBracket} /> Sign in
       </NavLink>
 
       <NavLink className={styles.NavLinkCustom} 
         activeClassName={styles.Active} to="/signup">
-          <i className="fas fa-regular fa-user-plus"></i>Sign up
+          <FontAwesomeIcon icon={faUserPlus} /> Sign up
       </NavLink>
     </>
   );
@@ -128,13 +129,13 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left" id={styles.NavLinkText}>
             <NavLink exact className={styles.NavLinkCustom} activeClassName={styles.Active} to="/">
-              <i className="fas fa-regular fa-house-user"></i>Home
+              <FontAwesomeIcon icon={faHouseUser} /> Home
             </NavLink>
             <NavLink className={styles.NavLinkCustom} activeClassName={styles.Active} to="/about">
-              <i className="fas fa-regular fa-circle-info"></i>About
+              <FontAwesomeIcon icon={faCircleInfo} /> About
             </NavLink>
             <NavLink className={styles.NavLinkCustom} activeClassName={styles.Active} to="/contact">
-              <i className="fas fa-regular fa-address-book"></i>Contact
+              <FontAwesomeIcon icon={faAddressBook} /> Contact
             </NavLink>
 
             {currentUser ? loggedInIcons : loggedOutIcons}
