@@ -11,6 +11,8 @@ Return back to the [README.md](README.md) file.
     * [JSX Validation](#javascript-validation)
 - [Accessibility](#accessibility)
 - [Performance](#performance)
+    * [Google Lighthouse ](#google-lighthouse)
+    * [Devices and Browser Compability](#devices-and-browser-compability)
 
 
 - [Manual Testing](#manual-testing)
@@ -95,6 +97,7 @@ The [Wave](https://wave.webaim.org/) tool was used to test the accessibility of 
 
 
 ## Performance
+### Google Lighthouse 
 The performance of the Thrill Theekers website was tested using Google Lighthouse in Google Chrome Developer Tools. This tool provides a comprehensive assessment of performance, accessibility, best practices and SEO parameters. The tests were carried out for both desktop and mobile devices. The Parkpage and the Parkspage (homepage) were tested. I suspect that these have the greatest load as there are many images. 
 
 |                | Pages     | Performance | \*Accessibility | \*\*Best Practice | SEO | Screenshot                                                                                                                            |
@@ -109,3 +112,7 @@ The results for Accessibility Best Practice and SEO are good. For Accessibility 
 - In addition, django-resized was used to format and resize the images during upload. This should improve the loading time of the website.
 - Another attempt was to reduce the loading time by reducing the data loaded from external resources. The size of the googlefont was reduced so that only latin characters are loaded and no characters used in other languages. Unfortunately, this has led only to a small improvement. 
 
+### Devices and Browser Compability
+Using the Chrome dev tool, the website was tested on the available devices via the Google Chrome Developer Tools Device Toggeling option. At the same time, the browser window was reduced to see if the page is responsive. 
+The website was also opened in the Firefox browser. <br>
+No errors could be detected.
