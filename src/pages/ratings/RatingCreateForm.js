@@ -71,7 +71,7 @@ function RatingCreateForm(props) {
         {customError && <Alert variant="warning">{customError}</Alert>}
         
         <Form.Group>
-          <Form.Label htmlFor="star-rating" className={styles.formLabel}>Rate the park:</Form.Label>
+          <Form.Label htmlFor="star-rating" className={styles.LabelRating}>5 Star Rating:</Form.Label>
           <StarRating 
             id="star-rating"
             rating={rating} 
@@ -82,7 +82,7 @@ function RatingCreateForm(props) {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="explanation" className={styles.formLabel}>Explanation:</Form.Label>
+          <Form.Label htmlFor="explanation" className={styles.LabelRating}>Explanation:</Form.Label>
           <InputGroup>
             <Form.Control
               id="explanation"

@@ -79,4 +79,13 @@ The Wave tool was used to test the accessibility of the ThrillTheeker website. W
 - 11 errors were detected during testing. 10 of them were due to the star icon having an empty link. I have removed these links. So all errors could be fixed.
 - 1 error was due to the fact that the search bar had no form lable. Here I added a live to fix this error. 
 
+In addition, there were 4 errors on the concat create and conatct update form and 7 each on the park create and park update form due to missing lables
+These were fixed by adding lables.
+
+The ratings create and update form had a missing form lable and also an empty label.
+Here, too, lables were added and a content was added. 
+
 In addition, after logging in there were still contrast errors displayed on the button for deleting and editing ratings. 
+These were eliminated by changing the button color
+
+A contrast error, due to too little contrast between test and background was displayed on the searchbar. I had changed the font to black with a white background, which should be very good. Nevertheless, the error persists. This is not comprehensible. The placeholder font is lighter but it should not be black otherwise there is no difference between placeholder and normal font. I don't see a problem here in contrast, so no further change attempt was made

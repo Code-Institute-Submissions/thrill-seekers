@@ -43,7 +43,7 @@ function RatingEditForm(props) {
   return (
     <Form onSubmit={handleSubmit} className="mt-3">
       <Form.Group>
-        <Form.Label htmlFor="edit-star-rating" className={styles.formLabel}>Edit Rating:</Form.Label>
+        <Form.Label htmlFor="edit-star-rating" className={styles.LabelRating}>Edit 5 Star Rating:</Form.Label>
         <StarRating 
           id="edit-star-rating"
           rating={formRating} 
@@ -53,7 +53,7 @@ function RatingEditForm(props) {
         />
       </Form.Group>
       <Form.Group>
-        <Form.Label htmlFor="edit-explanation" className={styles.formLabel}>Edit Explanation:</Form.Label>
+        <Form.Label htmlFor="edit-explanation" className={styles.LabelRating}>Edit Explanation:</Form.Label>
         <Form.Control
           id="edit-explanation"
           className={styles.Form}
