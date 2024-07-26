@@ -10,10 +10,9 @@ Return back to the [README.md](README.md) file.
     * [CSS Validation](#css-validation)
     * [JSX Validation](#javascript-validation)
 - [Accessibility](#accessibility)
+- [Performance](#performance)
 
 
-- [Lighthouse](#lighthouse)
-- [Wave Accessibility Evaluation](#wave-accessibility-evaluation)
 - [Manual Testing](#manual-testing)
 - [User Input/Form Validation](#user-inputform-validation)
 - [Browser Compatibility](#browser-compatibility)
@@ -75,7 +74,7 @@ To check the code with ESLint, "npx eslint" was executed in the terminal. As exp
 
 
 ## Accessibility
-The Wave tool was used to test the accessibility of the ThrillTheeker website. WAVE stands for Web Accessibility Evaluation Tool and helps to identify potential accessibility issues and provides guidance for improvement. <br>
+The [Wave](https://wave.webaim.org/) tool was used to test the accessibility of the ThrillTheeker website. WAVE stands for Web Accessibility Evaluation Tool and helps to identify potential accessibility issues and provides guidance for improvement. <br>
 
 | Error occurred                                                                                        | Solution                                                                                                                                                                                                                                                                                                                                                   | Test Result  Screenshot                                                                                             | Result          |
 | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | --------------- |
@@ -93,3 +92,7 @@ The Wave tool was used to test the accessibility of the ThrillTheeker website. W
 |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                            | <details><summary>button color2   </summary><img src="./documentationfiles/testing/wave/wave12.png"></details>      |                 |
 | Contrast error, due to too little contrast between test and background was displayed on the searchbar | I have made the label invisible so that it can still be used for screanreader. Unfortunately, the error for the contrast still appears in the wave tool. But I don't want to have a visible lable for the searchbar for styling reasons. In my opinion, the searchbar is easily recognisable even without a lable. Therefore I could not remove the error. | <details><summary>search bar contrast1 </summary><img src="./documentationfiles/testing/wave/wave13.png"></details> | Pass, 1 error   |
 |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                            | <details><summary>search bar contrast2 </summary><img src="./documentationfiles/testing/wave/wave14.png"></details> |                 |
+
+
+## Performance
+The performance of the Thrill Theekers website was tested using Google Lighthouse in Google Chrome Developer Tools. This tool provides a comprehensive assessment of performance, accessibility, best practices and SEO parameters. The tests were carried out for both desktop and mobile devices. The Parkpage and the Parkspage (homepage) were tested. I suspect that these have the greatest load as there are many images. 

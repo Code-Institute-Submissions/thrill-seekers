@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import { axiosReq } from "../../api/axiosDefaults";
-import Park from "./Park";
 import styles from "../../styles/ParkPage.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
-import Rating from "../ratings/RatingPark.js";
-import RatingCreateForm from "../ratings/RatingCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
+// Lazy load the Park, Rating, and RatingCreateForm components
+const LazyPark = lazy(() => import("./Park"));
+const LazyRating = lazy(() => import("../ratings/RatingPark.js"));
+const LazyRatingCreateForm = lazy(() => import("../ratings/RatingCreateForm"));
 
 function ParkPage() {
   const { id } = useParams();
@@ -87,24 +89,28 @@ function ParkPage() {
 
   return (
     <Container className={styles.ParkContainer}>
-      <div className={`mb-3 ${styles.ParkCardDetail}`}>
-        <Park {...park.results[0]} setParks={setPark} parkPage />
-      </div>
+      <Suspense fallback={<Asset spinner />}>
+        <div className={`mb-3 ${styles.ParkCardDetail}`}>
+          <LazyPark {...park.results[0]} setParks={setPark} parkPage />
+        </div>
+      </Suspense>
       
       <Card className={styles.RatingsCard}>
         <Card.Body>
           <h3 className="mb-4">Ratings</h3>
           
           {currentUser && !userRating && (
-            <RatingCreateForm
-              profile_id={currentUser.profile_id}
-              profile_picture={profile_picture}
-              park={id}
-              setPark={setPark}
-              setRatings={setRatings}
-              username={username}
-              onRatingCreate={handleRatingCreate}
-            />
+            <Suspense fallback={<Asset spinner />}>
+              <LazyRatingCreateForm
+                profile_id={currentUser.profile_id}
+                profile_picture={profile_picture}
+                park={id}
+                setPark={setPark}
+                setRatings={setRatings}
+                username={username}
+                onRatingCreate={handleRatingCreate}
+              />
+            </Suspense>
           )}
 
           {ratings.results.length ? (
@@ -115,14 +121,14 @@ function ParkPage() {
               loader={<Asset spinner />}
             >
               {ratings.results.map((rating) => (
-                <div key={rating.id}>
-                  <Rating 
+                <Suspense key={rating.id} fallback={<Asset spinner />}>
+                  <LazyRating 
                     {...rating} 
                     setRatings={setRatings} 
                     onRatingDelete={handleRatingDelete}
                     isOwner={currentUser && currentUser.username === rating.user}
                   />
-                </div>
+                </Suspense>
               ))}
             </InfiniteScroll>
           ) : currentUser ? (

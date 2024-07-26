@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 import { Container, Row, Form, Col } from "react-bootstrap";
-import Park from "./Park";
 import Asset from "../../components/Asset";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
-
 import styles from "../../styles/ParksPage.module.css";
+
+const LazyPark = lazy(() => import("./Park"));
 
 function ParksPage({ message, filter = "" }) {
   const [parks, setParks] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
-
   const [query, setQuery] = useState("");
 
   useEffect(() => {
@@ -69,11 +68,13 @@ function ParksPage({ message, filter = "" }) {
               hasMore={!!parks.next}
               loader={<Asset spinner />}
             >
-              {parks.results.map((park) => (
-                <Col key={park.id} xs={12} className="mb-3">
-                  <Park {...park} setParks={setParks} />
-                </Col>
-              ))}
+              <Suspense fallback={<Asset spinner />}>
+                {parks.results.map((park) => (
+                  <Col key={park.id} xs={12} className="mb-3">
+                    <LazyPark {...park} setParks={setParks} />
+                  </Col>
+                ))}
+              </Suspense>
             </InfiniteScroll>
           ) : (
             <Col xs={12}>
