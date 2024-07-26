@@ -96,3 +96,16 @@ The [Wave](https://wave.webaim.org/) tool was used to test the accessibility of 
 
 ## Performance
 The performance of the Thrill Theekers website was tested using Google Lighthouse in Google Chrome Developer Tools. This tool provides a comprehensive assessment of performance, accessibility, best practices and SEO parameters. The tests were carried out for both desktop and mobile devices. The Parkpage and the Parkspage (homepage) were tested. I suspect that these have the greatest load as there are many images. 
+
+|                | Pages     | Performance | \*Accessibility | \*\*Best Practice | SEO | Screenshot                                                                                                                            |
+| -------------- | --------- | ----------- | --------------- | ----------------- | --- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Desktop device | parkspage | 55          | 100             | 78                | 100 | <details><summary>parkspage desktop </summary><img src="./documentationfiles/testing/performance/performance1-desktop.png"></details> |
+|                | parkpage  | 50          | 100             | 78                | 100 | <details><summary>parkpage desktop </summary><img src="./documentationfiles/testing/performance/performance2-desktop.png"></details>  |
+| Mobile device  | parkspage | 43          | 100             | 79                | 100 | <details><summary>parkspage mobile </summary><img src="./documentationfiles/testing/performance/performance1-mobil.png"></details>    |
+|                | parkpage  | 24          | 100             | 79                | 100 | <details><summary>parkspage mobile</summary><img src="./documentationfiles/testing/performance/performance2-mobil.png"></details>     |
+
+The results for Accessibility Best Practice and SEO are good. For Accessibility and SEO even 100 per cent could be achieved. However, the performance values are unfortunately not good at all. The desktop test of both pages is over 50 per cent. Which I think is ok. But the mobile score for the mobile check for the park page was just 24 per cent. For this reason, attempts have been made to improve this. Unfortunately with little success. 
+- Lazy loading has been set up using React.lazy. This means that resources are only loaded when required, i.e. the images. 
+- In addition, django-resized was used to format and resize the images during upload. This should improve the loading time of the website.
+- Another attempt was to reduce the loading time by reducing the data loaded from external resources. The size of the googlefont was reduced so that only latin characters are loaded and no characters used in other languages. Unfortunately, this has led only to a small improvement. 
+
