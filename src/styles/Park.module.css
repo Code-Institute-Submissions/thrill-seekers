@@ -28,24 +28,30 @@
 .UserInfo {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.UserInfoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.AvatarWrapper {
+  margin-right: 10px;
+  flex-shrink: 0;
 }
 
 .UserName {
-  margin-left: 10px;
-  color: #0B132B;
-}
-
-.Link {
-  color: #0B132B;
-  text-decoration: none;
-}
-
-.Link:hover {
-  text-decoration: underline;
+  word-break: break-word;
+  font-size: 0.9rem;
+  color: #000000; /* Sicherstellen, dass der Text schwarz ist */
 }
 
 .ParkIcons {
-  margin-top: 20px; /* Fester Abstand von 20px */
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -110,4 +116,28 @@
   width: 150px;
   margin: 0 30px !important;
   margin-right: 1.5rem;
+}
+
+@media (max-width: 576px) {
+  .Header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .UserInfo {
+    margin-top: 10px;
+  }
+
+  .UserInfoLink {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .AvatarWrapper {
+    margin-bottom: 5px;
+  }
+
+  .UserName {
+    font-size: 0.8rem;
+  }
 }

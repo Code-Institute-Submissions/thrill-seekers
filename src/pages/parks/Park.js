@@ -111,9 +111,11 @@ const Park = (props) => {
                     <div className={styles.UserInfo}>
                       <Link
                         to={`/profiles/${profile_id}`}
-                        className="d-flex align-items-center"
+                        className={styles.UserInfoLink}
                       >
-                        <Avatar src={profile_picture} height={55} />
+                        <div className={styles.AvatarWrapper}>
+                          <Avatar src={profile_picture} height={55} />
+                        </div>
                         <span className={styles.UserName}>
                           Author: {user} 
                         </span>
