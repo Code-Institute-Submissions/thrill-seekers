@@ -10,6 +10,15 @@
   max-width: 400px;
 }
 
+.LabelSearchBar {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
 .SearchBar input {
   border-radius: 20px;
   color: #000000 !important;

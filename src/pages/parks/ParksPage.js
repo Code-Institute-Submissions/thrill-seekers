@@ -46,7 +46,9 @@ function ParksPage({ message, filter = "" }) {
             className={styles.SearchBar}
             onSubmit={(event) => event.preventDefault()}
           >
-            <label htmlFor="search" className="sr-only">Search parks</label>
+            <Form.Label htmlFor="search" className={styles.LabelSearchBar}>
+              Search parks
+            </Form.Label>
             <i className={`fas fa-search ${styles.SearchIcon}`} />
             <Form.Control
               id="search"
