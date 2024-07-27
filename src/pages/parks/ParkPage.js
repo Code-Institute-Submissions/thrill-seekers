@@ -20,6 +20,7 @@ function ParkPage() {
   const [ratings, setRatings] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const [userRating, setUserRating] = useState(null);
+  const [ratingCount, setRatingCount] = useState(0);
 
   const currentUser = useCurrentUser();
   const profile_picture = currentUser?.profile_picture;
@@ -33,6 +34,7 @@ function ParkPage() {
           axiosReq.get(`/ratings/?park=${id}`),
         ]);
         setPark({ results: [parkData] });
+        setRatingCount(parkData.ratings_count);
 
         const uniqueRatings = ratingsData.results.reduce((acc, current) => {
           const x = acc.find(item => item.user === current.user);
@@ -68,6 +70,11 @@ function ParkPage() {
       results: [newRating, ...prevRatings.results.filter(r => r.user !== newRating.user)],
     }));
     setUserRating(newRating);
+    setRatingCount(prevCount => prevCount + 1);
+    setPark(prevPark => ({
+      ...prevPark,
+      results: [{ ...prevPark.results[0], ratings_count: prevPark.results[0].ratings_count + 1 }]
+    }));
   };
 
   const handleRatingDelete = () => {
@@ -75,6 +82,11 @@ function ParkPage() {
     setRatings(prevRatings => ({
       ...prevRatings,
       results: prevRatings.results.filter(r => r.user !== currentUser.username),
+    }));
+    setRatingCount(prevCount => prevCount - 1);
+    setPark(prevPark => ({
+      ...prevPark,
+      results: [{ ...prevPark.results[0], ratings_count: prevPark.results[0].ratings_count - 1 }]
     }));
   };
 
@@ -90,7 +102,7 @@ function ParkPage() {
     <Container className={styles.ParkContainer}>
       <Suspense fallback={<Asset spinner />}>
         <div className={`mb-3 ${styles.ParkCardDetail}`}>
-          <LazyPark {...park.results[0]} setParks={setPark} parkPage isParksPage={false} />
+          <LazyPark {...park.results[0]} setParks={setPark} parkPage isParksPage={false} ratingCount={ratingCount} />
         </div>
       </Suspense>
 

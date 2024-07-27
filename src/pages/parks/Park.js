@@ -28,7 +28,8 @@ const Park = (props) => {
     created_at,
     parkPage,
     setParks,
-    isParksPage, 
+    isParksPage,
+    ratingCount,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -143,7 +144,7 @@ const Park = (props) => {
                       </Link>
                     </div>
                   )}
-                </div >
+                </div>
                 {description && <p>{description}</p>}
                 {total_number_of_rides && (
                   <p>Total Number of Rides: {total_number_of_rides}</p>
@@ -156,7 +157,7 @@ const Park = (props) => {
                 {website && (
                   <p>
                     Website:{" "}
-                    <a href={website} id={styles.Link}>
+                    <a href={website} className={styles.link}>
                       {website}
                     </a>
                   </p>
@@ -193,7 +194,7 @@ const Park = (props) => {
                 <div className={styles.StarIconCounter}>
                   <div className={styles.IconWrapper}>
                     <i className={`far fa-solid fa-star ${styles.star}`}/>
-                    <span>{ratings_count}</span>
+                    <span>{ratingCount !== undefined ? ratingCount : ratings_count}</span>
                   </div>
                   <p className={styles.IconLabel}>ratings</p>
                 </div>
