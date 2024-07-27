@@ -53,7 +53,9 @@ const RatingPark = (props) => {
               <span className={styles.Owner}>{`Rating for ${park_name}`}</span>
             </Link>
           ) : (
-            <span className={styles.Owner}>{`Rating from ${user}`}</span>
+            <Link to={`/profiles/${profile_id}`} >
+              <span className={styles.Owner}>{`Rating from ${user}`}</span>
+            </Link>
           )}
           <span className={styles.Date}>{updated_at}</span>
         </div>
