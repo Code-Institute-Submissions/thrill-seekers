@@ -71,7 +71,7 @@ function ParksPage({ message, filter = "" }) {
               <Suspense fallback={<Asset spinner />}>
                 {parks.results.map((park) => (
                   <Col key={park.id} xs={12} className="mb-3">
-                    <LazyPark {...park} setParks={setParks} />
+                    <LazyPark {...park} setParks={setParks} isParksPage={true} />
                   </Col>
                 ))}
               </Suspense>

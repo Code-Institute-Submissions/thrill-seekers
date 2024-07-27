@@ -28,6 +28,7 @@ const Park = (props) => {
     created_at,
     parkPage,
     setParks,
+    isParksPage, 
   } = props;
 
   const currentUser = useCurrentUser();
@@ -91,22 +92,42 @@ const Park = (props) => {
       <Card.Body>
         <Row className="h-100">
           <Col className="py-2 p-0 p-lg-2 order-lg-2" lg={5}>
-            <Link to={`/parks/${id}`}>
-              {image && (
+            {isParksPage ? (
+              <Link to={`/parks/${id}`}>
+                {image && (
+                  <Card.Img
+                    src={image}
+                    alt={name}
+                    className={styles.ParkImage}
+                  />
+                )}
+              </Link>
+            ) : (
+              image && (
                 <Card.Img
                   src={image}
                   alt={name}
                   className={styles.ParkImage}
                 />
-              )}
-            </Link>
+              )
+            )}
           </Col>
 
           <Col className="py-2 p-0 p-lg-2 order-lg-1" lg={7}>
             <div className={styles.ContentWrapper}>
               <div className={styles.DataCard}>
                 <div className={styles.Header}>
-                  {name && <h2>{name}</h2>}
+                  {name && (
+                    <h2>
+                      {isParksPage ? (
+                        <Link to={`/parks/${id}`} className={styles.ParkNameLink}>
+                          {name}
+                        </Link>
+                      ) : (
+                        <span className={styles.ParkName}>{name}</span>
+                      )}
+                    </h2>
+                  )}
                   {user && profile_picture && (
                     <div className={styles.UserInfo}>
                       <Link
@@ -122,7 +143,7 @@ const Park = (props) => {
                       </Link>
                     </div>
                   )}
-                </div>
+                </div >
                 {description && <p>{description}</p>}
                 {total_number_of_rides && (
                   <p>Total Number of Rides: {total_number_of_rides}</p>
@@ -135,7 +156,7 @@ const Park = (props) => {
                 {website && (
                   <p>
                     Website:{" "}
-                    <a href={website} className={styles.Link}>
+                    <a href={website} id={styles.Link}>
                       {website}
                     </a>
                   </p>

@@ -116,3 +116,5 @@ The results for Accessibility Best Practice and SEO are good. For Accessibility 
 Using the Chrome dev tool, the website was tested on the available devices via the Google Chrome Developer Tools Device Toggeling option. At the same time, the browser window was reduced to see if the page is responsive. 
 The website was also opened in the Firefox browser. <br>
 No errors could be detected.
+
+## Manual testing

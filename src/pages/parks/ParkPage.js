@@ -90,7 +90,7 @@ function ParkPage() {
     <Container className={styles.ParkContainer}>
       <Suspense fallback={<Asset spinner />}>
         <div className={`mb-3 ${styles.ParkCardDetail}`}>
-          <LazyPark {...park.results[0]} setParks={setPark} parkPage />
+          <LazyPark {...park.results[0]} setParks={setPark} parkPage isParksPage={false} />
         </div>
       </Suspense>
 
