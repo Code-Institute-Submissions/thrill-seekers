@@ -19,25 +19,17 @@ All other relevant files can be found here: <br>
     * [Project goles](#project-goles)
     * [Target audience](#target-audience)
     * [User requirements and expectations](#user-requirements-and-expectations)
-
 - [Agile approach](#agile-approach)
-
 - [Design](#design)
   * [Colour Scheme](#colour-scheme)
   * [Typography](#typography)
   * [Imagery and Icons](#imagery-and-icons)
+- [Wireframes](#wireframes)
 
 
-  
-
-  
-
-
-  * [Wireframes](#wireframes)
- 
- 
-- [All Existing Features with Screenshots](#all-existing-features-with-screenshots)
-- [Future Features](#future-features)
+- [Features](#features)
+  *[Implemented features](#Implemented-features)
+  *[Future Features](#future-features)
 
 
 
@@ -47,12 +39,19 @@ All other relevant files can be found here: <br>
   * [Libraries and Packages](#libraries-and-packages)
   * [Software and Tools](#software-and-tools)
 
- 
+
+- [Deployment](#deployment)
+  * [Preparation for heroku depolyment](#preparation-for-heroku-depolyment) 
+  * [Deploying on heroku](#deploying-on-heroku) 
+  * [Fork this repository](#fork-this-repository) 
+  * [Clone this repository](#clone-this-repository) 
 
 - [Testing](#testing)
-- [Deployment](#deployment)
-- [Cloning and Forking](#cloning-and-forking)
-- [Credits](#credits)
+- [Credits](#credits) 
+  * [Content](#content) 
+  * [Media](#media) 
+  * [Code](#code) 
+- [Acknowledgments](#acknowledgments)
 
 
 
@@ -168,6 +167,37 @@ I have used various image sources for this project.
 I created the logo with the website [Logo](https://logo.com/). I used a variant of this for the profile_defauld image and the favicon. All other profile images for example accounts as well as the no_results image for an unsuccessful search are from the website [Freepiks](https://de.freepik.com/). The pictures on the About, Sign in and Sign up page are from the website [Pexels](https://www.pexels.com/de-de/). The images for the park articles are from the respective [Wikipedia](https://www.wikipedia.org/) pages of the free parks.
 All icons on the website were used by [Fontawesome](https://https://fontawesome.com/icons/).
 
+## Wireframes
+In the planning process for this project, wireframes were subsequently created for the entire project. These are listed here sorted by page. <br>
+
+| Page                           | Screanshot                                                                                                                                      |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Parks Page no User Signed in   | <details><summary>Parks Page no user signed in</summary><img src="./documentationfiles/wireframes/parkspage-no-user-logedin.png"></details>     |
+| Parks Page User Signed in      | <details><summary>Parks Page user signed in</summary><img src="./documentationfiles/wireframes/parkspage-user-logedin.png"></details>           |
+| Parks Page Superuser Signed in | <details><summary>Parks Page superuser signed in</summary><img src="./documentationfiles/wireframes/parkspage-superuser-logedin.png"></details> |
+| About Page                     | <details><summary>About Page</summary><img src="./documentationfiles/wireframes/about.png"></details>                                           |
+| Contact Form Create            | <details><summary>Contact Form create</summary><img src="./documentationfiles/wireframes/contact-form1.png"></details>                          |
+| Contact Form Review            | <details><summary>Contact Form review</summary><img src="./documentationfiles/wireframes/contact-form2.png"></details>                          |
+| Contact Form Update            | <details><summary>Contact Form update</summary><img src="./documentationfiles/wireframes/contact-form3.png"></details>                          |
+| Contact Form Delete            | <details><summary>Contact Form delete</summary><img src="./documentationfiles/wireframes/contact-form4.png"></details>                          |
+| Sign up Form                   | <details><summary>Sign up Form</summary><img src="./documentationfiles/wireframes/signup-form.png"></details>                                   |
+| Sign in Form                   | <details><summary>Sign in Form</summary><img src="./documentationfiles/wireframes/signin-form.png"></details>                                   |
+| Park Create                    | <details><summary>Park create</summary><img src="./documentationfiles/wireframes/park-create.png"></details>                                    |
+| Park Update                    | <details><summary>Park update</summary><img src="./documentationfiles/wireframes/park-update.png"></details>                                    |
+| Park Delete                    | <details><summary>Park delete</summary><img src="./documentationfiles/wireframes/park-delete.png"></details>                                    |
+| Park Superuser Signed in       | <details><summary>Parks Page superuser signed in</summary><img src="./documentationfiles/wireframes/park-superuser-logedin.png"></details>      |
+| Userprofil                     | <details><summary>Userprofil</summary><img src="./documentationfiles/wireframes/profil.png"></details>                                          |
+| Userprofile Update             | <details><summary>Userprofile update</summary><img src="./documentationfiles/wireframes/profil-update.png"></details>                           |
+| Userprofil Rating Update       | <details><summary>Userprofil Rating Update</summary><img src="./documentationfiles/wireframes/profile-rating-update.png"></details>             |
+| Userprofil Rating Delete       | <details><summary>Userprofil Rating Delete</summary><img src="./documentationfiles/wireframes/profile-rating-delete.png"></details>             |
+| Park Page Create               | <details><summary>Park Page Create</summary><img src="./documentationfiles/wireframes/parkpage-rating-create.png"></details>                    |
+| Park Page Delete               | <details><summary>Park Page Delete</summary><img src="./documentationfiles/wireframes/parkpage-rating-delete.png"></details>                    |
+| Park Page Rating Update1       | <details><summary>Park Page Rating Update1</summary><img src="./documentationfiles/wireframes/parkpage-rating-update1.png"></details>           |
+| Park Page Rating Update2       | <details><summary>Park Page Rating Update2</summary><img src="./documentationfiles/wireframes/parkpage-rating-update2.png"></details>           |
+| Park Page no Rating Create     | <details><summary>Park Page no Rating Create</summary><img src="./documentationfiles/wireframes/parkpage-no-rating.png"></details>              |
+
+
+
 
 
 
@@ -270,38 +300,3 @@ The tests for the Thrill Seeker react frontend are listed in a separate file. Th
 
 
 
-## Project Planning
-Strategy Plane
-Agile Methodologies - Project Management:
-Story Points Allocation
-Sprint Planning Example
-MoSCoW Prioritization:
-User Stories, Milestones and Epics
-Users Stories
-Milestones
-Epics
-Scope Plane
-Structural Plane
-Skeleton & Surface Planes
-Wireframes
-Database Schema - Entity Relationship Diagram
-Database Schema
-Entity Relationship Diagram (ERD)
-Tables Overview
-Relationships
-Security
-All Existing Features with Screenshots
-CRUD Functionality
-Future Features
-Technology Used
-Frontend
-Backend
-Deployment and Version Control
-Development Tools
-Libraries and Frameworks
-Validation Tools
-Others
-Testing
-Deployment
-Cloning and Forking
-Credits
