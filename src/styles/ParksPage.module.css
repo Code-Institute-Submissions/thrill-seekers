@@ -19,8 +19,6 @@
 
 .LabelSearchBar {
   position: absolute;
-  left: -10000px;
-  top: auto;
   width: 1px;
   height: 1px;
   overflow: hidden;
@@ -36,7 +34,6 @@
   padding-right: 40px;
   height: 50px;
   border: 5px solid #0B94A3;
-  transition: border-color 0.3s ease;
 }
 
 .SearchBar input:focus,
