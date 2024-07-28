@@ -1,57 +1,108 @@
-.SearchBarContainer {
-  padding: 35px 15px;
-  display: flex;
-  justify-content: center;
+.ParkContainer {
+  padding-top: 20px;
 }
 
-.SearchBar {
+.SearchBarContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.SearchBar,
+.OrderingSelectContainer {
   position: relative;
   width: 100%;
   max-width: 400px;
+  margin-bottom: 20px;
 }
 
 .LabelSearchBar {
-  position:absolute;
-  left:-10000px;
-  top:auto;
-  width:1px;
-  height:1px;
-  overflow:hidden;
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
-.SearchBar input {
+.SearchBar input,
+.OrderingSelect {
+  width: 100%;
   border-radius: 20px;
   color: #000000 !important;
   background-color: #ffffff;
   padding-left: 40px;
-  margin-bottom: 16px;
-  width: 100%;
+  padding-right: 40px;
+  height: 50px;
   border: 5px solid #0B94A3;
   transition: border-color 0.3s ease;
 }
 
-.SearchBar input:focus {
+.SearchBar input:focus,
+.OrderingSelect:focus {
   border-color: #FF9F1C;
   outline: none;
   box-shadow: none;
 }
 
-.SearchIcon {
+.SearchIcon,
+.FilterIcon,
+.DropdownArrow {
   position: absolute;
   font-size: 1.2rem;
-  padding: 9px;
-  padding-left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
   color: #000000;
+  pointer-events: none;
 }
 
-@media screen and (min-width: 767px) and (max-width: 995px) {
+.SearchIcon,
+.FilterIcon {
+  left: 15px;
+}
+
+.DropdownArrow {
+  right: 15px;
+}
+
+.OrderingSelect {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 850px) {
+  .SearchBarContainer {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .SearchBar,
+  .OrderingSelectContainer {
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+
+  .OrderingSelectContainer {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 995px) {
   .ParkContainer {
     padding-top: 50px;
   }
 }
 
-@media (max-width: 385px) {
+@media (max-width: 767px) {
   .ParkContainer {
     padding-top: 10px;
+  }
+  
+  .SearchBar,
+  .OrderingSelectContainer {
+    max-width: 100%;
   }
 }

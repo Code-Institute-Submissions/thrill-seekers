@@ -25,11 +25,9 @@ All other relevant files can be found here: <br>
   * [Typography](#typography)
   * [Imagery and Icons](#imagery-and-icons)
 - [Wireframes](#wireframes)
-
-
 - [Features](#features)
-  *[Implemented features](#Implemented-features)
-  *[Future Features](#future-features)
+  * [Implemented features](#Implemented-features)
+  * [Future Features](#future-features)
 
 
 
@@ -196,8 +194,22 @@ In the planning process for this project, wireframes were subsequently created f
 | Park Page Rating Update2       | <details><summary>Park Page Rating Update2</summary><img src="./documentationfiles/wireframes/parkpage-rating-update2.png"></details>           |
 | Park Page no Rating Create     | <details><summary>Park Page no Rating Create</summary><img src="./documentationfiles/wireframes/parkpage-no-rating.png"></details>              |
 
+## Features
+### Implemented features
+#### User account management
+- Sign up: Users can create an account on the website to rate items and create a bucket list of parks they want to visit.
+- Sign in: Users can log in to their Thrill Theeker account with their registered email and password to access personalised features.
+- Sign out: Users can log out of their account. This way they are only logged in when they are actually using the site, making it safer to use. 
+- Profile update: Users can update their profile information and publish some personal details if they wish.
+
+#### Park article review management
+- Create a park article: Superuser, staff of the website operator can create a park article. This contains a photo, some facts about the park and an evaluation of the park by the author.
+- View park articles: All users on the website can view park articles without logging in. All parks are listed one below the other in the overview on the homepage. By clicking on the link in the park name and in the park image, you can access the park details page.
+- Update park articles: The creator of the article can update it, add content to make changes or additions.
+- Delete park article: Creators can delete their own articles if they are no longer relevant because, for example, the park has been permanently closed.
 
 
+### Future Features
 
 
 
