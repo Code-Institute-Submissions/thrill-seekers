@@ -145,7 +145,7 @@ All others and the user stories for the backend can be found on this [project bo
 
 
 ## Design
-### Colour Scheme
+### Colour scheme
 I used the website [coolors](https://coolors.co/)  to find colors that go good together. These should always make a warm, friendly impression and invite users to spend time on the website.
 
 ![Color palette](documentationfiles/coolors.png "Color palette")
@@ -160,7 +160,7 @@ Two different fonts from [googlefonts](https://fonts.google.com/) were selected 
 For all headlines I chose the font family “Raleway”, a sans-serif font. I linked the name directly to railway tracks and therefore to tracks and speed, like on rollercoasters. At the same time, I really liked the font. 
 I then looked for a suitable font for the rest of the text and the body on the website. I came across this [article](https://maxibestof.one/typefaces/raleway/pairing/roboto/) which combines the "Roboto" sans-serif font family with Raleway. This combination appealed to me and I like "Roboto". That's why I chose Roboto as the second font for the project.
 
-### Imagery and Icons
+### Imagery and icons
 I have used various image sources for this project. 
 I created the logo with the website [Logo](https://logo.com/). I used a variant of this for the profile_defauld image and the favicon. All other profile images for example accounts as well as the no_results image for an unsuccessful search are from the website [Freepiks](https://de.freepik.com/). The pictures on the About, Sign in and Sign up page are from the website [Pexels](https://www.pexels.com/de-de/). The images for the park articles are from the respective [Wikipedia](https://www.wikipedia.org/) pages of the free parks.
 All icons on the website were used by [Fontawesome](https://https://fontawesome.com/icons/).
@@ -202,20 +202,58 @@ In the planning process for this project, wireframes were subsequently created f
 - Sign out: Users can log out of their account. This way they are only logged in when they are actually using the site, making it safer to use. 
 - Profile update: Users can update their profile information and publish some personal details if they wish.
 
-#### Park article review management
+#### Park article/review management
 - Create a park article: Superuser, staff of the website operator can create a park article. This contains a photo, some facts about the park and an evaluation of the park by the author.
 - View park articles: All users on the website can view park articles without logging in. All parks are listed one below the other in the overview on the homepage. By clicking on the link in the park name and in the park image, you can access the park details page.
 - Update park articles: The creator of the article can update it, add content to make changes or additions.
 - Delete park article: Creators can delete their own articles if they are no longer relevant because, for example, the park has been permanently closed.
 
+#### Contact form management
+- Create message via contact form:
+Users can send a message to the site operator without logging in, which is then saved in the database. 
+Review of the transmitted message:
+The user is shown their sent data again for review. This process is secured by an edit token so that no third party can access it.
+- Update of the transmitted message:
+The user then has the opportunity to change the data again if they have made a mistake or forgotten something.
+- Delete the transmitted message:
+If the user changes their mind, they can also delete the entire message,
+- Confrim the sent message:
+If the user finally clicks on Confirm, they are redirected to the homepage. The message can only be changed once with the edit token. As the message has a large number of digits, it is almost impossible to guess and is therefore a good protection against misuse. The data can be read by superusers via admin panel.
 
-### Future Features
+#### Interactions and engagement
+- Search: 
+Users can search for authors of park articles, park names and park description content. Parks will only be listed if the search term is contained in one of the fields in a park.
+- Sort: 
+Users can filter and sort park articles by Bucketlist Count, Ratings Count, Thrill Factor and Overall Rating so that the parks with the highest ratings are listed first.
+- Ratings: 
+Logged-in users can rate park items. There is a star rating from 1 to 5 stars and a reason for the rating must be given. At the same time, the number of ratings is counted in a counter and displayed under the park and on the user profile.
+- View ratings: 
+Users can read reviews of park types to form a better opinion of the park and choose a park for their next visit.
+- Update reviews: 
+Users can edit or correct their own reviews to change their shared opinion. This way, the rating can be adjusted if something changes about the park and the park item.
+- Delete review: Users can delete their own reviews to remove their previous statements. This will reduce the ratings counter.
+- Add park to Bucketlist: 
+Users can add parks to their bucket list. How many users have a park on their list is counted. It also counts how many parks a user has on their list. The respective list can be viewed on the user's profile. 
+- Delete park from bucket list: 
+Users can remove parks from their list, for example because they have visited the park. The counter is then reduced by 1 again.
+- Administration for website owners: 
+Parks can be deleted and edited, profiles can be deleted and edited, ratings can be deleted and edited and Bucketlist items can be deleted or added via the admin menu.
+
+#### Navigation:
+##### Universal navigation:
+Each page has a navigation bar at the top that provides accessible functionality across the platform. In addition, buttons appear under elements that can be changed by a user depending on which rights they have. There are also links that lead from one journey to the next. For example, from the bucket list to the respective park or from the park overview page to the respective park detail pages. Navigation should be as intuitive as possible without having to open extra menus.
+
+##### Unauthenticated users:
+Unauthenticated users are presented with a clean, intuitive navigation bar comprising a logo and links to essential pages including 'About', 'Login', and 'Sign Up'.
+
+
+### Future features
 
 
 
 
 
-## Technologies Used
+## Technologies used
 ### Languages
 Frondend: <br>
 - HTML
@@ -227,7 +265,7 @@ Backend: <br>
 - Python
 - Markdown
 
-### Frameworks and Database
+### Frameworks and database
 Frondend: <br>
 - React: JavaScript library for creating the Fontend user interfaces. 
 - React-bootstrap: Front-end framework, rebuilt for React with a collection of HTML, CSS, and JavaScript components.
@@ -237,7 +275,7 @@ Backend: <br>
 - The PostgreSQL database from Code Institute was used as the database
 
 
-### Libraries and Packages
+### Libraries and packages
 Backend: <br>
 - asgiref==3.3.4 - ASGI (Asynchronous Server Gateway Interface) specification, used by Django for asynchronous support
 - certifi==2024.6.2 - A collection of root certificates for SSL/TLS verification
@@ -284,7 +322,7 @@ Frontend: <br>
 - web-vitals@1.1.2 - Mock Service Worker for API mocking in tests.
 
 
-### Software and Tools
+### Software and tools
 - Balsamiq - To create a wireframe.
 - Draw-io - To create an ERD.
 - Gitpod - IDE to code the project
