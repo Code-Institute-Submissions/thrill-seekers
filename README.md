@@ -16,9 +16,9 @@ All other relevant files can be found here: <br>
 
 ## Content
 - [UX - User Experience](#ux---user-experience)
-    * [Project goles](#project-goles)
-    * [Target audience](#target-audience)
-    * [User requirements and expectations](#user-requirements-and-expectations)
+  * [Project goles](#project-goles)
+  * [Target audience](#target-audience)
+  * [User requirements and expectations](#user-requirements-and-expectations)
 - [Agile approach](#agile-approach)
 - [Design](#design)
   * [Colour scheme](#colour-scheme)
@@ -28,15 +28,20 @@ All other relevant files can be found here: <br>
 - [Features](#features)
   * [Implemented features](#Implemented-features)
   * [Future features](#future-features)
-
 - [Component architecture and reusability](#Component-architecture-and-reusability)
-
+  * [Core component](#core-component)
+  * [Component pages](#component-pages)
 - [Technology used](#technology-used)
   * [Languages](#languages)
   * [Frameworks and database](#frameworks-and-database)
   * [Libraries and packages](#libraries-and-packages)
   * [Software and tools](#software-and-tools)
 
+- [Bugs](#bugs)
+  * [Known bugs](#known-bugs) ??????
+  * [Fixed bugs](#fixed-bugs) ??????
+
+- [Testing](#testing)
 
 - [Deployment](#deployment)
   * [Preparation for heroku depolyment](#preparation-for-heroku-depolyment) 
@@ -44,7 +49,6 @@ All other relevant files can be found here: <br>
   * [Fork this repository](#fork-this-repository) 
   * [Clone this repository](#clone-this-repository) 
 
-- [Testing](#testing)
 - [Credits](#credits) 
   * [Content](#content) 
   * [Media](#media) 
@@ -216,27 +220,28 @@ The user is shown their sent data again for review. This process is secured by a
 - Update of the transmitted message:
 The user then has the opportunity to change the data again if they have made a mistake or forgotten something.
 - Delete the transmitted message:
-If the user changes their mind, they can also delete the entire message,
+If the user changes their mind, they can also delete the entire message.
 - Confrim the sent message:
 If the user finally clicks on Confirm, they are redirected to the homepage. The message can only be changed once with the edit token. As the message has a large number of digits, it is almost impossible to guess and is therefore a good protection against misuse. The data can be read by superusers via admin panel.
 
 #### Interactions and engagement
-- Search: 
+- Search: <br>
 Users can search for authors of park articles, park names and park description content. Parks will only be listed if the search term is contained in one of the fields in a park.
-- Sort: 
+- Sort: <br>
 Users can filter and sort park articles by Bucketlist Count, Ratings Count, Thrill Factor and Overall Rating so that the parks with the highest ratings are listed first.
-- Ratings: 
+- Ratings: <br>
 Logged-in users can rate park items. There is a star rating from 1 to 5 stars and a reason for the rating must be given. At the same time, the number of ratings is counted in a counter and displayed under the park and on the user profile.
-- View ratings: 
+- View ratings: <br>
 Users can read reviews of park types to form a better opinion of the park and choose a park for their next visit.
-- Update reviews: 
+- Update reviews: <br>
 Users can edit or correct their own reviews to change their shared opinion. This way, the rating can be adjusted if something changes about the park and the park item.
-- Delete review: Users can delete their own reviews to remove their previous statements. This will reduce the ratings counter.
-- Add park to Bucketlist: 
+- Delete review: <br>
+Users can delete their own reviews to remove their previous statements. This will reduce the ratings counter.
+- Add park to Bucketlist: <br>
 Users can add parks to their bucket list. How many users have a park on their list is counted. It also counts how many parks a user has on their list. The respective list can be viewed on the user's profile. 
-- Delete park from bucket list: 
+- Delete park from bucket list: <br>
 Users can remove parks from their list, for example because they have visited the park. The counter is then reduced by 1 again.
-- Administration for website owners: 
+- Administration for website owners: <br>
 Parks can be deleted and edited, profiles can be deleted and edited, ratings can be deleted and edited and Bucketlist items can be deleted or added via the admin menu.
 
 #### Navigation:
@@ -252,13 +257,12 @@ By clicking on the bucket list icons, you can also compile your own list which i
 A button will also appear on the userprofile with which the profile can be edited. 
 
 #### Authenticated superusers:
-Superuser, is staff 
 In addition to the rights of normal users, superusers also have the option of creating part articles and writing a new review. This is reserved for staff members to ensure the quality of the articles. The superuser can also delete and edit articles via the button under his own article. 
 
 ### Future features
 - It should be possible to like park ratings so that you can share sympathy for a rating. This function is already integrated in the backend and can therefore be implemented quickly in the frontend.
 - It should be possible for users to send secure personal messages and contact each other to enable offline meetings and more personal exchange.
-- It should be possible to get an overview of all existing user profiles to enable better networking. The profile data should be searchable to find users with similar interests
+- It should be possible to get an overview of all existing user profiles to enable better networking. The profile data should be searchable to find users with similar interests.
 
 ## Component architecture and reusability
 Thrill Theeker is a web application that allows users to find out about, rate and share information about open air parks. The application's architecture consists of several reusable components that streamline development and ensure a consistent user experience.
@@ -393,9 +397,107 @@ Frontend: <br>
 - Cloudinary - Media management platform to save and provide images.
 - Font Awesome - To provide icons for the project.
 
+
+## Bugs
+### Known bugs
+
+
+
+
+### Fixed bugs
+
+
+
+
+
 ## Testing
 The tests for the Thrill Seeker react frontend are listed in a separate file. This file can be found here. [TESTING.md](./TESTING.md)
 
+## Deployment
+The project was coded with gipod and then deployed on heroku.
+
+### Preparation for heroku depolyment
+* Commit and push your code to your GitHub repository.
+
+### Deploying on heroku
+* Log in to your Heroku account.
+* Click on the NEW button and then on "create new app".
+* Choose a unique name for the app.
+* Choose a region, Europe or United States.
+* Click on "create app."
+* Choose the deployment method (For this project GitHub was used).
+* Search for the repository name on GitHub ("thrill-seekers").
+* Connect the repository by clicking on Connect
+* Click on the Deployment tab
+* Choose the main branch
+* Deploy this project automated or manual (the project was deployed manually)
+* Once a deployment has been successfully completed, a success message is displayed and a view button can be used to view the project in the browser
+
+### Fork this repository
+* Visit the GitHub repository.
+* Click on the Fork button, located in the upper right-hand corner, next to the star button.
+* Once the forking process is complete, a copy of the repository is created in the GitHub account.
+
+### Clone this repository
+* Visit the GitHub repository.  [repository](https://github.com/SureDeveloping/thrill-seekers)
+* Click the Code button, located in the top right, next to the about page.
+* Choose between 'HTTPS', 'SSH', or 'GitHub CLI' based on your preferred method for cloning.
+* Copy the URL.
+* Open Git Bash.
+* Choose the location where the cloned directory will be saved.
+* Type git clone and paste the URL ($ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY)
+* Press enter to create the local clone.
+
+### Run this project locally
+* Visit the GitHub repository.  [repository](https://github.com/SureDeveloping/thrill-seekers)
+* Click the Code button, located in the top right, next to the about page.
+* Click on download Zip.
+* After downloding open the zip file and run it an editor.
+
+
+## Credits
+### Content
+The content of the website was created by Stephan Sure with the assistance of chat gpt, wikipedia and the websites of the amusementparks. 
+
+### Media
+The the uses images are from different websites. I explayed this already in the design section more deeply.
+Here are my image resouces:
+- [Freepiks](https://de.freepik.com/)
+- [Pexels](https://www.pexels.com/de-de/)
+- [Wikipedia](https://www.wikipedia.org/)
+
+The uses fonts are googlefonts:
+- [googlefonts](https://fonts.google.com/) 
+
+The logo and favicon is created logo:
+- [Logo](https://logo.com/)
+
+The used icons are from:
+- [Fontawesome](https://https://fontawesome.com/icons/)
+
+
+### Code
+* CI codestar mouments walkthrough - especially for setting up the project
+* [Stack Overflow](https://stackoverflow.com/) -  in general for all questions about code.
+* [Django Docs](https://www.djangoproject.com/) -  all questions about django.
+* [Django rest framework](https://www.django-rest-framework.org/) -  all questions about django rest framework.
+* [Bootstrap Docs](https://getbootstrap.com/docs/5.3/getting-started/introduction/) - all questions about bootstrap.
+
+????????????
 
 
 
+
+
+
+
+
+## Acknowledgments
+I like to thank the follow persons for the help during the project:
+
+- My Code Institute mentor Spencer Barriball.
+- The Tutor Support team at Code Institute.
+- Slack pear groupe and and CI cohort.
+- All the people who make their knowledge available for free.
+
+This project is for educational use only and was created for the Code Institute course Full stack software development by Stephan Sure.
