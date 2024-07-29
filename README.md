@@ -240,17 +240,25 @@ Users can remove parks from their list, for example because they have visited th
 Parks can be deleted and edited, profiles can be deleted and edited, ratings can be deleted and edited and Bucketlist items can be deleted or added via the admin menu.
 
 #### Navigation:
-##### Universal navigation:
 Each page has a navigation bar at the top that provides accessible functionality across the platform. In addition, buttons appear under elements that can be changed by a user depending on which rights they have. There are also links that lead from one journey to the next. For example, from the bucket list to the respective park or from the park overview page to the respective park detail pages. Navigation should be as intuitive as possible without having to open extra menus.
 
-##### Unauthenticated users:
-Unauthenticated users are presented with a clean, intuitive navigation bar comprising a logo and links to essential pages including 'About', 'Login', and 'Sign Up'.
+#### Unauthenticated users:
+Unauthenticated users are presented with intuitive navigation bar with a logo and links to essential pages including 'About', 'Contact', 'Sign in', and 'Sign up'.
 
+#### Authenticated users:
+After successful signin, the navigation bar changes. Additional functions are made available for authenticated users. The ‘Sign in’ and ‘Sign up’ links disappear. However, some additional links will be provided, namely ‘Sign out’ and 'Profile'. In addition, a profile picture, avatar with the username of the logged in user will be displayed in the navbar. <br>
+There are some additional options for authenticated users. It is possible to create, edit and delete ratings. This is possible via buttons that appear where it is possible to change something. Each user can only rate each park once. The user's options change accordingly. If a rating is created or deleted, the ratings count also changes. <br>
+By clicking on the bucket list icons, you can also compile your own list which is displayed on the profile. If you click on the same icon again, the park will be removed from the bucket list. Of course, the bucket list count is also changed accordingly. <br>
+A button will also appear on the userprofile with which the profile can be edited. 
+
+#### Authenticated superusers:
+Superuser, is staff 
+In addition to the rights of normal users, superusers also have the option of creating part articles and writing a new review. This is reserved for staff members to ensure the quality of the articles. The superuser can also delete and edit articles via the button under his own article. 
 
 ### Future features
-
-
-
+- It should be possible to like park ratings so that you can share sympathy for a rating. This function is already integrated in the backend and can therefore be implemented quickly in the frontend.
+- It should be possible for users to send secure personal messages and contact each other to enable offline meetings and more personal exchange.
+- It should be possible to get an overview of all existing user profiles to enable better networking. The profile data should be searchable to find users with similar interests
 
 
 ## Technologies used
