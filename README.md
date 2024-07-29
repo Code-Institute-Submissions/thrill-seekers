@@ -21,21 +21,21 @@ All other relevant files can be found here: <br>
     * [User requirements and expectations](#user-requirements-and-expectations)
 - [Agile approach](#agile-approach)
 - [Design](#design)
-  * [Colour Scheme](#colour-scheme)
+  * [Colour scheme](#colour-scheme)
   * [Typography](#typography)
-  * [Imagery and Icons](#imagery-and-icons)
+  * [Imagery and icons](#imagery-and-icons)
 - [Wireframes](#wireframes)
 - [Features](#features)
   * [Implemented features](#Implemented-features)
-  * [Future Features](#future-features)
+  * [Future features](#future-features)
 
+- [Component architecture and reusability](#Component-architecture-and-reusability)
 
-
-- [Technology Used](#technology-used)
+- [Technology used](#technology-used)
   * [Languages](#languages)
-  * [Frameworks and Database](#frameworks-and-database)
-  * [Libraries and Packages](#libraries-and-packages)
-  * [Software and Tools](#software-and-tools)
+  * [Frameworks and database](#frameworks-and-database)
+  * [Libraries and packages](#libraries-and-packages)
+  * [Software and tools](#software-and-tools)
 
 
 - [Deployment](#deployment)
@@ -259,6 +259,16 @@ In addition to the rights of normal users, superusers also have the option of cr
 - It should be possible to like park ratings so that you can share sympathy for a rating. This function is already integrated in the backend and can therefore be implemented quickly in the frontend.
 - It should be possible for users to send secure personal messages and contact each other to enable offline meetings and more personal exchange.
 - It should be possible to get an overview of all existing user profiles to enable better networking. The profile data should be searchable to find users with similar interests
+
+## Component architecture and reusability
+Thrill Theeker is a web application that allows users to find out about, rate and share information about open air parks. The application's architecture consists of several reusable components that streamline development and ensure a consistent user experience.
+
+### Core component
+- Asset: This component manages the display of a spinner or an image along with an optional message. It is used in various parts of the application, e.g. ProfilesPage,  ParksPage, ParkPage, ParkCreateForm,  to provide visual feedback when loading data.
+- Avatar: This component displays users' profile pictures. It is reused in the NavBar, park, RatingPark and in RatingsCreate Form.
+- NavBar: The Navbar is used on every page. This is necessary for seamless navigation through the app.
+- StarRating: The Star Rating is used on Rating Create Form, Rating EditForm, RatingPark and on the RatingProfile. It generates the 5 star rating.
+
 
 
 ## Technologies used
