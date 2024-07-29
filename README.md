@@ -269,6 +269,37 @@ Thrill Theeker is a web application that allows users to find out about, rate an
 - NavBar: The Navbar is used on every page. This is necessary for seamless navigation through the app.
 - StarRating: The Star Rating is used on Rating Create Form, Rating EditForm, RatingPark and on the RatingProfile. It generates the 5 star rating.
 
+### Component Pages
+
+Authentication: <br>
+- Sign in & SignupForm: Components handling user authentication processes.
+
+Ratings: <br>
+- Rating: Used to display user ratings.
+- RatingCreateForm & RatingEditForm: Forms used for creating and editing ratings.
+- RatingPark: Used to display and integrate ratings on the park detail page.
+- RatingProfile: Used to display and integrate ratings in the profile page.
+
+Parks: <br>
+- Parks: Component to display the park articels.
+- ParkCreateForm & ParkEditForm: Forms used for creating and editing parks.
+- ParkPage: Detailed view of a specific park. Also the specific ratings belonging to the park are added here via RatingsPark.
+- ParksPage: It lists all Parks articles one below the other and is at the same time the homepage of the project.
+
+Profiles: <br>
+- ProfilesEditForm: Form for editing the user profile.
+- ProfilesPage: Is a page on which all profile data is displayed. In addition, ratings created by the user are displayed under the profile via RatingProfile.
+
+Contacts: <br>
+- ContactFormCreate: Used to create a contact message for the website operator.
+- ContactFormEdit: This form can be used to change the message.
+- ContactFormView: The just created or updated contact form data can be displayed again via this page.
+
+About: <br>
+- Webpage that displays information about the application and other relevant context for users.
+
+404: <br>
+NotFound: A page that is displayed as soon as a url ending is called up that does not exist.
 
 
 ## Technologies used
