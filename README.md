@@ -400,11 +400,18 @@ Frontend: <br>
 
 ## Bugs
 ### Known bugs
-
-
+- The Subject field dropdown menu has a visual error. The number of selectable menu items is not displayed. I have noticed that this error only occurs in the Chrome browser. In firefox the font is unfortunately not centered in the section, but it is readable. Unfortunately I have not found a solution for this problem, because it is not reasonable for me.
 
 
 ### Fixed bugs
+- The first time I tried to integrate a 5 star rating, I worked with favicon stars. With this solution I did not manage to make the star not hover in the view where editing should not be possible. After further searching I found the star-ratings-react package with which this problem no longer occurred. So I have chosen a different approach.
+- The stone icon for the rating count on the ParksPage and the ParkPage had a hover effect. However, this was not desired as there is no function here that can be triggered with the mouse. But I could not find out where to find the effect in the code. Therefore I chose a workaround and recolored the hover effect in the color of the star and set the curser to the default value
+- I had two identical error messages for the valid entry of an email address in the contact form. The solution was to display only the first error message instead of displaying all error messages in an array.
+- For security reasons, a new edit token is created after each update. However, this was not initially saved in the frontend. For this reason I got a 404 error. After the current edit token was saved, the error could be fixed.
+- When entering url id endings of already deleted park the 404 page was not opened. A page without data was displayed. In order not to be able to call up pages for which there is no data, an if condition was inserted which ensures this and otherwise redirects to the 404 page.
+
+
+- I had the error “django.db.utils.IntegrityError: UNIQUE constraint failed: ratings_rating.user_id, ratings_rating.park_id. It was because there was already old data in the database. This has led to a confilt, an error with UNIQUE. The solution was to empty the database and delete the old data.
 
 
 
@@ -477,19 +484,36 @@ The used icons are from:
 
 
 ### Code
+* CI Drango REST FRAMEFORK - API walkthrough - for the backend especially for setting up the project
 * CI codestar mouments walkthrough - especially for setting up the project
-* [Stack Overflow](https://stackoverflow.com/) -  in general for all questions about code.
-* [Django Docs](https://www.djangoproject.com/) -  all questions about django.
-* [Django rest framework](https://www.django-rest-framework.org/) -  all questions about django rest framework.
-* [Bootstrap Docs](https://getbootstrap.com/docs/5.3/getting-started/introduction/) - all questions about bootstrap.
+* [Stack overflow](https://stackoverflow.com/) -  in general for all questions about code.
+* [React bootstrap](https://react-bootstrap.netlify.app/) - all questions about react bootstrap.
+* [5 star rating](https://medium.com/@Vaibhavihole31/creating-a-star-rating-bar-in-reactjs-a3f66456d7bb) - for the 5 star rating
+* [5 star rating](https://medium.com/@codeyourthoughts48/add-star-ratings-in-reactjs-33a720bff3a1) - for the 5 star rating
+* [Axios react](https://www.freecodecamp.org/news/axios-react-how-to-make-get-post-and-delete-api-requests/) - detail information about axiox
+* [Axios video](https://www.youtube.com/watch?v=6LyagkoRWYA) - detail information about axiox
+* [React routing](https://blog.logrocket.com/react-router-dom-tutorial-examples/) - detail information about routing
+* [404 page](https://www.digitalocean.com/community/tutorials/how-to-create-a-custom-404-page-in-apache) - code for the 404 page
+* [Invisible content for screen readers](https://webaim.org/techniques/css/invisiblecontent/) - Invisible Content for Screen Readers, lable
+* [React.lazy](https://www.freecodecamp.org/news/how-to-use-react-lazy-and-suspense-for-components-lazy-loading-8d420ecac58/
+) - How to use React.lazy 
+* [Forms in react](https://www.freecodecamp.org/news/how-to-build-forms-in-react/) - how to build forms in react
+* [Styleing filter elements](https://css-tricks.com/almanac/properties/a/appearance/) - styleing filter elements
 
-????????????
+backend:
+* [Django docs](https://www.djangoproject.com/) -  all questions about django.
+* [Django rest framework](https://www.django-rest-framework.org/) -  all questions about django rest framework,e.g. Permissions, Models, Serializers, Signals, Forms
+* [Token based auth](https://medium.com/django-unleashed/token-based-authentication-and-authorization-in-django-rest-framework-user-and-permissions-347c7cc472e9) - For the Contact Form edit token
+* [Token based auth](https://www.bacancytechnology.com/blog/django-rest-framework-authentication) - Token based auth
+* [Token based auth](https://simpleisbetterthancomplex.com/tutorial/2018/11/22/how-to-implement-token-authentication-using-django-rest-framework.html) - Token based auth
 
+* [Token, universally unique identifier](https://datatracker.ietf.org/doc/html/rfc4122) - For the Contact Form edit token
 
+* [Token, universally unique identifier](https://docs.python.org/3/library/uuid.html) - For the Contact Form edit token
 
+* [Resizing images](https://www.codu.co/articles/resizing-images-and-converting-formats-in-django-1rj9kdho) - for resizing images in the backend 
 
-
-
+* [Resizing images](https://stackoverflow.com/questions/66649074/django-rest-frame-work-send-email-from-contact-form) - To send an email via contact form
 
 
 ## Acknowledgments
