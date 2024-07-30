@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { axiosReq } from "../../api/axiosDefaults";
-import { Form, Button, Container, Alert, Modal } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
+import Modal from "react-bootstrap/Modal";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";

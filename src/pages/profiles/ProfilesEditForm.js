@@ -1,5 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Form, Button, Container, Alert, Image } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
+import Image from "react-bootstrap/Image";
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import styles from "../../styles/ProfilesEditForm.module.css";

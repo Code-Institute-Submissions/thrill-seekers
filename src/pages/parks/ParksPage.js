@@ -1,5 +1,8 @@
 import React, { useEffect, useState, lazy, Suspense } from "react";
-import { Container, Row, Form, Col } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
 import Asset from "../../components/Asset";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";

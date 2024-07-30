@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 import styles from '../../styles/NotFound.module.css';
 
 const NotFound = () => {
