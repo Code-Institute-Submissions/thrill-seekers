@@ -1,10 +1,9 @@
-/* used*/
 .App {
-    font-family: "Raleway", sans-serif;
-    font-style: normal;
-    background-color: #DFEFCA;
-    min-height: 100vh;
-  }
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  background-color: #DFEFCA;
+  min-height: 100vh;
+}
 
 .Main {
   padding-top: 85px;
@@ -15,7 +14,6 @@ p, ul {
   font-style: normal;
 }
 
-/* For containers signup */
 .Content {
   background-color: #002500;
   padding: 10px;
@@ -23,7 +21,6 @@ p, ul {
   border: 5px solid #0B94A4;
 }
 
-/* Image signup */
 .FillerImage {
   object-fit: cover;
   height: 100%;
