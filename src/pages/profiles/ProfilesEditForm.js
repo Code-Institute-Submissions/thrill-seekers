@@ -29,7 +29,7 @@ function ProfilesEditForm() {
 
         is_owner ? setProfileData({ favorite_park, favorite_ride, userbio, profile_picture }) : history.push("/");
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 
@@ -69,7 +69,7 @@ function ProfilesEditForm() {
       await axiosReq.put(`/profiles/${id}/`, formData);
       history.push(`/profiles/${id}`);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

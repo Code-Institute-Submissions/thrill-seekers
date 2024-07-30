@@ -33,7 +33,7 @@ const RatingProfile = (props) => {
       }));
       setShowDeleteModal(false); 
     } catch (err) {
-      console.error("Error deleting rating:", err);
+      // console.log("Error deleting rating:", err);
     }
   };
 

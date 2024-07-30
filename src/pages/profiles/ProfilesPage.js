@@ -36,7 +36,7 @@ function ProfilesPage() {
         setRatings({ results: ratingsData.results, next: ratingsData.next });
         setHasLoaded(true);
       } catch (err) {
-        console.error(err);
+        // console.log(err);
         if (err.response?.status === 404) {
           setNotFound(true);
         }

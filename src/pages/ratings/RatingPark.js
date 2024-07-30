@@ -34,7 +34,7 @@ const RatingPark = (props) => {
       await axiosRes.delete(`/ratings/${id}/`);
       onRatingDelete();
     } catch (err) {
-      console.error("Error deleting rating:", err);
+      // console.log("Error deleting rating:", err);
     }
   };
 

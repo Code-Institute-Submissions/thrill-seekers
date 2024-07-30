@@ -72,7 +72,7 @@ function ParkCreateForm() {
       const { data } = await axiosReq.post("/parks/", formData);
       history.push(`/parks/${data.id}`);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

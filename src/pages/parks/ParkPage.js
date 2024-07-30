@@ -54,7 +54,7 @@ function ParkPage() {
 
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
         if (err.response && err.response.status === 404) {
           history.push("/404");
         }

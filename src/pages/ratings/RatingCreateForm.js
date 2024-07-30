@@ -49,7 +49,7 @@ function RatingCreateForm(props) {
           setErrors(prevErrors => ({...prevErrors, explanation: err.response.data.explanation}));
         }
       } else {
-        console.log(err);
+        // console.log(err);
         setErrors({general: "An unexpected error occurred. Please try again."});
       }
     }

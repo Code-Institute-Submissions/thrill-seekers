@@ -19,7 +19,7 @@ function ContactFormView() {
         const response = await axiosReq.get(`/contact/update/${edit_token}/`);
         setFormData(response.data);
       } catch (error) {
-        console.error('Error fetching contact form data:', error);
+        console.log('Error fetching contact form data:', error);
         history.push('/');
       }
     };
@@ -34,10 +34,10 @@ function ContactFormView() {
       localStorage.removeItem('contactFormEditToken');
       history.push('/');
     } catch (error) {
-      console.error('Error deleting contact form:', error);
+      // console.log('Error deleting contact form:', error);
       if (error.response) {
-        console.error('Response data:', error.response.data);
-        console.error('Response status:', error.response.status);
+        // console.log('Response data:', error.response.data);
+        // console.log('Response status:', error.response.status);
       }
     }
   };

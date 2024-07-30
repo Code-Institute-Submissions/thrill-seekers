@@ -61,7 +61,7 @@ function ParkEditForm() {
           thrill_factor, overall_rating, 
           is_owner }) : history.push("/");
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 
@@ -105,7 +105,7 @@ function ParkEditForm() {
       await axiosReq.put(`/parks/${id}/`, formData);
       history.push(`/parks/${id}`);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

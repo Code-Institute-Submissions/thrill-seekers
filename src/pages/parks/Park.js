@@ -51,7 +51,7 @@ const Park = (props) => {
       }));
       history.push("/");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -65,7 +65,7 @@ const Park = (props) => {
         ),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -79,7 +79,7 @@ const Park = (props) => {
         ),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
