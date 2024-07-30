@@ -13,7 +13,7 @@ Return back to the [README.md](README.md) file.
     * [JSX Validation](#javascript-validation)
 - [Accessibility](#accessibility)
 - [Performance](#performance)
-- [Devices and Browser Compability](#devices-and-browser-compability)
+- [Devices and Browser Compatibility](#devices-and-browser-compatibility)
 
 - [Manual Testing](#manual-testing)
     * [User Story Testing](#user-story-testing)
@@ -27,7 +27,7 @@ The code for the Thrill theekers website was validated using common tools to ens
 
 ### HTML Validation
 The validation of the HTML code was done with the [W3C Markup Validator](https://validator.w3.org/). <br>
-The html code passed the validation with usw of filter which remove issues related to the React.The settings can be seen in the screenshot. 
+The html code passed the validation with the use of filters, which remove issues related to the React. The settings can be seen in the screenshot. 
 
 | Tested File | Test Result Screenshot                                                                                                                   | Result          |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
@@ -35,7 +35,7 @@ The html code passed the validation with usw of filter which remove issues relat
 
 ### CSS Validation
 The validation of the CSS code was done with the [W3C MCSS Validator](https://jigsaw.w3.org/css-validator/) <br>
-The following css files have been tested with the W3C CSS Validator by copying the code directly into the validator. No errors occurred
+The following css files have been tested with the W3C CSS Validator by copying the code directly into the validator. No errors occurred.
 
 | Tested File                     | Test Result Screenshot                                                                                                                              | Result          |
 | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
@@ -60,7 +60,7 @@ The following css files have been tested with the W3C CSS Validator by copying t
 
 ### JSX Validation
 The validation of the JSX code was done with the [ESLint](https://eslint.org/) <br>
-To check the code with ESLint, "npx eslint" was executed in the terminal. As expected, there is no fedback from the tool. This means that the code does not contain any errors and meets the requirements of eslint.
+To check the code with ESLint, "npx eslint" was executed in the terminal. As expected, there is no feedback from the tool. This means that the code does not contain any errors and meets the requirements of Eslint.
 
 | Test Result Screenshot                                                                                                            | Result          |
 | --------------------------------------------------------------------------------------------------------------------------------- | --------------- |
@@ -98,13 +98,13 @@ The performance of the Thrill Theekers website was tested using Google Lighthous
 | Mobile device  | parkspage | 43          | 100             | 79                | 100 | <details><summary>parkspage mobile </summary><img src="./documentationfiles/testing/performance/performance1-mobil.png"></details>    |
 |                | parkpage  | 24          | 100             | 79                | 100 | <details><summary>parkspage mobile</summary><img src="./documentationfiles/testing/performance/performance2-mobil.png"></details>     |
 
-The results for Accessibility Best Practice and SEO are good. For Accessibility and SEO even 100 per cent could be achieved. However, the performance values are unfortunately not good at all. The desktop test of both pages is over 50 per cent. Which I think is ok. But the mobile score for the mobile check for the park page was just 24 per cent. For this reason, attempts have been made to improve this. Unfortunately with little success. 
+The results for Accessibility Best Practice and SEO are good. For Accessibility and SEO even 100 percent could be achieved. However, the performance values are unfortunately not good at all. The desktop test of both pages is over 50 percent. Which I think is ok. But the mobile score for the mobile check for the park page was just 24 percent. For this reason, attempts have been made to improve this. Unfortunately, with little success. 
 - Lazy loading has been set up using React.lazy. This means that resources are only loaded when required, i.e. the images. 
 - In addition, django-resized was used to format and resize the images during upload. This should improve the loading time of the website.
-- Another attempt was to reduce the loading time by reducing the data loaded from external resources. The size of the googlefont was reduced so that only latin characters are loaded and no characters used in other languages. Unfortunately, this has led only to a small improvement. 
+- Another attempt was to reduce the loading time by reducing the data loaded from external resources. The size of the googlefont was reduced so that only latin characters are loaded and no characters are used in other languages. Unfortunately, this has led only to a small improvement. 
 
-## Devices and Browser Compability
-Using the Chrome dev tool, the website was tested on the available devices via the Google Chrome Developer Tools Device Toggeling option. At the same time, the browser window was reduced to see if the page is responsive. The narrowest screen tested was the Galaxcy Z Fold 5 with a width of 344 x 822.
+## Devices and Browser Compatibility
+Using the Chrome dev tool, the website was tested on the available devices via the Google Chrome Developer Tools Device Toggleing option. At the same time, the browser window was reduced to see if the page is responsive. The narrowest screen tested was the Galaxcy Z Fold 5 with a width of 344 x 822.
 The website was also opened in the Firefox browser. <br>
 No errors could be detected.  <br>
 However, he was able to see that the error in the submit field of the contact form is browser-dependent. Because in the Firefox browser the text was perfectly readable.
