@@ -16,7 +16,8 @@
   color: #ffffff;
 }
 
-#NavLinkText > .NavLinkCustom:hover, #NavLinkTextMobil > .NavLinkCustom:hover, #NavLinkParkCreate:hover {
+#NavLinkText > .NavLinkCustom:hover, 
+#NavLinkTextMobil > .NavLinkCustom:hover, #NavLinkParkCreate:hover {
   color: #FF9F1C;
 }
 

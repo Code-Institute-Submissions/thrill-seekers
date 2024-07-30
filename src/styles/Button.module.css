@@ -1,57 +1,55 @@
-  /* Button */
 .Button {
-    font-size: 1rem;
-    align-self: center;
-    border-radius: 100px;
-    padding: 4px 10px;
-    margin-left: 2px;
-    margin-right: 2px;
-    min-width: 75px;
-    color: #000000;
-    font-family: "Raleway", sans-serif;
-    background-color: #ffffff;
-    border: 5px solid #0B94A4
-  }
-  
-  .Button:hover {
-    opacity: 0.8;
-    background-color: #FF9F1C;
-    cursor: pointer;
-    border-color: transparent; 
-    color: #000000;
-  }
-  
-  .Button:hover:active {
-    background-color: #FF9F1C !important;
-    color: #000000 !important;
-    border-color: transparent; 
-  }
-  
-  .Button:active {
-    background-color: #FF9F1C !important;
-    color: #000000 !important;
-    border-color: transparent; 
-  }
-
-  .Button:focus {
-    background-color: #DFEFCA;
-    color: #000000 !important;  
-    border-color: transparent;  
-  }
-
-  /* Button wide */
-  .Wide {
-    padding: 10px 50px;
-    width: 100%;
-  }
-  
-.ButtonContact {
-  width: 150px;
+  font-size: 1rem;
+  align-self: center;
+  border-radius: 100px;
+  padding: 4px 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+  min-width: 75px;
+  color: #000000;
+  font-family: "Raleway", sans-serif;
+  background-color: #ffffff;
+  border: 5px solid #0B94A4
 }
 
-/* Button colors */
-  .Bright {
-    background-color: #ffffff;
-    color: #000000;
-    border: 5px solid #0B94A3;
-  }
+.Button:hover {
+  opacity: 0.8;
+  background-color: #FF9F1C;
+  cursor: pointer;
+  border-color: transparent; 
+  color: #000000;
+}
+
+.Button:hover:active {
+  background-color: #FF9F1C !important;
+  color: #000000 !important;
+  border-color: transparent; 
+}
+
+.Button:active {
+  background-color: #FF9F1C !important;
+  color: #000000 !important;
+  border-color: transparent; 
+}
+
+.Button:focus {
+  background-color: #DFEFCA;
+  color: #000000 !important;  
+  border-color: transparent;  
+}
+
+
+.Wide {
+  padding: 10px 50px;
+  width: 100%;
+}
+
+.ButtonContact {
+width: 150px;
+}
+
+.Bright {
+background-color: #ffffff;
+color: #000000;
+border: 5px solid #0B94A3;
+}
