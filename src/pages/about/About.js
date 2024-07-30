@@ -23,17 +23,22 @@ const About = () => {
                     <Col xs={12} md={11} lg={10}>
                         <h3>Who We Are</h3>
                         <p>
-                            At ThrillSeeker, we're a passionate team of adrenaline junkies and theme park aficionados. Our extensive global park-hopping experience allows us to provide unparalleled insights and meticulous details about every park we review. Our unwavering enthusiasm for thrills and dedication to precision make us your ultimate resource for in-depth theme park evaluations.
+                            At ThrillSeeker, we're a passionate team of adrenaline junkies and theme park aficionados. 
+                            Our extensive global park-hopping experience allows us to provide unparalleled insights 
+                            and meticulous details about every park we review. Our unwavering enthusiasm for thrills 
+                            and dedication to precision make us your ultimate resource for in-depth theme park evaluations.
                         </p>
                         <h3>What We Do</h3>
                         <p>
-                            We embark on comprehensive explorations of theme parks, leaving no stone unturned in our quest to deliver enlightening assessments.
+                            We embark on comprehensive explorations of theme parks, 
+                            leaving no stone unturned in our quest to deliver enlightening assessments.
                         </p>
                         <p>
                             Our evaluations cover:
                         </p>
                         <ul>
-                            <li><strong>Value Analysis:</strong> We assess the bang for your buck and pinpoint which visitor types each park caters to best.</li>
+                            <li><strong>Value Analysis:</strong> 
+                            We assess the bang for your buck and pinpoint which visitor types each park caters to best.</li>
                             <li><strong>Key Metrics:</strong>
                                 <ul>
                                     <li>Ride inventory</li>
