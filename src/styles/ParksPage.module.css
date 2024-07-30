@@ -70,6 +70,13 @@
   cursor: pointer;
 }
 
+.LabelOrderingSelect {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 @media screen and (min-width: 850px) {
   .SearchBarContainer {
     flex-direction: row;

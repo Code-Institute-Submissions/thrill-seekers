@@ -63,6 +63,9 @@ function ParksPage({ message, filter = "" }) {
             />
           </Form>
           <div className={styles.OrderingSelectContainer}>
+            <Form.Label htmlFor="orderingSelect" className={styles.LabelOrderingSelect}>
+              Filter parks
+            </Form.Label>
             <i className={`fas fa-filter ${styles.FilterIcon}`}></i>
             <Form.Control
               id="orderingSelect"
