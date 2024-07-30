@@ -36,19 +36,16 @@ All other relevant files can be found here: <br>
   * [Frameworks and database](#frameworks-and-database)
   * [Libraries and packages](#libraries-and-packages)
   * [Software and tools](#software-and-tools)
-
 - [Bugs](#bugs)
-  * [Known bugs](#known-bugs) ??????
-  * [Fixed bugs](#fixed-bugs) ??????
-
+  * [Known bugs](#known-bugs)
+  * [Fixed bugs](#fixed-bugs)
 - [Testing](#testing)
-
 - [Deployment](#deployment)
   * [Preparation for heroku depolyment](#preparation-for-heroku-depolyment) 
   * [Deploying on heroku](#deploying-on-heroku) 
   * [Fork this repository](#fork-this-repository) 
   * [Clone this repository](#clone-this-repository) 
-
+  * [Run this project locally](#run-this-project-locally) 
 - [Credits](#credits) 
   * [Content](#content) 
   * [Media](#media) 
@@ -313,6 +310,7 @@ Frondend: <br>
 - CSS
 - Python
 - JSX (JavaScript XML)
+- Markdown
 
 Backend: <br>
 - Python
@@ -324,9 +322,10 @@ Frondend: <br>
 - React-bootstrap: Front-end framework, rebuilt for React with a collection of HTML, CSS, and JavaScript components.
 
 Backend: <br>
-- Django rest framework
-- The PostgreSQL database from Code Institute was used as the database
+- Django rest framework was used for the API of this project.
 
+### Database
+- The PostgreSQL database from Code Institute was used as the database
 
 ### Libraries and packages
 Backend: <br>
@@ -344,6 +343,7 @@ Backend: <br>
 - django-cloudinary-storage==0.3.0 - Django package that provides Cloudinary storages for both media and static files
 - django-cors-headers==3.7.0 - Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS)
 - django-filter==2.4.0 - Django application for allowing users to filter querysets dynamically
+- django-resized==1.0.2 - To resize uploaded images
 - djangorestframework==3.12.4 - Powerful and flexible toolkit for building Web APIs in Django
 - djangorestframework-simplejwt==4.7.2 - JSON Web Token authentication plugin for Django REST Framework
 - gunicorn==20.1.0 - Python WSGI HTTP Server for UNIX, often used to deploy Django applications
@@ -359,6 +359,7 @@ Backend: <br>
 - requests-oauthlib==1.3.0 - OAuthlib authentication support for Requests
 - six==1.16.0 - Python 2 and 3 compatibility library
 - sqlparse==0.4.1 - Non-validating SQL parser for Python
+- urllib3==1.26.19 - Python HTTP library that provides connection pooling, SSL/TLS support, and error handling
 
 Frontend: <br>
 - axios@0.21.4 - Promise-based HTTP client for making API requests.
@@ -412,9 +413,6 @@ Frontend: <br>
 
 
 - I had the error “django.db.utils.IntegrityError: UNIQUE constraint failed: ratings_rating.user_id, ratings_rating.park_id. It was because there was already old data in the database. This has led to a confilt, an error with UNIQUE. The solution was to empty the database and delete the old data.
-
-
-
 
 
 ## Testing
