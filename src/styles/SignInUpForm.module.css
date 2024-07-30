@@ -17,10 +17,6 @@
   border-color: transparent; 
 }
 
-#subjectField {  /* adden but with no result  */
-  color: #000000;
-}
-
 label {
   color: #ffffff !important;
   font-weight: bold;
@@ -38,7 +34,6 @@ label {
   font-family: "Roboto", sans-serif;
 }
 
-/* Link to log in form */
 .Link {
   text-decoration: none;
   text-align: center;
@@ -50,7 +45,6 @@ label {
   color: #FF9F1C;
 }
 
-/* Link text to log in form */
 .Link span {
   color: #FF9F1C;
 }
